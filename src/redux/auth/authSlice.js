@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { logOut, login, refreshUser, register } from './authOperations';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: {
+    email: '',
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -10,7 +12,7 @@ const initialState = {
 
 const handleRegisterFulfilled = (state, action) => {
   state.user = action.payload.user;
-  state.token = action.payload.token;
+  // state.token = action.payload.token;
   state.isLoggedIn = true;
 };
 
