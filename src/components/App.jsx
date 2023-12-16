@@ -1,3 +1,33 @@
+import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { selectIsRefreshing } from 'redux/auth/authSelectors';
+import { refreshUser } from 'redux/auth/authOperations';
+import { SharedLayout } from './SharedLayout/SharedLayout';
+import { WelcomePage } from './WelcomePage/WelcomePage';
+import { SignUpPage } from './SignUpPage/SignUpPage';
+import { SignInPage } from './SignInPage/SignInPage';
+
 export const App = () => {
-  return <></>;
+  const dispatch = useDispatch();
+  const isLoadingCurrentUser = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return (
+    <>
+      {!isLoadingCurrentUser && (
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<WelcomePage />} />
+            <Route path="signin" element={<SignInPage />} />
+            <Route path="signup" element={<SignUpPage />} />
+          </Route>
+        </Routes>
+      )}
+    </>
+  );
 };
