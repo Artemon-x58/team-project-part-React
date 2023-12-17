@@ -15,6 +15,10 @@ import {
   StepWrapper,
   Title,
   Input,
+  Redirection,
+  RedirectionLink,
+  RedirectionWrapper,
+  ForgotLink,
 } from './SignInPage.styled';
 import { login } from 'redux/auth/authOperations';
 
@@ -31,7 +35,6 @@ export const SignInPage = () => {
     password: '',
   };
   const handleSubmit = (values, { resetForm }) => {
-    console.log('Форма надіслана зі значеннями:', values);
     dispatch(login(values));
     resetForm();
     navigate('/');
@@ -49,7 +52,7 @@ export const SignInPage = () => {
               <img src={Tracker} alt="avatar" />
             </ImageWrapper>
             <FormikFieldsWrapper>
-              <Title>Sign up</Title>
+              <Title>Sign in</Title>
               <Descriptions>You need to login to use the service</Descriptions>
               <InputWrapper>
                 <label htmlFor="email"></label>
@@ -71,7 +74,14 @@ export const SignInPage = () => {
               </InputWrapper>
               <ButtonWrapper>
                 <Button type="submit">Sign In</Button>
+                <ForgotLink to="/forgot-password">
+                  Forgot your password?
+                </ForgotLink>
               </ButtonWrapper>
+              <RedirectionWrapper>
+                <Redirection>If you don't have an account yet</Redirection>
+                <RedirectionLink to="/signup">Sign up</RedirectionLink>
+              </RedirectionWrapper>
             </FormikFieldsWrapper>
           </StepWrapper>
         </Form>

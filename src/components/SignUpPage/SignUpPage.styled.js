@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Field } from 'formik';
+import { Link } from 'react-router-dom';
 
 export const InputWrapper = styled.div`
   margin-bottom: 40px;
@@ -44,13 +45,16 @@ export const Input = styled(Field)`
   }
 `;
 export const ButtonWrapper = styled.div`
+  margin-bottom: 48px;
   @media screen and (min-width: 834px) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 206px;
   }
   @media screen and (min-width: 1200px) {
     align-items: start;
+    margin-bottom: 168px;
   }
 `;
 export const Button = styled.button`
@@ -188,3 +192,29 @@ export const ActivityLabel = styled(StyledAgeLabel)`
   }
 `;
 export const ActivityWrapper = styled(WrappperBodyParams)``;
+
+export const RedirectionWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 16px;
+  @media screen and (min-width: 834px) {
+    flex-direction: row;
+    max-width: 380px;
+  }
+`;
+export const Redirection = styled.p`
+  color: #b6b6b6;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+`;
+export const RedirectionLink = styled(Link)`
+  color: white;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+`;
