@@ -23,6 +23,18 @@ export const register = createAsyncThunk(
     }
   }
 );
+export const forgotPassword = createAsyncThunk(
+  'auth/forgot-password',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/auth/forgot-password', credentials);
+      return data;
+    } catch (err) {
+      // console.log(err);
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
 
 export const login = createAsyncThunk(
   'auth/login',

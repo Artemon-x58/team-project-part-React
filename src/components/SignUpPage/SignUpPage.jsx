@@ -19,6 +19,9 @@ import {
   InputWrapper,
   RadioWrapper,
   RadioWrapperGender,
+  Redirection,
+  RedirectionLink,
+  RedirectionWrapper,
   StyledAgeLabel,
   StyledBodyParamsLabel,
   StyledField,
@@ -87,7 +90,6 @@ export const SignUpPage = () => {
     if (currentStep < TOTAL_STEPS) {
       setCurrentStep(currentStep + 1);
     } else {
-      console.log('Форма надіслана зі значеннями:', values);
       dispatch(register(values));
       resetForm();
       navigate('/signin');
@@ -132,6 +134,10 @@ export const SignUpPage = () => {
               <ButtonWrapper>
                 <Button type="submit">Next</Button>
               </ButtonWrapper>
+              <RedirectionWrapper>
+                <Redirection>Do you already have an account?</Redirection>
+                <RedirectionLink to="/signin">Sign in</RedirectionLink>
+              </RedirectionWrapper>
             </StepSignUp>
           )}
 
