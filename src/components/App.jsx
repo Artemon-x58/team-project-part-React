@@ -8,6 +8,8 @@ import { SharedLayout } from './SharedLayout/SharedLayout';
 import { WelcomePage } from './WelcomePage/WelcomePage';
 import { SignUpPage } from './SignUpPage/SignUpPage';
 import { SignInPage } from './SignInPage/SignInPage';
+import { ForgotPasswordPage } from './ForgotPasswordPage/ForgotPasswordPage';
+import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,9 +27,11 @@ export const App = () => {
             <Route index element={<WelcomePage />} />
             <Route path="signin" element={<SignInPage />} />
             <Route path="signup" element={<SignUpPage />} />
+            <Route path="forgot-password" element={<ForgotPasswordPage />} />
           </Route>
         </Routes>
       )}
+      <Toaster />
     </>
   );
 };

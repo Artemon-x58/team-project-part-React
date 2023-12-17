@@ -107,16 +107,16 @@ export const Input = styled(Field)`
   }
 `;
 export const ButtonWrapper = styled.div`
-  margin-bottom: 54px;
+  margin-bottom: 56px;
   @media screen and (min-width: 834px) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 222px;
+    margin-bottom: 286px;
   }
   @media screen and (min-width: 1200px) {
     align-items: start;
-    margin-bottom: 184px;
+    margin-bottom: 248px;
   }
 `;
 export const Button = styled.button`
@@ -139,50 +139,24 @@ export const Button = styled.button`
     width: 212px;
   }
 `;
-export const ForgotLink = styled(Link)`
-  display: inline-block;
-  width: 300px;
-  font-weight: 400;
-  margin-top: 14px;
-  background: none;
-  color: #b6b6b6;
-  margin-top: 14px;
-  text-align: center;
-
-  @media screen and (min-width: 834px) {
-    width: 380px;
-    margin-top: 20px;
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 212px;
-  }
-`;
-
-export const ButtonBack = styled(Button)`
-  font-weight: 400;
-  margin-top: 14px;
-  background: none;
-  color: white;
-  @media screen and (min-width: 834px) {
-    margin-top: 20px;
-  }
-`;
 
 export const RedirectionWrapper = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 16px;
   width: 100%;
+  @media screen and (min-width: 834px) {
+    flex-direction: row;
+    max-width: 380px;
+  }
 `;
 export const Redirection = styled.p`
   color: #b6b6b6;
-  margin-right: 20px;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-  @media screen and (min-width: 834px) {
-    margin-right: 16px;
-  }
 `;
 export const RedirectionLink = styled(Link)`
   color: white;
