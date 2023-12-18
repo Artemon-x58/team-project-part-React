@@ -82,13 +82,11 @@ export const Input = styled(Field)`
   padding: 8px 10px;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: ${({ isvalue }) =>
-    isvalue === 'fat' || 'calories' ? '0' : '16px'};
   width: ${({ isvalue }) =>
-    isvalue === 'fat' || 'calories' ? '100px' : '256px'};
+    isvalue === 'fat' || isvalue === 'calories' ? '100px' : '256px'};
   height: 20px;
   margin-right: ${({ isvalue }) =>
-    isvalue === 'fat' || 'calories' ? '8px' : '0'};
+    isvalue === 'fat' || isvalue === 'calories' ? '8px' : '0'};
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
