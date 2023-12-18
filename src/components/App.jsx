@@ -10,8 +10,6 @@ import { SignUpPage } from './SignUpPage/SignUpPage';
 import { SignInPage } from './SignInPage/SignInPage';
 import { ForgotPasswordPage } from './ForgotPasswordPage/ForgotPasswordPage';
 import { Toaster } from 'react-hot-toast';
-import DailyGoal from './DailyGoal';
-import Water from './Water';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,7 +21,7 @@ export const App = () => {
 
   return (
     <>
-      {/* {!isLoadingCurrentUser && (
+      {!isLoadingCurrentUser && (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<WelcomePage />} />
@@ -33,11 +31,7 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-      <Toaster /> */}
-      <div style={{ display: 'flex', gap: '20px' }}>
-        <DailyGoal />
-        <Water />
-      </div>
+      <Toaster />
     </>
   );
 };
