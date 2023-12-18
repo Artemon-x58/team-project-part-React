@@ -10,6 +10,7 @@ import { SignUpPage } from './SignUpPage/SignUpPage';
 import { SignInPage } from './SignInPage/SignInPage';
 import { ForgotPasswordPage } from './ForgotPasswordPage/ForgotPasswordPage';
 import { Toaster } from 'react-hot-toast';
+import { DiaryPart } from './Diary/DiaryPart';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const App = () => {
 
   return (
     <>
-      {!isLoadingCurrentUser && (
+      {/* {!isLoadingCurrentUser && (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<WelcomePage />} />
@@ -31,7 +32,8 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-      <Toaster />
+      <Toaster /> */}
+      <DiaryPart></DiaryPart>
     </>
   );
 };

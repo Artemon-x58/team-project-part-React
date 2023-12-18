@@ -15,6 +15,7 @@ import {
   WrapMealName,
 } from './DiaryPart.styled';
 import { useState } from 'react';
+import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
 
 const recordedValues = {
   breakfast: true,
@@ -24,6 +25,15 @@ const recordedValues = {
 };
 export const DiaryPart = () => {
   const [isRecorded, setIsRecorded] = useState(recordedValues);
+  const [isOpen, setOpen] = useState(false);
+  const [mealName, setMealName] = useState('');
+  const handleOpen = partMeal => () => {
+    setOpen(true);
+    setMealName(partMeal);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Container>
       <DiaryWrapper>
@@ -42,7 +52,7 @@ export const DiaryPart = () => {
           </WrapMealName>
 
           {isRecorded.breakfast ? (
-            <MealContainList MealContainList>
+            <MealContainList>
               <MealContain>
                 Carbonohidrates: <MealValue>20</MealValue>
               </MealContain>
@@ -58,7 +68,7 @@ export const DiaryPart = () => {
               </svg>
             </MealContainList>
           ) : (
-            <MealRecordWrap>
+            <MealRecordWrap onClick={handleOpen('breakfast')}>
               <svg width="16px" height="16px">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
@@ -76,7 +86,7 @@ export const DiaryPart = () => {
           </WrapMealName>
 
           {isRecorded.lunch ? (
-            <MealContainList MealContainList>
+            <MealContainList>
               <MealContain>
                 Carbonohidrates: <MealValue>20</MealValue>
               </MealContain>
@@ -92,7 +102,7 @@ export const DiaryPart = () => {
               </svg>
             </MealContainList>
           ) : (
-            <MealRecordWrap>
+            <MealRecordWrap onClick={handleOpen('lunch')}>
               <svg width="16px" height="16px">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
@@ -110,7 +120,7 @@ export const DiaryPart = () => {
           </WrapMealName>
 
           {isRecorded.dinner ? (
-            <MealContainList MealContainList>
+            <MealContainList>
               <MealContain>
                 Carbonohidrates: <MealValue>20</MealValue>
               </MealContain>
@@ -126,7 +136,7 @@ export const DiaryPart = () => {
               </svg>
             </MealContainList>
           ) : (
-            <MealRecordWrap>
+            <MealRecordWrap onClick={handleOpen('dinner')}>
               <svg width="16px" height="16px">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
@@ -143,7 +153,7 @@ export const DiaryPart = () => {
             <MealName>Snack</MealName>
           </WrapMealName>
           {isRecorded.snack ? (
-            <MealContainList MealContainList>
+            <MealContainList>
               <MealContain>
                 Carbonohidrates: <MealValue>20</MealValue>
               </MealContain>
@@ -159,7 +169,7 @@ export const DiaryPart = () => {
               </svg>
             </MealContainList>
           ) : (
-            <MealRecordWrap>
+            <MealRecordWrap onClick={handleOpen('snack')}>
               <svg width="16px" height="16px">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
@@ -168,6 +178,11 @@ export const DiaryPart = () => {
           )}
         </WrapMeal>
       </DiaryWrapper>
+      <RecordDiaryModal
+        handleClose={handleClose}
+        open={isOpen}
+        mealName={mealName}
+      />
     </Container>
   );
 };
