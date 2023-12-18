@@ -16,6 +16,8 @@ export const Title = styled.h2`
 `;
 
 export const Body = styled.div`
+  display: flex;
+  align-items: center;
   max-width: 300px;
   max-height: 212px;
   flex-shrink: 0;
@@ -24,13 +26,13 @@ export const Body = styled.div`
   padding: 16px 12px;
 
   @media screen and (min-width: 834px) {
-    width: 380px;
+    max-width: 380px;
     height: 240px;
     padding: 24px 22px;
   }
 
   @media screen and (min-width: 1200px) {
-    width: 444px;
+    max-width: 444px;
     height: 240px;
     padding: 24px 40px;
   }
@@ -99,10 +101,10 @@ export const WaterInfo = styled.div`
 `;
 
 export const WaterInfoWrapper = styled.div`
-  margin-top: 38px;
+  margin-top: 24px;
 
   @media screen and (min-width: 834px) {
-    margin-top: 57px;
+    /* margin-top: 57px; */
   }
 `;
 

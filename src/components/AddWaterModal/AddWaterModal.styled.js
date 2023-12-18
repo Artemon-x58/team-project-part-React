@@ -12,19 +12,38 @@ export const Button = styled.button`
   background: #e3ffa8;
 `;
 
+export const ModalWrapper = styled.div`
+  padding: 16px 12px;
+
+  @media screen and (min-width: 834px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 40px;
+  }
+`;
+
 export const Title = styled.h2`
   margin-bottom: 24px;
-  font-size: 30px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.2;
+
+  @media screen and (min-width: 834px) {
+    font-size: 30px;
+  }
 `;
 
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  width: 212px;
+  width: 276px;
+
+  @media screen and (min-width: 834px) {
+    width: 212px;
+  }
 `;
 
 export const ModalTitle = styled.h2`
@@ -37,7 +56,7 @@ export const ModalTitle = styled.h2`
 
 export const ModalInput = styled.input`
   margin-bottom: 32px;
-  width: 190px;
+  width: 250px;
   padding: 8px 10px;
   border-radius: 12px;
   border: 1px solid #e3ffa8;
@@ -50,6 +69,10 @@ export const ModalInput = styled.input`
     font-weight: 400;
     line-height: 20px;
     color: #b6b6b6;
+  }
+
+  @media screen and (min-width: 834px) {
+    width: 190px;
   }
 `;
 

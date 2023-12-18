@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Modal from 'react-modal';
 import linkIconsSprite from '../../icons/icons.svg';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   Button,
   StyledForm,
@@ -9,6 +11,7 @@ import {
   ModalInput,
   ModalTitle,
   Title,
+  ModalWrapper,
 } from './AddWaterModal.styled';
 
 Modal.setAppElement('#root');
@@ -21,7 +24,6 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '24px 40px',
     borderRadius: '12px',
     color: '#fff',
     border: 'none',
@@ -30,15 +32,19 @@ const customStyles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    padding: '0',
   },
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
 };
 
+const validationSchema = Yup.object().shape({
+  amount: Yup.number().required().positive().integer().max(3000),
+});
+
 const AddWaterModal = ({ addWater }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [amount, setAmount] = useState('');
 
   function openModal() {
     setIsOpen(true);
@@ -48,11 +54,16 @@ const AddWaterModal = ({ addWater }) => {
     setIsOpen(false);
   }
 
-  function handleSubmitForm(event) {
-    event.preventDefault();
-    addWater(parseInt(amount, 10));
-    closeModal();
-  }
+  const formik = useFormik({
+    initialValues: {
+      amount: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: values => {
+      addWater(parseInt(values.amount, 10));
+      closeModal();
+    },
+  });
 
   return (
     <>
@@ -68,23 +79,26 @@ const AddWaterModal = ({ addWater }) => {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <Title>Add water intake</Title>
+        <ModalWrapper>
+          <Title>Add water intake</Title>
 
-        <StyledForm onSubmit={handleSubmitForm}>
-          <ModalTitle>How much water</ModalTitle>
-          <ModalInput
-            type="text"
-            placeholder="Enter milliliters"
-            value={amount}
-            onChange={e => setAmount(e.target.value)}
-          />
-          <ModalButtonConfirm style={{ width: '100%' }} type="submit">
-            Confirm
-          </ModalButtonConfirm>
-          <ModalButtonCansel style={{ width: '100%' }} onClick={closeModal}>
-            Cansel
-          </ModalButtonCansel>
-        </StyledForm>
+          <StyledForm onSubmit={formik.handleSubmit}>
+            <ModalTitle>How much water</ModalTitle>
+            <ModalInput
+              type="text"
+              name="amount"
+              placeholder="Enter milliliters"
+              value={formik.values.amount}
+              onChange={formik.handleChange}
+            />
+            <ModalButtonConfirm style={{ width: '100%' }} type="submit">
+              Confirm
+            </ModalButtonConfirm>
+            <ModalButtonCansel style={{ width: '100%' }} onClick={closeModal}>
+              Cansel
+            </ModalButtonCansel>
+          </StyledForm>
+        </ModalWrapper>
       </Modal>
     </>
   );
