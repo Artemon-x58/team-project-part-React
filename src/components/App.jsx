@@ -22,7 +22,7 @@ export const App = () => {
 
   return (
     <>
-      {/* {!isLoadingCurrentUser && (
+      {!isLoadingCurrentUser && (
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<WelcomePage />} />
@@ -32,8 +32,7 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-      <Toaster /> */}
-      <DiaryPart></DiaryPart>
+      <Toaster />
     </>
   );
 };
