@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Styledheader = styled.header`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;

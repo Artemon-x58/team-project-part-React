@@ -37,7 +37,7 @@ export const SignInPage = () => {
   const handleSubmit = (values, { resetForm }) => {
     dispatch(login(values));
     resetForm();
-    navigate('/');
+    navigate('/main');
   };
   return (
     <Container>
