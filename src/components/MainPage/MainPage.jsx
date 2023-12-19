@@ -4,6 +4,7 @@ import { fetchAllStatistics } from 'redux/statistics/statisticsOperations';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchAllStatistics());
   }, [dispatch]);

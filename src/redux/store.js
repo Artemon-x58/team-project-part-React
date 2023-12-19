@@ -16,7 +16,7 @@ import { statisticsReducer } from './statistics/statisticsSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'user'],
+  whitelist: ['token', 'user', 'isLoggedIn'],
 };
 
 export const store = configureStore({

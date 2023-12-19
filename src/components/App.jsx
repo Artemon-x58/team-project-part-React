@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { selectIsRefreshing } from 'redux/auth/authSelectors';
+// import { selectIsRefreshing } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { WelcomePage } from './WelcomePage/WelcomePage';
@@ -18,7 +18,7 @@ import { DiaryPart } from './Diary/DiaryPart';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoadingCurrentUser = useSelector(selectIsRefreshing);
+  // const isLoadingCurrentUser = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -26,46 +26,37 @@ export const App = () => {
 
   return (
     <>
-      {!isLoadingCurrentUser && (
-        <Routes>
-          <Route path="/" element={<SharedLayout />}>
-            <Route
-              index
-              element={
-                <RestrictedRoute
-                  redirectTo="/main"
-                  component={<WelcomePage />}
-                />
-              }
-            />
-            <Route
-              path="signin"
-              element={
-                <RestrictedRoute
-                  redirectTo="/main"
-                  component={<SignInPage />}
-                />
-              }
-            />
-            <Route
-              path="signup"
-              element={
-                <RestrictedRoute
-                  redirectTo="/main"
-                  component={<SignUpPage />}
-                />
-              }
-            />
-            <Route path="forgot-password" element={<ForgotPasswordPage />} />
-            <Route
-              path="main"
-              element={
-                <PrivateRoute redirectTo="/signin" component={<MainPage />} />
-              }
-            />
-          </Route>
-        </Routes>
-      )}
+      {/* {!isLoadingCurrentUser && ( */}
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route
+            index
+            element={
+              <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
+            }
+          />
+          <Route
+            path="signin"
+            element={
+              <RestrictedRoute redirectTo="/main" component={<SignInPage />} />
+            }
+          />
+          <Route
+            path="signup"
+            element={
+              <RestrictedRoute redirectTo="/main" component={<SignUpPage />} />
+            }
+          />
+          <Route path="forgot-password" element={<ForgotPasswordPage />} />
+          <Route
+            path="main"
+            element={
+              <PrivateRoute redirectTo="/signin" component={<MainPage />} />
+            }
+          />
+        </Route>
+      </Routes>
+      {/* )} */}
       <Toaster />
     </>
   );
