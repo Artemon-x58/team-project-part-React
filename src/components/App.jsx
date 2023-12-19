@@ -10,9 +10,11 @@ import { SignUpPage } from './SignUpPage/SignUpPage';
 import { SignInPage } from './SignInPage/SignInPage';
 import { ForgotPasswordPage } from './ForgotPasswordPage/ForgotPasswordPage';
 import { Toaster } from 'react-hot-toast';
+
 import { RestrictedRoute } from 'routes/RestrictedRoute';
 import { MainPage } from './MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
+import { DiaryPart } from './Diary/DiaryPart';
 
 export const App = () => {
   const dispatch = useDispatch();
