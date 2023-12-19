@@ -46,7 +46,11 @@ const Water = () => {
                 left: <Unit>{remainingWater} ml</Unit>
               </Left>
             </ValueWrapper>
-            <AddWaterModal addWater={handleAddWater} />
+            <AddWaterModal
+              addWater={handleAddWater}
+              dailyGoal={dailyGoal}
+              consumedWater={consumedWater}
+            />
           </WaterInfoWrapper>
         </WaterInfo>
       </Body>

@@ -43,7 +43,7 @@ const validationSchema = Yup.object().shape({
   amount: Yup.number().required().positive().integer().max(3000),
 });
 
-const AddWaterModal = ({ addWater }) => {
+const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -65,6 +65,8 @@ const AddWaterModal = ({ addWater }) => {
     },
   });
 
+  const isGoalAchieved = consumedWater >= dailyGoal;
+
   return (
     <>
       <Button onClick={openModal}>
@@ -80,7 +82,11 @@ const AddWaterModal = ({ addWater }) => {
         style={customStyles}
       >
         <ModalWrapper>
-          <Title>Add water intake</Title>
+          {isGoalAchieved ? (
+            <Title>You've reached goal! 🥳</Title>
+          ) : (
+            <Title>Add water intake</Title>
+          )}
 
           <StyledForm onSubmit={formik.handleSubmit}>
             <ModalTitle>How much water</ModalTitle>
