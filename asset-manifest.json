@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/team-project-part-React/static/js/main.56690182.js",
+    "main.js": "/team-project-part-React/static/js/main.51b16ac2.js",
     "static/media/Summer-hiking.png": "/team-project-part-React/static/media/Summer-hiking.487152541279e1774b58.png",
     "static/media/Elder-fitness.png": "/team-project-part-React/static/media/Elder-fitness.9a15f72a29b163ea6fa4.png",
     "static/media/Workout-fashion.png": "/team-project-part-React/static/media/Workout-fashion.9d9c2463eab2cc533c90.png",
     "static/media/Body-contouring.png": "/team-project-part-React/static/media/Body-contouring.a4695cbcc6e7b4b29d00.png",
     "static/media/Sport-and-fitness-tracker.png": "/team-project-part-React/static/media/Sport-and-fitness-tracker.a616831fd2b34ff13567.png",
-    "static/media/icons.svg": "/team-project-part-React/static/media/icons.ba55d5270d06995ba1feb22a64c6dc5a.svg",
+    "static/media/icons.svg": "/team-project-part-React/static/media/icons.306b7542fa38cd675051df4a8e79b5ed.svg",
     "index.html": "/team-project-part-React/index.html",
-    "main.56690182.js.map": "/team-project-part-React/static/js/main.56690182.js.map"
+    "main.51b16ac2.js.map": "/team-project-part-React/static/js/main.51b16ac2.js.map"
   },
   "entrypoints": [
-    "static/js/main.56690182.js"
+    "static/js/main.51b16ac2.js"
   ]
 }
