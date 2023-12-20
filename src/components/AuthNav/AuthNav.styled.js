@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const AuthNavWrapper = styled.div``;
 export const AuthNavLink = styled(NavLink)`
   color: white;
 
@@ -25,4 +26,11 @@ export const AuthNavLink = styled(NavLink)`
     font-size: 14px;
     line-height: 20px;
   }
+`;
+export const Slash = styled.span`
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  color: white;
 `;

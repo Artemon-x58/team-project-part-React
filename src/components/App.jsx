@@ -55,6 +55,7 @@ export const App = () => {
           />
 
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
+          <Route path="setting" element={<div>"Сторінка налаштувань"</div>} />
           <Route
             path="main"
             element={
@@ -63,7 +64,7 @@ export const App = () => {
           />
         </Route>
       </Routes>
-      {/* )} */}
+
       <Toaster />
     </>
   );
