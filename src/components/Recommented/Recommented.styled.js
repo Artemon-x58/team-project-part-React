@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: 1372px;
   margin: 20px auto 60px auto;
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    max-width: 320px;
+    margin: 0 auto;
+  }
 
   @media screen and (min-width: 834px) {
     max-width: 834px;
@@ -16,7 +20,11 @@ export const Title = styled.h2`
   font-style: normal;
   font-weight: 500;
   line-height: 36px;
-
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    font-size: 24px;
+    padding-left: 10px;
+    padding-top: 16px;
+  }
   @media screen and (min-width: 834px) {
     padding-left: 27px;
   }
@@ -28,6 +36,14 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   column-gap: 44px;
+
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    max-width: 320px;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
 
   @media screen and (min-width: 834px) {
     max-width: 834px;
@@ -41,6 +57,11 @@ export const Wrapper = styled.div`
 export const IllustrationImg = styled.img`
   width: 538px;
   height: 560px;
+
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    width: 100%;
+    height: 310px;
+  }
 `;
 
 export const List = styled.ul`
@@ -51,7 +72,12 @@ export const List = styled.ul`
   justify-content: space-between;
   flex-wrap: wrap;
   row-gap: 20px;
-
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    max-width: 320px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
   @media screen and (min-width: 834px) {
     width: auto;
     justify-content: center;

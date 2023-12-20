@@ -10,6 +10,10 @@ export const Container = styled.li`
   column-gap: 20px;
   border-radius: 12px;
   background: #0f0f0f;
+
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    width: 300px;
+  }
 `;
 
 export const Img = styled.img`
