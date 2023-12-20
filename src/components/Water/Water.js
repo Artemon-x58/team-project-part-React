@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   PercentageContainer,
   PercentageFill,
@@ -15,16 +14,29 @@ import {
   ValueWrapper,
 } from './Water.styled';
 import AddWaterModal from 'components/AddWaterModal/AddWaterModal';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectRecommendedWater,
+  selectWaterToday,
+} from 'redux/statistics/statisticsSelectors';
+import { addWaterIntake } from 'redux/statistics/statisticsOperations';
 
 const Water = () => {
-  const [dailyGoal, ,] = useState(2000);
-  const [consumedWater, setConsumedWater] = useState(0);
+  const recomendedWater = useSelector(selectRecommendedWater);
+  const { water: consumedWater } = useSelector(selectWaterToday);
+  const dispatch = useDispatch();
 
-  const percentage = (consumedWater / dailyGoal) * 100;
-  const remainingWater = Math.max(0, dailyGoal - consumedWater);
+  console.log('recomendedWater:', recomendedWater);
+  console.log('consumedWater:', consumedWater);
+
+  const percentage = Number.isNaN((consumedWater / recomendedWater) * 100)
+    ? 0
+    : (consumedWater / recomendedWater) * 100;
+
+  const remainingWater = Math.max(0, recomendedWater - consumedWater);
 
   const handleAddWater = amount => {
-    setConsumedWater(consumedWater + parseInt(amount, 10));
+    dispatch(addWaterIntake(amount));
   };
 
   return (
@@ -48,7 +60,7 @@ const Water = () => {
             </ValueWrapper>
             <AddWaterModal
               addWater={handleAddWater}
-              dailyGoal={dailyGoal}
+              dailyGoal={recomendedWater}
               consumedWater={consumedWater}
             />
           </WaterInfoWrapper>

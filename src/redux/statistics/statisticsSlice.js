@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllStatistics } from './statisticsOperations';
+import { fetchAllStatistics, addWaterIntake } from './statisticsOperations';
 
 const initialState = {
   user: {
@@ -44,12 +44,18 @@ const handleLogInFulfilled = (state, action) => {
   state.snack = action.payload.snack;
 };
 
+const handleAddWaterIntakeFulfilled = (state, action) => {
+  const { water, date } = action.payload.data;
+  state.waterToday = { water, date };
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
     builder.addCase(fetchAllStatistics.pending, fetchStatisticsPending);
     builder.addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled);
+    builder.addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled);
   },
 });
 

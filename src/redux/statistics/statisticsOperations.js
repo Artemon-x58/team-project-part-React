@@ -13,3 +13,18 @@ export const fetchAllStatistics = createAsyncThunk(
     }
   }
 );
+
+export const addWaterIntake = createAsyncThunk(
+  'statistics/addWaterIntake',
+  async (quantity, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/user/water-intake', {
+        water: quantity,
+      });
+
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
