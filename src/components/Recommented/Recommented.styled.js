@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   max-width: 1372px;
-  margin: 20px auto 60px auto;
   @media screen and (min-width: 320px) and (max-width: 833px) {
     max-width: 320px;
     margin: 0 auto;
@@ -25,7 +24,7 @@ export const Title = styled.h2`
     padding-left: 10px;
     padding-top: 16px;
   }
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: 834px) and (max-width: 1200px) {
     padding-left: 27px;
   }
 `;
@@ -45,7 +44,7 @@ export const Wrapper = styled.div`
     row-gap: 20px;
   }
 
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: 834px) and (max-width: 1200px) {
     max-width: 834px;
     margin: 0;
     row-gap: 24px;
@@ -72,13 +71,26 @@ export const List = styled.ul`
   justify-content: space-between;
   flex-wrap: wrap;
   row-gap: 20px;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #3498db;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #ecf0f1;
+  }
   @media screen and (min-width: 320px) and (max-width: 833px) {
     max-width: 320px;
     height: auto;
     flex-direction: column;
     align-items: center;
   }
-  @media screen and (min-width: 834px) {
+  @media screen and (min-width: 834px) and (max-width: 1200px) {
     width: auto;
     justify-content: center;
     gap: 20px;
