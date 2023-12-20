@@ -6,6 +6,7 @@ export const Container = styled.li`
 
   width: 328px;
   height: 86px;
+  padding-left: 20px;
   column-gap: 20px;
   border-radius: 12px;
   background: #0f0f0f;
