@@ -9,7 +9,11 @@ export const selectRecommendedFood = state => state.statistics.recommendedFood;
 export const selectCaloriesToday = state => state.statistics.caloriesToday;
 export const selectWaterToday = state => state.statistics.waterToday;
 
-export const selectBreakfast = state => state.statistics.breakfast;
-export const selectLunch = state => state.statistics.lunch;
-export const selectDinner = state => state.statistics.dinner;
-export const selectSnack = state => state.statistics.snack;
+export const selectSnackSumNutrientsToday = state =>
+  state.statistics.snackSumNutrientsToday;
+export const selectLunchtSumNutrientsToday = state =>
+  state.statistics.lunchtSumNutrientsToday;
+export const selectDinnerSumNutrientsToday = state =>
+  state.statistics.dinnerSumNutrientsToday;
+export const selectBreakfastSumNutrientsToday = state =>
+  state.statistics.breakfastSumNutrientsToday;

@@ -294,8 +294,9 @@ export const SignUpPage = () => {
                     week
                   </ActivityLabel>
                   <ActivityLabel>
-                    <Field type="radio" name="kef" value="1.5" />
-                    1.5 - if you play sports with average loads 3-5 times a week
+                    <Field type="radio" name="kef" value="1.55" />
+                    1.55 - if you play sports with average loads 3-5 times a
+                    week
                   </ActivityLabel>
                   <ActivityLabel>
                     <Field type="radio" name="kef" value="1.725" />

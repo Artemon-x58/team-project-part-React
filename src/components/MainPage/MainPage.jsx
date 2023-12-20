@@ -8,6 +8,7 @@ export const MainPage = () => {
   useEffect(() => {
     dispatch(fetchAllStatistics());
   }, [dispatch]);
+
   return (
     <>
       <div style={{ color: 'white' }}>

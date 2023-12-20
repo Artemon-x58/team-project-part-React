@@ -23,18 +23,18 @@ const handleLogInFulfilled = (state, action) => {
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
-const handleLogInRejected = (state, action) => {
+const handleLogInRejected = state => {
   state.isRefreshing = false;
 };
 
 const handleLogOutFulfilled = state => {
-  state.user = { name: null, email: null };
+  state.user = { email: null };
   state.token = null;
   state.isLoggedIn = false;
   state.isRefreshing = false;
 };
 const handleLogOutRejected = state => {
-  state.user = { name: null, email: null };
+  state.user = { email: null };
   state.token = null;
   state.isLoggedIn = false;
   state.isRefreshing = false;
@@ -45,14 +45,14 @@ const handleRefreshUserPending = state => {
 };
 
 const handleRefreshUserFulfilled = (state, action) => {
-  // state.user = action.payload;
+  state.user.email = action.payload.email;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
 
 const handleRefreshUserRejected = state => {
   state.isRefreshing = false;
-  state.isLoggedIn = false;
+  // state.isLoggedIn = false;
 };
 
 const authSlice = createSlice({

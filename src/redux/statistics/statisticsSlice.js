@@ -12,20 +12,41 @@ const initialState = {
     gender: '',
     yourGoal: '',
   },
+  breakfastSumNutrientsToday: {
+    calories: '',
+    carbohydrates: '',
+    protein: '',
+    fat: '',
+  },
+  dinnerSumNutrientsToday: {
+    calories: '',
+    carbohydrates: '',
+    protein: '',
+    fat: '',
+  },
+  lunchtSumNutrientsToday: {
+    calories: '',
+    carbohydrates: '',
+    protein: '',
+    fat: '',
+  },
+  snackSumNutrientsToday: {
+    calories: '',
+    carbohydrates: '',
+    protein: '',
+    fat: '',
+  },
   recommendedCalories: {
     calories: '',
     protein: '',
     fat: '',
     carbohydrates: '',
   },
-  caloriesToday: {},
   recommendedWater: '',
-  waterToday: {},
   recommendedFood: [],
-  breakfast: [],
-  lunch: [],
-  dinner: [],
-  snack: [],
+  caloriesToday: {},
+  waterToday: {},
+
   isRefreshing: false,
 };
 
@@ -38,10 +59,10 @@ const handleLogInFulfilled = (state, action) => {
   state.recommendedWater = action.payload.recommendedWater;
   state.waterToday = action.payload.waterToday;
   state.recommendedFood = action.payload.recommendedFood;
-  state.breakfast = action.payload.breakfast;
-  state.lunch = action.payload.lunch;
-  state.dinner = action.payload.dinner;
-  state.snack = action.payload.snack;
+  state.snackSumNutrientsToday = action.payload.snackSumNutrientsToday;
+  state.lunchtSumNutrientsToday = action.payload.lunchtSumNutrientsToday;
+  state.dinnerSumNutrientsToday = action.payload.dinnerSumNutrientsToday;
+  state.breakfastSumNutrientsToday = action.payload.breakfastSumNutrientsToday;
 };
 
 const handleAddWaterIntakeFulfilled = (state, action) => {

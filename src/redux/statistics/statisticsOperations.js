@@ -6,7 +6,6 @@ export const fetchAllStatistics = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/user/current');
-
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });
