@@ -2,7 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.li`
   display: flex;
-  padding: 20px 108px 20px 24px;
+  align-items: center;
+
+  width: 328px;
+  height: 86px;
   column-gap: 20px;
   border-radius: 12px;
   background: #0f0f0f;

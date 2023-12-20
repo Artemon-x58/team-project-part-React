@@ -26,3 +26,11 @@ export const IllustrationImg = styled.img`
   width: 538px;
   height: 560px;
 `;
+
+export const List = styled.ul`
+  width: 676px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+`;
