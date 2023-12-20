@@ -10,6 +10,7 @@ import { SignUpPage } from './SignUpPage/SignUpPage';
 import { SignInPage } from './SignInPage/SignInPage';
 import { ForgotPasswordPage } from './ForgotPasswordPage/ForgotPasswordPage';
 import { Toaster } from 'react-hot-toast';
+import FoodPage from './FoodPage/FoodPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<WelcomePage />} />
+            <Route path="food" element={<FoodPage />} />
             <Route path="signin" element={<SignInPage />} />
             <Route path="signup" element={<SignUpPage />} />
             <Route path="forgot-password" element={<ForgotPasswordPage />} />
