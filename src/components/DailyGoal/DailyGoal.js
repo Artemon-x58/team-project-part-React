@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import linkIconsSprite from '../../icons/icons.svg';
 
 import {
@@ -9,8 +10,15 @@ import {
   Title,
   Unit,
 } from './DailyGoal.styled';
+import {
+  selectRecommendedCalories,
+  selectRecommendedWater,
+} from 'redux/statistics/statisticsSelectors';
 
 const DailyGoal = () => {
+  const recommendedWater = useSelector(selectRecommendedWater);
+  const recommendedCalories = useSelector(selectRecommendedCalories);
+
   return (
     <Main>
       <Title>Daily goal</Title>
@@ -21,7 +29,7 @@ const DailyGoal = () => {
           </svg>
           <div>
             <Subtitle>Calories</Subtitle>
-            <Value>1700</Value>
+            <Value>{recommendedCalories.calories}</Value>
           </div>
         </Wrapper>
         <Wrapper>
@@ -31,7 +39,7 @@ const DailyGoal = () => {
           <div>
             <Subtitle>Water</Subtitle>
             <Value>
-              1500 <Unit>ml</Unit>
+              {recommendedWater} <Unit>ml</Unit>
             </Value>
           </div>
         </Wrapper>
