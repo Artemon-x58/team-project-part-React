@@ -12,6 +12,7 @@ import {
   ModalTitle,
   Title,
   ModalWrapper,
+  ErrorMessage,
 } from './AddWaterModal.styled';
 
 Modal.setAppElement('#root');
@@ -54,7 +55,7 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
     setIsOpen(false);
   }
 
-  const formik = useFormik({
+  const { values, errors, handleSubmit, handleChange } = useFormik({
     initialValues: {
       amount: '',
     },
@@ -88,15 +89,17 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
             <Title>Add water intake</Title>
           )}
 
-          <StyledForm onSubmit={formik.handleSubmit}>
+          <StyledForm onSubmit={handleSubmit}>
             <ModalTitle>How much water</ModalTitle>
             <ModalInput
-              type="text"
+              type="number"
               name="amount"
               placeholder="Enter milliliters"
-              value={formik.values.amount}
-              onChange={formik.handleChange}
+              value={values.amount}
+              onChange={handleChange}
+              hasError={!!errors.amount}
             />
+            {errors.amount && <ErrorMessage>*{errors.amount}</ErrorMessage>}
             <ModalButtonConfirm style={{ width: '100%' }} type="submit">
               Confirm
             </ModalButtonConfirm>
