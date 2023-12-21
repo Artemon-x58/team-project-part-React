@@ -12,6 +12,7 @@ import {
   Value,
   Left,
   ValueWrapper,
+  BusketIcon,
 } from './Water.styled';
 import AddWaterModal from 'components/AddWaterModal/AddWaterModal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,7 +20,12 @@ import {
   selectRecommendedWater,
   selectWaterToday,
 } from 'redux/statistics/statisticsSelectors';
-import { addWaterIntake } from 'redux/statistics/statisticsOperations';
+import {
+  addWaterIntake,
+  removeWaterIntake,
+} from 'redux/statistics/statisticsOperations';
+
+import Icons from '../../icons/icons.svg';
 
 const Water = () => {
   const recomendedWater = useSelector(selectRecommendedWater);
@@ -61,6 +67,10 @@ const Water = () => {
               consumedWater={consumedWater}
             />
           </WaterInfoWrapper>
+
+          <BusketIcon onClick={() => dispatch(removeWaterIntake())}>
+            <use xlinkHref={`${Icons}#icon-basket`} />
+          </BusketIcon>
         </WaterInfo>
       </Body>
     </Main>

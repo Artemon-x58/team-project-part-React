@@ -141,3 +141,9 @@ export const PercentageText = styled.span`
   line-height: 1.3;
   color: #b6c3ff;
 `;
+
+export const BusketIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+`;
