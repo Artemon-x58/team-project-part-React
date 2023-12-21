@@ -27,13 +27,12 @@ export const Body = styled.div`
 
   @media screen and (min-width: 834px) {
     max-width: 380px;
-    height: 240px;
+    height: 192px;
     padding: 24px 22px;
   }
 
   @media screen and (min-width: 1200px) {
     max-width: 444px;
-    height: 240px;
     padding: 24px 40px;
   }
 `;

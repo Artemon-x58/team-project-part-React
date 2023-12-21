@@ -26,9 +26,6 @@ const Water = () => {
   const { water: consumedWater } = useSelector(selectWaterToday);
   const dispatch = useDispatch();
 
-  console.log('recomendedWater:', recomendedWater);
-  console.log('consumedWater:', consumedWater);
-
   const percentage = Number.isNaN((consumedWater / recomendedWater) * 100)
     ? 0
     : (consumedWater / recomendedWater) * 100;

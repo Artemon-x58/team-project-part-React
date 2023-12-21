@@ -50,7 +50,9 @@ const initialState = {
   isRefreshing: false,
 };
 
-const fetchStatisticsPending = (state, action) => {};
+const fetchStatisticsPending = (state, action) => {
+  state.isRefreshing = true;
+};
 
 const handleLogInFulfilled = (state, action) => {
   state.user = action.payload.user;
@@ -68,6 +70,7 @@ const handleLogInFulfilled = (state, action) => {
 const handleAddWaterIntakeFulfilled = (state, action) => {
   const { water, date } = action.payload.data;
   state.waterToday = { water, date };
+  state.isRefreshing = false;
 };
 
 const authSlice = createSlice({
@@ -76,6 +79,7 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchAllStatistics.pending, fetchStatisticsPending);
     builder.addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled);
+    builder.addCase(addWaterIntake.pending, fetchStatisticsPending);
     builder.addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled);
   },
 });
