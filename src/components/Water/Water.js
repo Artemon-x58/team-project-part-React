@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectRecommendedWater,
   selectWaterToday,
-} from 'redux/statistics/statisticsSelectors';
+} from '../../redux/statistics/statisticsSelectors';
 import {
   addWaterIntake,
   removeWaterIntake,
@@ -31,6 +31,8 @@ const Water = () => {
   const recomendedWater = useSelector(selectRecommendedWater);
   const { water: consumedWater } = useSelector(selectWaterToday);
   const dispatch = useDispatch();
+
+  console.log(consumedWater);
 
   const percentage = Number.isNaN((consumedWater / recomendedWater) * 100)
     ? 0

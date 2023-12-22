@@ -55,7 +55,7 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
     setIsOpen(false);
   }
 
-  const { values, errors, handleSubmit, handleChange } = useFormik({
+  const { values, errors, handleSubmit, handleChange, resetForm } = useFormik({
     initialValues: {
       amount: '',
     },
@@ -63,6 +63,7 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
     onSubmit: values => {
       addWater(parseInt(values.amount, 10));
       closeModal();
+      resetForm();
     },
   });
 
