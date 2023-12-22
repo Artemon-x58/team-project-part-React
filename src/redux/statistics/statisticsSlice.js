@@ -3,6 +3,7 @@ import {
   fetchAllStatistics,
   addWaterIntake,
   removeWaterIntake,
+  addFoodIntake,
 } from './statisticsOperations';
 
 const initialState = {
@@ -88,6 +89,32 @@ const handleRemoveWaterIntakeFulfilled = (state, action) => {
   state.isRefreshing = false;
 };
 
+const handleAddFoodIntakeFulfilled = (state, action) => {
+  const { mealType, newCaloriesAndDate, newSumNutrientsPerDay } =
+    action.payload;
+
+  // Оновлення даних на основі відповіді сервера після додавання харчування
+  switch (mealType) {
+    case 'breakfast':
+      state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    case 'lunch':
+      state.lunchtSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    case 'dinner':
+      state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    case 'snack':
+      state.snackSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    default:
+      break;
+  }
+
+  state.caloriesToday = newCaloriesAndDate;
+  state.isRefreshing = false;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -101,6 +128,8 @@ const authSlice = createSlice({
       removeWaterIntake.fulfilled,
       handleRemoveWaterIntakeFulfilled
     );
+    builder.addCase(addFoodIntake.pending, fetchStatisticsPending);
+    builder.addCase(addFoodIntake.fulfilled, handleAddFoodIntakeFulfilled);
   },
 });
 

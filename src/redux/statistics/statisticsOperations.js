@@ -42,3 +42,19 @@ export const removeWaterIntake = createAsyncThunk(
     }
   }
 );
+
+export const addFoodIntake = createAsyncThunk(
+  'statistics/addFoodIntake',
+  async ({ meals, entries }) => {
+    try {
+      const response = await axios.post('/user/food-intake', {
+        meals,
+        entries,
+      });
+
+      return response.data;
+    } catch (error) {
+      throw error.response.data;
+    }
+  }
+);

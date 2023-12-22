@@ -15,6 +15,13 @@ import {
 } from './DiaryPart.styled';
 import { useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
+import { useSelector } from 'react-redux';
+import {
+  selectBreakfastSumNutrientsToday,
+  selectDinnerSumNutrientsToday,
+  selectLunchtSumNutrientsToday,
+  selectSnackSumNutrientsToday,
+} from 'redux/statistics/statisticsSelectors';
 
 const recordedValues = {
   breakfast: true,
@@ -26,6 +33,12 @@ export const DiaryPart = () => {
   const [isRecorded, setIsRecorded] = useState(recordedValues);
   const [isOpen, setOpen] = useState(false);
   const [mealName, setMealName] = useState('');
+
+  const breakfastNutrients = useSelector(selectBreakfastSumNutrientsToday);
+  const lunchNutrients = useSelector(selectLunchtSumNutrientsToday);
+  const dinnerNutrients = useSelector(selectDinnerSumNutrientsToday);
+  const snackNutrients = useSelector(selectSnackSumNutrientsToday);
+
   const handleOpen = partMeal => () => {
     setOpen(true);
     setMealName(partMeal);
@@ -53,13 +66,14 @@ export const DiaryPart = () => {
           {isRecorded.breakfast ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:
+                <MealValue>{breakfastNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{breakfastNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{breakfastNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
               <svg width="20px" height="20px">
@@ -87,13 +101,14 @@ export const DiaryPart = () => {
           {isRecorded.lunch ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:{' '}
+                <MealValue>{lunchNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{lunchNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{lunchNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
               <svg width="20px" height="20px">
@@ -121,13 +136,14 @@ export const DiaryPart = () => {
           {isRecorded.dinner ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:{' '}
+                <MealValue>{dinnerNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{dinnerNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{dinnerNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
               <svg width="20px" height="20px">
@@ -154,13 +170,14 @@ export const DiaryPart = () => {
           {isRecorded.snack ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:{' '}
+                <MealValue>{snackNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{snackNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{snackNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
               <svg width="20px" height="20px">
