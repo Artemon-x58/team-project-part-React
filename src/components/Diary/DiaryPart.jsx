@@ -12,16 +12,18 @@ import {
   TitleWrap,
   WrapMeal,
   WrapMealName,
+  BasketIcon,
 } from './DiaryPart.styled';
 import { useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   selectBreakfastSumNutrientsToday,
   selectDinnerSumNutrientsToday,
   selectLunchtSumNutrientsToday,
   selectSnackSumNutrientsToday,
 } from 'redux/statistics/statisticsSelectors';
+import { removeFoodIntake } from 'redux/statistics/statisticsOperations';
 
 const recordedValues = {
   breakfast: true,
@@ -30,9 +32,10 @@ const recordedValues = {
   snack: false,
 };
 export const DiaryPart = () => {
-  const [isRecorded, setIsRecorded] = useState(recordedValues);
+  const [isRecorded, ,] = useState(recordedValues);
   const [isOpen, setOpen] = useState(false);
   const [mealName, setMealName] = useState('');
+  const dispatch = useDispatch();
 
   const breakfastNutrients = useSelector(selectBreakfastSumNutrientsToday);
   const lunchNutrients = useSelector(selectLunchtSumNutrientsToday);
@@ -76,9 +79,9 @@ export const DiaryPart = () => {
                 Fat: <MealValue>{breakfastNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('breakfast')}>
@@ -101,7 +104,7 @@ export const DiaryPart = () => {
           {isRecorded.lunch ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates:{' '}
+                Carbonohidrates:
                 <MealValue>{lunchNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
@@ -111,9 +114,9 @@ export const DiaryPart = () => {
                 Fat: <MealValue>{lunchNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon onClick={() => dispatch(removeFoodIntake('lunch'))}>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('lunch')}>
@@ -146,9 +149,9 @@ export const DiaryPart = () => {
                 Fat: <MealValue>{dinnerNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('dinner')}>
@@ -180,9 +183,9 @@ export const DiaryPart = () => {
                 Fat: <MealValue>{snackNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('snack')}>

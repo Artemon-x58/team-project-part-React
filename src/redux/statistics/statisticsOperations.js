@@ -58,3 +58,18 @@ export const addFoodIntake = createAsyncThunk(
     }
   }
 );
+
+export const removeFoodIntake = createAsyncThunk(
+  'statistics/removeFoodIntake',
+  async (mealType, thunkAPI) => {
+    try {
+      const { data } = await axios.delete('/user/food-intake', {
+        data: { meals: mealType },
+      });
+
+      return { newCaloriesAndDate: data.newCaloriesAndDate, mealType };
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
