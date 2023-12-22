@@ -74,7 +74,7 @@ const handleLogInFulfilled = (state, action) => {
 };
 
 const handleAddWaterIntakeFulfilled = (state, action) => {
-  const { water, date } = action.payload.data;
+  const { water, date } = action.payload.addedWater;
   state.waterToday = { water, date };
   state.isRefreshing = false;
 };
