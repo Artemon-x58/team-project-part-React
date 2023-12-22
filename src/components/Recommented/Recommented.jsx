@@ -8,6 +8,7 @@ import {
 import IllustrationSrc from '../../img/Ketogenic-diet.png';
 import store from './store';
 import FoodItem from 'components/assets/FoodItem/FootItem';
+/*import RecommentedPart from 'components/RecommentedPart/RecommentedPart';*/
 const Recommented = () => {
   const FoodCollections = store.map(item => {
     return (
@@ -20,6 +21,7 @@ const Recommented = () => {
       />
     );
   });
+  // return <RecommentedPart />;
   return (
     <Container>
       <Title>Recommented food</Title>

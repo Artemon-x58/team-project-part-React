@@ -24,7 +24,7 @@ import {
 } from './SignInPage.styled';
 import { login } from 'redux/auth/authOperations';
 import { selectIsRefreshing } from 'redux/auth/authSelectors';
-import { Loader } from '../Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email().required(),

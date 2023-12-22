@@ -12,7 +12,28 @@ export const fetchAllStatistics = createAsyncThunk(
     }
   }
 );
-
+export const updateGoal = createAsyncThunk(
+  'statistics/updateGoal',
+  async (value, thunkAPI) => {
+    try {
+      const { data } = await axios.put('/user/goal', value);
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
+export const updateWeight = createAsyncThunk(
+  'statistics/updateWeight',
+  async (value, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/user/weight', value);
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
 export const addWaterIntake = createAsyncThunk(
   'statistics/addWaterIntake',
   async (quantity, thunkAPI) => {
@@ -28,23 +49,13 @@ export const addWaterIntake = createAsyncThunk(
   }
 );
 
-export const updateGoal = createAsyncThunk(
-  'statistics/updateGoal',
-  async (value, thunkAPI) => {
+export const removeWaterIntake = createAsyncThunk(
+  'statistics/removeWaterIntake',
+  async (_, thunkAPI) => {
     try {
-      const { data } = await axios.put('/user/goal', value);
-      return data;
-    } catch ({ message }) {
-      return thunkAPI.rejectWithValue({ message });
-    }
-  }
-);
-
-export const updateWeight = createAsyncThunk(
-  'statistics/updateWeight',
-  async (value, thunkAPI) => {
-    try {
-      const { data } = await axios.post('/user/weight', value);
+      const { data } = await axios.delete('/user/water-intake', {
+        water: 0,
+      });
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });

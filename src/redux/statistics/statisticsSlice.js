@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchAllStatistics,
-  addWaterIntake,
   updateGoal,
   updateWeight,
+  addWaterIntake,
+  removeWaterIntake,
 } from './statisticsOperations';
 
 const initialState = {
@@ -75,6 +76,18 @@ const handleLogInFulfilled = (state, action) => {
 const handleAddWaterIntakeFulfilled = (state, action) => {
   const { water, date } = action.payload.data;
   state.waterToday = { water, date };
+  state.isRefreshing = false;
+};
+
+const handleRemoveWaterIntakeFulfilled = (state, action) => {
+  const responseData = action.payload;
+
+  if (responseData) {
+    const { water } = responseData;
+    state.waterToday = { water };
+  }
+
+  state.isRefreshing = false;
 };
 const handleUpdateGoalFulfilled = (state, action) => {
   state.user.yourGoal = action.payload.yourGoal;
@@ -95,11 +108,14 @@ const authSlice = createSlice({
     builder
       .addCase(fetchAllStatistics.pending, fetchStatisticsPending)
       .addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled)
+      .addCase(addWaterIntake.pending, fetchStatisticsPending)
       .addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled)
       .addCase(updateGoal.pending, fetchStatisticsPending)
       .addCase(updateGoal.fulfilled, handleUpdateGoalFulfilled)
       .addCase(updateWeight.pending, fetchStatisticsPending)
-      .addCase(updateWeight.fulfilled, handleUpdateWeightFulfilled);
+      .addCase(updateWeight.fulfilled, handleUpdateWeightFulfilled)
+      .addCase(removeWaterIntake.pending, fetchStatisticsPending)
+      .addCase(removeWaterIntake.fulfilled, handleRemoveWaterIntakeFulfilled);
   },
 });
 

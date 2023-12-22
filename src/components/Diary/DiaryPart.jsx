@@ -1,4 +1,3 @@
-import { Container } from 'components/Container/Container.styled';
 import Meals from '../../icons/meals.svg';
 import Icons from '../../icons/icons.svg';
 import {
@@ -35,7 +34,7 @@ export const DiaryPart = () => {
     setOpen(false);
   };
   return (
-    <Container>
+    <>
       <DiaryWrapper>
         <TitleWrap>
           <Title>Diary</Title>
@@ -183,6 +182,6 @@ export const DiaryPart = () => {
         open={isOpen}
         mealName={mealName}
       />
-    </Container>
+    </>
   );
 };

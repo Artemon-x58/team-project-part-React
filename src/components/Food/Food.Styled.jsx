@@ -6,6 +6,8 @@ export const FoodWrapper = styled.div`
   gap: 6px;
   height: 100%;
 
+  flex-grow: 1;
+
   border: solid 1px green;
 `;
 
