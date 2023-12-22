@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-// import { selectIsRefreshing } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { WelcomePage } from '../pages/WelcomePage/WelcomePage';
@@ -18,7 +17,6 @@ import Recommented from './Recommented/Recommented';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const isLoadingCurrentUser = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -26,7 +24,6 @@ export const App = () => {
 
   return (
     <>
-      {/* {!isLoadingCurrentUser && ( */}
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route

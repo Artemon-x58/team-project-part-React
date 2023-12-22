@@ -44,6 +44,25 @@ export const Input = styled(Field)`
     color: #b6b6b6;
   }
 `;
+export const StyledErrorMessage = styled.div`
+  color: #e74a3b;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: -16px;
+  margin-bottom: 4px;
+`;
+export const StyledErrorAgeMessage = styled(StyledErrorMessage)`
+  margin-top: -32px;
+  margin-bottom: 18px;
+`;
+export const StyledErrorWeightMessage = styled(StyledErrorMessage)`
+  margin-top: -16px;
+  margin-bottom: -22px;
+`;
 export const ButtonWrapper = styled.div`
   margin-bottom: 48px;
   @media screen and (min-width: 834px) {

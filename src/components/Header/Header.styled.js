@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Styledheader = styled.header`
+  background-color: #0f0f0f;
+`;
+export const HeaderWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -9,16 +12,12 @@ export const Styledheader = styled.header`
   justify-content: space-between;
   height: 26px;
   margin-bottom: 24px;
-  padding: 17px 10px;
-  background-color: #0f0f0f;
+  padding: 17px 0;
 
   @media screen and (min-width: 834px) {
     height: 32px;
     margin-bottom: 40px;
-    padding: 34px 27px;
-  }
-  @media screen and (min-width: 1200px) {
-    padding: 34px;
+    padding: 34px 0;
   }
 `;
 
