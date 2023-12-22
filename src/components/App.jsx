@@ -15,6 +15,7 @@ import { RestrictedRoute } from 'routes/RestrictedRoute';
 import { MainPage } from './MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from './Recommented/Recommented';
+import { Diary } from './Diary/Diary';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export const App = () => {
   return (
     <>
       {/* {!isLoadingCurrentUser && ( */}
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route
             index
@@ -65,7 +66,8 @@ export const App = () => {
         </Route>
       </Routes>
 
-      <Toaster />
+      <Toaster /> */}
+      <Diary></Diary>
     </>
   );
 };
