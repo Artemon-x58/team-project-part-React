@@ -8,7 +8,7 @@ export const StepWrapper = styled.div`
   }
   @media screen and (min-width: 1200px) {
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: center;
   }
 `;
@@ -34,6 +34,9 @@ export const FormikFieldsWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 80px;
   }
 `;
 export const Title = styled.h2`

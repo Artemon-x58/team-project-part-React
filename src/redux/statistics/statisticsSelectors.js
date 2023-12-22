@@ -17,3 +17,5 @@ export const selectDinnerSumNutrientsToday = state =>
   state.statistics.dinnerSumNutrientsToday;
 export const selectBreakfastSumNutrientsToday = state =>
   state.statistics.breakfastSumNutrientsToday;
+
+export const selectisRefreshing = state => state.isRefreshing;
