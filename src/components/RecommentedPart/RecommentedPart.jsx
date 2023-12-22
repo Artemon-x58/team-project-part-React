@@ -1,9 +1,15 @@
 import FoodItem from 'components/FoodItem/FootItem';
 import { Container, Title, List, Btn } from './Recommented.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectRecommendedFood } from 'redux/statistics/statisticsSelectors';
+import { useEffect } from 'react';
+import { fetchAllDiaries } from 'redux/diary/diaryOperations';
 
 const RecommentedPart = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllDiaries());
+  }, [dispatch]);
   const recommendedList = useSelector(selectRecommendedFood);
   const FoodCollections = recommendedList.map(item => {
     return (
