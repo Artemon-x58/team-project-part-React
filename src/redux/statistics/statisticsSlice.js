@@ -95,7 +95,7 @@ const handleUpdateGoalFulfilled = (state, action) => {
   state.isRefreshing = false;
 };
 const handleUpdateWeightFulfilled = (state, action) => {
-  state.user.weight = action.payload.data;
+  state.user.weight = action.payload.weight;
   state.recommendedCalories = action.payload.recommendedCalories;
   state.recommendedWater = action.payload.recommendedWater;
   state.isRefreshing = false;

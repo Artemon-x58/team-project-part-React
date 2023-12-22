@@ -93,7 +93,7 @@ export const GoalMenu = styled.div`
   position: absolute;
   top: 156%;
   left: 0;
-
+  z-index: 1;
   width: 344px;
   height: 312px;
   padding: 20px 24px;
@@ -204,7 +204,7 @@ export const WeightMenu = styled.div`
   position: absolute;
   top: 156%;
   left: 0;
-
+  z-index: 1;
   width: 344px;
   height: 160px;
   padding: 20px 24px;

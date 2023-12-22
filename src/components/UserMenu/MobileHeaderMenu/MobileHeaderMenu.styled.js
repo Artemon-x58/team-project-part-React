@@ -121,7 +121,7 @@ export const GoalMenu = styled.div`
   transform: translateX(-50%);
 
   width: 300px;
-  height: 292px;
+  height: 333px;
 
   background: #0f0f0f;
   h2 {
@@ -185,19 +185,7 @@ export const Descriptions = styled.p`
     }
   }
 `;
-export const ButtonWrapper = styled.div`
-  margin-bottom: 48px;
-  @media screen and (min-width: 834px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 206px;
-  }
-  @media screen and (min-width: 1200px) {
-    align-items: start;
-    margin-bottom: 168px;
-  }
-`;
+export const ButtonWrapper = styled.div``;
 export const Button = styled.button`
   width: 300px;
   height: 36px;
