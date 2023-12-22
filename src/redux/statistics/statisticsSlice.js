@@ -47,7 +47,7 @@ const initialState = {
     carbohydrates: '',
   },
   recommendedWater: '',
-  recommendedFood: [],
+  recommendedFoodMain: [],
   caloriesToday: {},
   waterToday: {},
 
@@ -64,7 +64,7 @@ const handleLogInFulfilled = (state, action) => {
   state.caloriesToday = action.payload.caloriesToday;
   state.recommendedWater = action.payload.recommendedWater;
   state.waterToday = action.payload.waterToday;
-  state.recommendedFood = action.payload.recommendedFood;
+  state.recommendedFoodMain = action.payload.recommendedFoodForMainPage;
   state.snackSumNutrientsToday = action.payload.snackSumNutrientsToday;
   state.lunchtSumNutrientsToday = action.payload.lunchtSumNutrientsToday;
   state.dinnerSumNutrientsToday = action.payload.dinnerSumNutrientsToday;

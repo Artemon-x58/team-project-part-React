@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAllStatistics } from 'redux/statistics/statisticsOperations';
 import { InfoWrapper, StyledLink, Topic, Wrapper } from './MainPage.styled';
+import Recommented from 'components/Recommented/Recommented';
+import RecommentedPart from 'components/RecommentedPart/RecommentedPart';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -18,6 +20,8 @@ export const MainPage = () => {
   return (
     <>
       <Container>
+        <RecommentedPart />
+        <Recommented />
         <Wrapper>
           <Topic>Today</Topic>
           <StyledLink>On the way to the goal</StyledLink>

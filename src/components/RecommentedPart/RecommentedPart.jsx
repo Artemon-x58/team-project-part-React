@@ -1,15 +1,17 @@
+import FoodItem from 'components/FoodItem/FootItem';
 import { Container, Title, List, Btn } from './Recommented.styled';
-import FoodItem from 'components/assets/FoodItem/FootItem';
-import store from './store';
+import { useSelector } from 'react-redux';
+import { selectRecommendedFood } from 'redux/statistics/statisticsSelectors';
 
 const RecommentedPart = () => {
-  const FoodCollections = store.map(item => {
+  const recommendedList = useSelector(selectRecommendedFood);
+  const FoodCollections = recommendedList.map(item => {
     return (
       <FoodItem
-        key={item.title}
+        key={item.name}
         img={item.img}
-        title={item.title}
-        weight={item.weight}
+        title={item.name}
+        weight={item.amount}
         calories={item.calories}
       />
     );

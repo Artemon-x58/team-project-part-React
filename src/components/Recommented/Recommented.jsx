@@ -6,17 +6,27 @@ import {
   List,
 } from './Recommented.styled';
 import IllustrationSrc from '../../img/Ketogenic-diet.png';
-import store from './store';
-import FoodItem from 'components/assets/FoodItem/FootItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchAllRecommendedProduct } from 'redux/recommendedFood/recommendedOperations';
+import { selectDatarecommended } from 'redux/recommendedFood/recommendedSelectors';
+import FoodItem from 'components/FoodItem/FootItem';
 /*import RecommentedPart from 'components/RecommentedPart/RecommentedPart';*/
 const Recommented = () => {
-  const FoodCollections = store.map(item => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllRecommendedProduct());
+  }, [dispatch]);
+  const recommendedList = useSelector(selectDatarecommended);
+
+  const FoodCollections = recommendedList.map(item => {
     return (
       <FoodItem
-        key={item.title}
+        key={item.name}
         img={item.img}
-        title={item.title}
-        weight={item.weight}
+        title={item.name}
+        weight={item.amount}
         calories={item.calories}
       />
     );

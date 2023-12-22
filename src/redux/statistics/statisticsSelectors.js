@@ -4,7 +4,8 @@ export const selectRecommendedCalories = state =>
   state.statistics.recommendedCalories;
 export const selectRecommendedWater = state =>
   state.statistics.recommendedWater;
-export const selectRecommendedFood = state => state.statistics.recommendedFood;
+export const selectRecommendedFood = state =>
+  state.statistics.recommendedFoodMain;
 
 export const selectCaloriesToday = state => state.statistics.caloriesToday;
 export const selectWaterToday = state => state.statistics.waterToday;
