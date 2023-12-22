@@ -52,6 +52,7 @@ const handleRefreshUserFulfilled = (state, action) => {
 
 const handleRefreshUserRejected = state => {
   state.isRefreshing = false;
+  state.isLoggedIn = false;
   // state.isLoggedIn = false;
 };
 
@@ -62,6 +63,7 @@ const authSlice = createSlice({
     builder
       .addCase(register.pending, loading)
       .addCase(register.fulfilled, handleRegisterFulfilled)
+      .addCase(register.rejected, handleLogInRejected)
       .addCase(login.pending, loading)
       .addCase(login.fulfilled, handleLogInFulfilled)
       .addCase(login.rejected, handleLogInRejected)

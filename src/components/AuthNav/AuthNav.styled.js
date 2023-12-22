@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const AuthNavWrapper = styled.div``;
+export const AuthNavWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 export const AuthNavLink = styled(NavLink)`
   color: white;
 

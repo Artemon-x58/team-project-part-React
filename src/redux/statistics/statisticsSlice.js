@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllStatistics, addWaterIntake } from './statisticsOperations';
+import {
+  fetchAllStatistics,
+  addWaterIntake,
+  updateGoal,
+  updateWeight,
+} from './statisticsOperations';
 
 const initialState = {
   user: {
@@ -50,7 +55,9 @@ const initialState = {
   isRefreshing: false,
 };
 
-const fetchStatisticsPending = (state, action) => {};
+const fetchStatisticsPending = (state, action) => {
+  state.isRefreshing = true;
+};
 
 const handleLogInFulfilled = (state, action) => {
   state.user = action.payload.user;
@@ -69,14 +76,30 @@ const handleAddWaterIntakeFulfilled = (state, action) => {
   const { water, date } = action.payload.data;
   state.waterToday = { water, date };
 };
+const handleUpdateGoalFulfilled = (state, action) => {
+  state.user.yourGoal = action.payload.yourGoal;
+  state.recommendedCalories = action.payload.newRecommended;
+  state.isRefreshing = false;
+};
+const handleUpdateWeightFulfilled = (state, action) => {
+  state.user.weight = action.payload.data;
+  state.recommendedCalories = action.payload.recommendedCalories;
+  state.recommendedWater = action.payload.recommendedWater;
+  state.isRefreshing = false;
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
-    builder.addCase(fetchAllStatistics.pending, fetchStatisticsPending);
-    builder.addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled);
-    builder.addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled);
+    builder
+      .addCase(fetchAllStatistics.pending, fetchStatisticsPending)
+      .addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled)
+      .addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled)
+      .addCase(updateGoal.pending, fetchStatisticsPending)
+      .addCase(updateGoal.fulfilled, handleUpdateGoalFulfilled)
+      .addCase(updateWeight.pending, fetchStatisticsPending)
+      .addCase(updateWeight.fulfilled, handleUpdateWeightFulfilled);
   },
 });
 

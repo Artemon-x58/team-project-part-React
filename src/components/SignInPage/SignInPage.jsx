@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 
 import Tracker from '../../img/Sport-and-fitness-tracker.png';
-import { Container } from 'components/Container/Container.styled';
+
 import {
   ButtonWrapper,
   InputWrapper,
@@ -20,6 +20,7 @@ import {
   RedirectionLink,
   RedirectionWrapper,
   ForgotLink,
+  StyledErrorMessage,
 } from './SignInPage.styled';
 import { login } from 'redux/auth/authOperations';
 import { selectIsRefreshing } from 'redux/auth/authSelectors';
@@ -50,58 +51,54 @@ export const SignInPage = () => {
   };
 
   return (
-    <Container>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {!isRefreshing ? (
-          <Form autoComplete="off">
-            <StepWrapper>
-              <ImageWrapper>
-                <img src={Tracker} alt="avatar" />
-              </ImageWrapper>
-              <FormikFieldsWrapper>
-                <Title>Sign in</Title>
-                <Descriptions>
-                  You need to login to use the service
-                </Descriptions>
-                <InputWrapper>
-                  <label htmlFor="email"></label>
-                  <Input
-                    type="text"
-                    id="email"
-                    name="email"
-                    placeholder="E-mail"
-                  />
-                  <ErrorMessage name="email" component="div" />
-                  <label htmlFor="password"></label>
-                  <Input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                  />
-                  <ErrorMessage name="password" component="div" />
-                </InputWrapper>
-                <ButtonWrapper>
-                  <Button type="submit">Sign In</Button>
-                  <ForgotLink to="/forgot-password">
-                    Forgot your password?
-                  </ForgotLink>
-                </ButtonWrapper>
-                <RedirectionWrapper>
-                  <Redirection>If you don't have an account yet</Redirection>
-                  <RedirectionLink to="/signup">Sign up</RedirectionLink>
-                </RedirectionWrapper>
-              </FormikFieldsWrapper>
-            </StepWrapper>
-          </Form>
-        ) : (
-          <Loader />
-        )}
-      </Formik>
-    </Container>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {!isRefreshing ? (
+        <Form autoComplete="off">
+          <StepWrapper>
+            <ImageWrapper>
+              <img src={Tracker} alt="avatar" />
+            </ImageWrapper>
+            <FormikFieldsWrapper>
+              <Title>Sign in</Title>
+              <Descriptions>You need to login to use the service</Descriptions>
+              <InputWrapper>
+                <label htmlFor="email"></label>
+                <Input
+                  type="text"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                />
+                <ErrorMessage name="email" component={StyledErrorMessage} />
+                <label htmlFor="password"></label>
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <ErrorMessage name="password" component={StyledErrorMessage} />
+              </InputWrapper>
+              <ButtonWrapper>
+                <Button type="submit">Sign In</Button>
+                <ForgotLink to="/forgot-password">
+                  Forgot your password?
+                </ForgotLink>
+              </ButtonWrapper>
+              <RedirectionWrapper>
+                <Redirection>If you don't have an account yet</Redirection>
+                <RedirectionLink to="/signup">Sign up</RedirectionLink>
+              </RedirectionWrapper>
+            </FormikFieldsWrapper>
+          </StepWrapper>
+        </Form>
+      ) : (
+        <Loader />
+      )}
+    </Formik>
   );
 };

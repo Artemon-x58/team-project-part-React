@@ -27,3 +27,27 @@ export const addWaterIntake = createAsyncThunk(
     }
   }
 );
+
+export const updateGoal = createAsyncThunk(
+  'statistics/updateGoal',
+  async (value, thunkAPI) => {
+    try {
+      const { data } = await axios.put('/user/goal', value);
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
+
+export const updateWeight = createAsyncThunk(
+  'statistics/updateWeight',
+  async (value, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/user/weight', value);
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
