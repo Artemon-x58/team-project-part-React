@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllStatistics, addWaterIntake } from './statisticsOperations';
+import {
+  fetchAllStatistics,
+  addWaterIntake,
+  removeWaterIntake,
+} from './statisticsOperations';
 
 const initialState = {
   user: {
@@ -50,7 +54,9 @@ const initialState = {
   isRefreshing: false,
 };
 
-const fetchStatisticsPending = (state, action) => {};
+const fetchStatisticsPending = (state, action) => {
+  state.isRefreshing = true;
+};
 
 const handleLogInFulfilled = (state, action) => {
   state.user = action.payload.user;
@@ -68,6 +74,18 @@ const handleLogInFulfilled = (state, action) => {
 const handleAddWaterIntakeFulfilled = (state, action) => {
   const { water, date } = action.payload.data;
   state.waterToday = { water, date };
+  state.isRefreshing = false;
+};
+
+const handleRemoveWaterIntakeFulfilled = (state, action) => {
+  const responseData = action.payload;
+
+  if (responseData) {
+    const { water } = responseData;
+    state.waterToday = { water };
+  }
+
+  state.isRefreshing = false;
 };
 
 const authSlice = createSlice({
@@ -76,7 +94,13 @@ const authSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchAllStatistics.pending, fetchStatisticsPending);
     builder.addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled);
+    builder.addCase(addWaterIntake.pending, fetchStatisticsPending);
     builder.addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled);
+    builder.addCase(removeWaterIntake.pending, fetchStatisticsPending);
+    builder.addCase(
+      removeWaterIntake.fulfilled,
+      handleRemoveWaterIntakeFulfilled
+    );
   },
 });
 

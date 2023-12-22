@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux';
 // import { selectIsRefreshing } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { WelcomePage } from './WelcomePage/WelcomePage';
-import { SignUpPage } from './SignUpPage/SignUpPage';
-import { SignInPage } from './SignInPage/SignInPage';
+import { WelcomePage } from '../pages/WelcomePage/WelcomePage';
+import { SignUpPage } from '../pages/SignUpPage/SignUpPage';
+import { SignInPage } from '../pages/SignInPage/SignInPage';
 import { ForgotPasswordPage } from './ForgotPasswordPage/ForgotPasswordPage';
 import { Toaster } from 'react-hot-toast';
 
 import { RestrictedRoute } from 'routes/RestrictedRoute';
-import { MainPage } from './MainPage/MainPage';
+import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from './Recommented/Recommented';
 import { Diary } from './Diary/Diary';

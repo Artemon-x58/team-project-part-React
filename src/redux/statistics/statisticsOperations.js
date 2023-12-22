@@ -27,3 +27,18 @@ export const addWaterIntake = createAsyncThunk(
     }
   }
 );
+
+export const removeWaterIntake = createAsyncThunk(
+  'statistics/removeWaterIntake',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.delete('/user/water-intake', {
+        water: 0,
+      });
+
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
