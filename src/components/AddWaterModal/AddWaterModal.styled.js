@@ -4,7 +4,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   column-gap: 8px;
-  width: 100%;
+  max-width: 166px;
   padding: 8px 10px;
   border: none;
   border-radius: 12px;
@@ -63,6 +63,11 @@ export const ModalInput = styled.input`
   background-color: #0f0f0f;
   color: #fff;
 
+  &:focus-visible {
+    outline: 1px solid ${({ hasError }) => (hasError ? 'red' : '#4670ed')};
+    border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#4670ed')};
+  }
+
   &::placeholder {
     font-size: 14px;
     font-style: normal;
@@ -97,4 +102,11 @@ export const ModalButtonCansel = styled.button`
   border: none;
   background: none;
   color: #b6b6b6;
+`;
+
+export const ErrorMessage = styled.div`
+  position: absolute;
+  bottom: 111px;
+  color: red;
+  font-size: 8px;
 `;

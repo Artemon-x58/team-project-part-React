@@ -26,7 +26,7 @@ export const Body = styled.div`
   padding: 16px 12px;
 
   @media screen and (min-width: 834px) {
-    max-width: 380px;
+    max-width: 336px;
     height: 192px;
     padding: 24px 22px;
   }
@@ -57,6 +57,7 @@ export const Value = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: 1.1;
+  min-width: 89px;
 
   @media screen and (min-width: 834px) {
     font-size: 32px;
@@ -68,6 +69,7 @@ export const ValueWrapper = styled.div`
   flex-direction: column;
   row-gap: 8px;
   margin-bottom: 16px;
+  width: 100%;
 
   @media screen and (min-width: 834px) {
     flex-direction: row;
@@ -91,6 +93,7 @@ export const Unit = styled.span`
 `;
 
 export const WaterInfo = styled.div`
+  position: relative;
   display: flex;
   column-gap: 20px;
 
@@ -103,7 +106,7 @@ export const WaterInfoWrapper = styled.div`
   margin-top: 24px;
 
   @media screen and (min-width: 834px) {
-    /* margin-top: 57px; */
+    margin-top: 33px;
   }
 `;
 
@@ -140,4 +143,13 @@ export const PercentageText = styled.span`
   font-weight: 600;
   line-height: 1.3;
   color: #b6c3ff;
+`;
+
+export const BusketIcon = styled.svg`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 `;

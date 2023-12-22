@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllStatistics, addWaterIntake } from './statisticsOperations';
+import {
+  fetchAllStatistics,
+  addWaterIntake,
+  removeWaterIntake,
+} from './statisticsOperations';
 
 const initialState = {
   user: {
@@ -73,6 +77,17 @@ const handleAddWaterIntakeFulfilled = (state, action) => {
   state.isRefreshing = false;
 };
 
+const handleRemoveWaterIntakeFulfilled = (state, action) => {
+  const responseData = action.payload;
+
+  if (responseData) {
+    const { water } = responseData;
+    state.waterToday = { water };
+  }
+
+  state.isRefreshing = false;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -81,6 +96,11 @@ const authSlice = createSlice({
     builder.addCase(fetchAllStatistics.fulfilled, handleLogInFulfilled);
     builder.addCase(addWaterIntake.pending, fetchStatisticsPending);
     builder.addCase(addWaterIntake.fulfilled, handleAddWaterIntakeFulfilled);
+    builder.addCase(removeWaterIntake.pending, fetchStatisticsPending);
+    builder.addCase(
+      removeWaterIntake.fulfilled,
+      handleRemoveWaterIntakeFulfilled
+    );
   },
 });
 
