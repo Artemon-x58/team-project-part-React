@@ -1,12 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from 'components/Header/Header';
-import { StyledSharedLayout } from './SharedLayout.styled';
+import { Container } from 'components/Container/Container.styled';
 
 export const SharedLayout = () => {
   return (
-    <StyledSharedLayout>
+    <>
       <Header />
-      <Outlet />
-    </StyledSharedLayout>
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 };

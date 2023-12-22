@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 
 import Tracker from '../../img/Sport-and-fitness-tracker.png';
-import { Container } from 'components/Container/Container.styled';
+
 import {
   Button,
   ButtonWrapper,
@@ -18,6 +18,7 @@ import {
   RedirectionLink,
   RedirectionWrapper,
   StepWrapper,
+  StyledErrorMessage,
   Title,
 } from './ForgotPasswordPage.styled';
 import { forgotPassword } from 'redux/auth/authOperations';
@@ -49,48 +50,46 @@ export const ForgotPasswordPage = () => {
   };
   return (
     <>
-      <Container>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {!isRefreshing ? (
-            <Form autoComplete="off">
-              <StepWrapper>
-                <ImageWrapper>
-                  <img src={Tracker} alt="avatar" />
-                </ImageWrapper>
-                <FormikFieldsWrapper>
-                  <Title>Forgot your password</Title>
-                  <Descriptions>
-                    We will send you an email with recovery instructions
-                  </Descriptions>
-                  <InputWrapper>
-                    <label htmlFor="email"></label>
-                    <Input
-                      type="text"
-                      id="email"
-                      name="email"
-                      placeholder="E-mail"
-                    />
-                    <ErrorMessage name="email" component="div" />
-                  </InputWrapper>
-                  <ButtonWrapper>
-                    <Button type="submit">Send</Button>
-                  </ButtonWrapper>
-                  <RedirectionWrapper>
-                    <Redirection>Do you already have an account?</Redirection>
-                    <RedirectionLink to="/signin">Sign in</RedirectionLink>
-                  </RedirectionWrapper>
-                </FormikFieldsWrapper>
-              </StepWrapper>
-            </Form>
-          ) : (
-            <Loader />
-          )}
-        </Formik>
-      </Container>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {!isRefreshing ? (
+          <Form autoComplete="off">
+            <StepWrapper>
+              <ImageWrapper>
+                <img src={Tracker} alt="avatar" />
+              </ImageWrapper>
+              <FormikFieldsWrapper>
+                <Title>Forgot your password</Title>
+                <Descriptions>
+                  We will send you an email with recovery instructions
+                </Descriptions>
+                <InputWrapper>
+                  <label htmlFor="email"></label>
+                  <Input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                  />
+                  <ErrorMessage name="email" component={StyledErrorMessage} />
+                </InputWrapper>
+                <ButtonWrapper>
+                  <Button type="submit">Send</Button>
+                </ButtonWrapper>
+                <RedirectionWrapper>
+                  <Redirection>Do you already have an account?</Redirection>
+                  <RedirectionLink to="/signin">Sign in</RedirectionLink>
+                </RedirectionWrapper>
+              </FormikFieldsWrapper>
+            </StepWrapper>
+          </Form>
+        ) : (
+          <Loader />
+        )}
+      </Formik>
     </>
   );
 };

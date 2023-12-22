@@ -14,6 +14,10 @@ export const UserName = styled.p`
   font-weight: 400;
   line-height: 16px;
   color: #fff;
+  @media screen and (min-width: 834px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
 `;
 export const AvatarWrapper = styled.div`
   width: 24px;

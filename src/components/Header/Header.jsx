@@ -1,20 +1,24 @@
 import { useSelector } from 'react-redux';
 
-import { NavWrapper, LogoLink, Styledheader } from './Header.styled';
-import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/authSelectors';
+import { HeaderWrapper, LogoLink, Styledheader } from './Header.styled';
+import { selectIsLoggedIn } from 'redux/auth/authSelectors';
 
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserMenu } from 'components/UserMenu/UserMenu';
+import { Container } from 'components/Container/Container.styled';
 
 export const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isLoadingCurrentUser = useSelector(selectIsRefreshing);
 
   return (
     <Styledheader>
-      <LogoLink to="/">HealthyHub</LogoLink>
+      <Container>
+        <HeaderWrapper>
+          <LogoLink to="/">HealthyHub</LogoLink>
 
-      {!isLoggedIn && !isLoadingCurrentUser ? <AuthNav /> : <UserMenu />}
+          {!isLoggedIn ? <AuthNav /> : <UserMenu />}
+        </HeaderWrapper>
+      </Container>
     </Styledheader>
   );
 };
