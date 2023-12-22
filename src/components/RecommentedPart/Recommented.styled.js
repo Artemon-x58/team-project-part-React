@@ -3,6 +3,18 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 676px;
   height: 278px;
+
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 835px) and (max-width: 1200px) {
+    margin: 0 auto;
+    width: 780px;
+    height: 278px;
+  }
 `;
 
 export const Title = styled.h2`
@@ -12,6 +24,15 @@ export const Title = styled.h2`
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
+
+  @media screen and (min-width: 320px) and (max-width: 833px) {
+    color: Color-Primary-White;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
 `;
 
 export const List = styled.ul`
@@ -19,6 +40,11 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  @media screen and (min-width: 835px) and (max-width: 1200px) {
+    & > li {
+      width: 360px;
+    }
+  }
 `;
 
 export const Btn = styled.button`
