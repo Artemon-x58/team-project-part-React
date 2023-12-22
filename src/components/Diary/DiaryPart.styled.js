@@ -118,3 +118,9 @@ export const MealRecordWrap = styled.div`
   font-weight: 500;
   line-height: 20px;
 `;
+
+export const BasketIcon = styled.svg`
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+`;

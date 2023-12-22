@@ -5,6 +5,8 @@ import {
   updateWeight,
   addWaterIntake,
   removeWaterIntake,
+  addFoodIntake,
+  removeFoodIntake,
 } from './statisticsOperations';
 
 const initialState = {
@@ -74,7 +76,7 @@ const handleLogInFulfilled = (state, action) => {
 };
 
 const handleAddWaterIntakeFulfilled = (state, action) => {
-  const { water, date } = action.payload.data;
+  const { water, date } = action.payload.addedWater;
   state.waterToday = { water, date };
   state.isRefreshing = false;
 };
@@ -101,6 +103,57 @@ const handleUpdateWeightFulfilled = (state, action) => {
   state.isRefreshing = false;
 };
 
+const handleAddFoodIntakeFulfilled = (state, action) => {
+  const { mealType, newCaloriesAndDate, newSumNutrientsPerDay } =
+    action.payload;
+
+  switch (mealType) {
+    case 'breakfast':
+      state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    case 'lunch':
+      state.lunchtSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    case 'dinner':
+      state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    case 'snack':
+      state.snackSumNutrientsToday = newSumNutrientsPerDay;
+      break;
+    default:
+      break;
+  }
+
+  state.caloriesToday = newCaloriesAndDate;
+  state.isRefreshing = false;
+};
+
+const handleRemoveFoodIntakeFulfilled = (state, action) => {
+  const {
+    newCaloriesAndDate: { newCaloriesAndDate },
+    mealType,
+  } = action.payload;
+
+  switch (mealType) {
+    case 'breakfast':
+      state.breakfastSumNutrientsToday = newCaloriesAndDate;
+      break;
+    case 'lunch':
+      state.lunchtSumNutrientsToday = newCaloriesAndDate;
+      break;
+    case 'dinner':
+      state.dinnerSumNutrientsToday = newCaloriesAndDate;
+      break;
+    case 'snack':
+      state.snackSumNutrientsToday = newCaloriesAndDate;
+      break;
+    default:
+      break;
+  }
+
+  state.isRefreshing = false;
+};
+
 const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -115,7 +168,11 @@ const authSlice = createSlice({
       .addCase(updateWeight.pending, fetchStatisticsPending)
       .addCase(updateWeight.fulfilled, handleUpdateWeightFulfilled)
       .addCase(removeWaterIntake.pending, fetchStatisticsPending)
-      .addCase(removeWaterIntake.fulfilled, handleRemoveWaterIntakeFulfilled);
+      .addCase(removeWaterIntake.fulfilled, handleRemoveWaterIntakeFulfilled)
+      .addCase(addFoodIntake.pending, fetchStatisticsPending)
+      .addCase(addFoodIntake.fulfilled, handleAddFoodIntakeFulfilled)
+      .addCase(removeFoodIntake.pending, fetchStatisticsPending)
+      .addCase(removeFoodIntake.fulfilled, handleRemoveFoodIntakeFulfilled);
   },
 });
 
