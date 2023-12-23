@@ -10,7 +10,7 @@ export const StepWrapper = styled.div`
   }
   @media screen and (min-width: 1200px) {
     flex-direction: row;
-    align-items: center;
+    align-items: start;
     justify-content: center;
   }
 `;
@@ -36,6 +36,9 @@ export const FormikFieldsWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-top: 80px;
   }
 `;
 export const Title = styled.h2`
@@ -105,6 +108,17 @@ export const Input = styled(Field)`
     line-height: 20px;
     color: #b6b6b6;
   }
+`;
+export const StyledErrorMessage = styled.div`
+  color: #e74a3b;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: -16px;
+  margin-bottom: -18px;
 `;
 export const ButtonWrapper = styled.div`
   margin-bottom: 56px;

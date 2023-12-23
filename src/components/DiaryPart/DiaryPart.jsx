@@ -12,9 +12,18 @@ import {
   TitleWrap,
   WrapMeal,
   WrapMealName,
+  BasketIcon,
 } from './DiaryPart.styled';
 import { useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  selectBreakfastSumNutrientsToday,
+  selectDinnerSumNutrientsToday,
+  selectLunchtSumNutrientsToday,
+  selectSnackSumNutrientsToday,
+} from 'redux/statistics/statisticsSelectors';
+import { removeFoodIntake } from 'redux/statistics/statisticsOperations';
 
 const recordedValues = {
   breakfast: true,
@@ -23,9 +32,16 @@ const recordedValues = {
   snack: false,
 };
 export const DiaryPart = () => {
-  const [isRecorded, setIsRecorded] = useState(recordedValues);
+  const [isRecorded, ,] = useState(recordedValues);
   const [isOpen, setOpen] = useState(false);
   const [mealName, setMealName] = useState('');
+  const dispatch = useDispatch();
+
+  const breakfastNutrients = useSelector(selectBreakfastSumNutrientsToday);
+  const lunchNutrients = useSelector(selectLunchtSumNutrientsToday);
+  const dinnerNutrients = useSelector(selectDinnerSumNutrientsToday);
+  const snackNutrients = useSelector(selectSnackSumNutrientsToday);
+
   const handleOpen = partMeal => () => {
     setOpen(true);
     setMealName(partMeal);
@@ -53,18 +69,19 @@ export const DiaryPart = () => {
           {isRecorded.breakfast ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:
+                <MealValue>{breakfastNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{breakfastNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{breakfastNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('breakfast')}>
@@ -87,18 +104,19 @@ export const DiaryPart = () => {
           {isRecorded.lunch ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:
+                <MealValue>{lunchNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{lunchNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{lunchNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon onClick={() => dispatch(removeFoodIntake('lunch'))}>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('lunch')}>
@@ -121,18 +139,19 @@ export const DiaryPart = () => {
           {isRecorded.dinner ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:{' '}
+                <MealValue>{dinnerNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{dinnerNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{dinnerNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('dinner')}>
@@ -154,18 +173,19 @@ export const DiaryPart = () => {
           {isRecorded.snack ? (
             <MealContainList>
               <MealContain>
-                Carbonohidrates: <MealValue>20</MealValue>
+                Carbonohidrates:{' '}
+                <MealValue>{snackNutrients.carbohydrates}</MealValue>
               </MealContain>
               <MealContain>
-                Protein: <MealValue>20</MealValue>
+                Protein: <MealValue>{snackNutrients.protein}</MealValue>
               </MealContain>
               <MealContain>
-                Fat: <MealValue>20</MealValue>
+                Fat: <MealValue>{snackNutrients.fat}</MealValue>
               </MealContain>
               {/*TODO: Change to one li after adding Contain base*/}
-              <svg width="20px" height="20px">
+              <BasketIcon>
                 <use xlinkHref={`${Icons}#icon-basket`} />
-              </svg>
+              </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('snack')}>

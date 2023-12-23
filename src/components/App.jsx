@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-// import { selectIsRefreshing } from 'redux/auth/authSelectors';
 import { refreshUser } from 'redux/auth/authOperations';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { WelcomePage } from '../pages/WelcomePage/WelcomePage';
@@ -15,12 +14,10 @@ import { RestrictedRoute } from 'routes/RestrictedRoute';
 import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from './Recommented/Recommented';
-import { Diary } from './Diary/Diary';
-import { DiaryPart } from './DiaryPart/DiaryPart';
+import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
 
 export const App = () => {
   const dispatch = useDispatch();
-  // const isLoadingCurrentUser = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -28,8 +25,7 @@ export const App = () => {
 
   return (
     <>
-      {/* {!isLoadingCurrentUser && ( */}
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route
             index
@@ -56,19 +52,30 @@ export const App = () => {
             }
           />
 
-          <Route path="forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="setting" element={<div>"Сторінка налаштувань"</div>} />
+          <Route
+            path="forgot-password"
+            element={
+              <RestrictedRoute
+                redirectTo="/main"
+                component={<ForgotPasswordPage />}
+              />
+            }
+          />
           <Route
             path="main"
             element={
               <PrivateRoute redirectTo="/signin" component={<MainPage />} />
             }
           />
+          <Route
+            path="setting"
+            element={
+              <PrivateRoute redirectTo="/setting" component={<ProfileMain />} />
+            }
+          />
         </Route>
       </Routes>
-
-      <Toaster /> */}
-      <Diary></Diary>
+      <Toaster />
     </>
   );
 };
