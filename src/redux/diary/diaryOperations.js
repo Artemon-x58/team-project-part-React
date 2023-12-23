@@ -34,7 +34,7 @@ export const deleteDiaresById = createAsyncThunk(
   async ({ id, title }, thunkAPI) => {
     try {
       const { data } = await axios.delete(`user/food-intake/${id}`, {
-        meals: title,
+        params: { meals: title },
       });
       return data;
     } catch ({ message }) {
@@ -48,7 +48,12 @@ export const updateDiaresById = createAsyncThunk(
   async ({ id, diary }, thunkAPI) => {
     try {
       const { data } = await axios.put(`user/food-intake/${id}`, {
-        diary,
+        meals: diary.meals,
+        title: diary.title,
+        calories: diary.calories,
+        carbohydrates: diary.carbohydrates,
+        protein: diary.protein,
+        fat: diary.fat,
       });
       return data;
     } catch ({ message }) {

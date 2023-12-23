@@ -12,28 +12,24 @@ const initialState = {
   dinner: [],
   snack: [],
   breakfastSumNutrientsToday: {
-    calories: '',
-    carbohydrates: '',
-    protein: '',
-    fat: '',
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
   },
   dinnerSumNutrientsToday: {
-    calories: '',
-    carbohydrates: '',
-    protein: '',
-    fat: '',
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
   },
   lunchSumNutrientsToday: {
-    calories: '',
-    carbohydrates: '',
-    protein: '',
-    fat: '',
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
   },
   snackSumNutrientsToday: {
-    calories: '',
-    carbohydrates: '',
-    protein: '',
-    fat: '',
+    carbohydrates: 0,
+    protein: 0,
+    fat: 0,
   },
 
   isRefreshing: false,
@@ -55,14 +51,16 @@ const handlefetchAllDiariesFuldilled = (state, action) => {
   state.lunch = action.payload.lunch;
   state.dinner = action.payload.dinner;
   state.snack = action.payload.snack;
+  state.snackSumNutrientsToday = action.payload.snackSumNutrientsToday;
+  state.lunchtSumNutrientsToday = action.payload.lunchtSumNutrientsToday;
+  state.dinnerSumNutrientsToday = action.payload.dinnerSumNutrientsToday;
+  state.breakfastSumNutrientsToday = action.payload.breakfastSumNutrientsToday;
   state.isRefreshing = false;
 };
 
 const handleAddDiariesFuldilled = (state, action) => {
   const { breakfast, lunch, dinner, snack, newSumNutrientsPerDay } =
     action.payload;
-
-  console.log(lunch);
 
   if (breakfast) {
     state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
@@ -80,32 +78,51 @@ const handleAddDiariesFuldilled = (state, action) => {
     state.snackSumNutrientsToday = newSumNutrientsPerDay;
     state.snack = snack;
   }
-
-  // state = {
-  //   ...state,
-  //   ...(breakfast && {
-  //     breakfast: [...state.breakfast, ...breakfast],
-  //     breakfastSumNutrientsToday: { ...newSumNutrientsPerDay },
-  //   }),
-  //   ...(lunch && {
-  //     lunch: lunch, // Перезаписываем lunch
-  //     lunchtSumNutrientsToday: { ...newSumNutrientsPerDay },
-  //   }),
-  //   ...(dinner && {
-  //     dinner: [...state.dinner, ...dinner],
-  //     dinnerSumNutrientsToday: { ...newSumNutrientsPerDay },
-  //   }),
-  //   ...(snack && {
-  //     snack: [...state.snack, ...snack],
-  //     snackSumNutrientsToday: { ...newSumNutrientsPerDay },
-  //   }),
-  //   isRefreshing: false,
-  // };
 };
 
-const handleDeleteDiaresById = (state, action) => {};
+const handleDeleteDiaresById = (state, action) => {
+  const { breakfast, lunch, dinner, snack, newSumNutrientsPerDay } =
+    action.payload;
 
-const handleupdateDiaresById = (state, action) => {};
+  if (breakfast) {
+    state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
+    state.breakfast = breakfast;
+  }
+  if (lunch) {
+    state.lunchSumNutrientsToday = newSumNutrientsPerDay;
+    state.lunch = lunch;
+  }
+  if (dinner) {
+    state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
+    state.dinner = dinner;
+  }
+  if (snack) {
+    state.snackSumNutrientsToday = newSumNutrientsPerDay;
+    state.snack = snack;
+  }
+};
+
+const handleUpdateDiaresById = (state, action) => {
+  const { breakfast, lunch, dinner, snack, newSumNutrientsPerDay } =
+    action.payload;
+
+  if (breakfast) {
+    state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
+    state.breakfast = breakfast;
+  }
+  if (lunch) {
+    state.lunchSumNutrientsToday = newSumNutrientsPerDay;
+    state.lunch = lunch;
+  }
+  if (dinner) {
+    state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
+    state.dinner = dinner;
+  }
+  if (snack) {
+    state.snackSumNutrientsToday = newSumNutrientsPerDay;
+    state.snack = snack;
+  }
+};
 
 const diaresSlice = createSlice({
   name: 'diares',
@@ -122,7 +139,7 @@ const diaresSlice = createSlice({
       .addCase(deleteDiaresById.fulfilled, handleDeleteDiaresById)
       .addCase(deleteDiaresById.rejected, handleRejected)
       .addCase(updateDiaresById.pending, handlePending)
-      .addCase(updateDiaresById.fulfilled, handleupdateDiaresById)
+      .addCase(updateDiaresById.fulfilled, handleUpdateDiaresById)
       .addCase(updateDiaresById.rejected, handleRejected);
   },
 });

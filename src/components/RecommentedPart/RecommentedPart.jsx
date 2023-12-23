@@ -7,10 +7,11 @@ import {
   addDiaries,
   deleteDiaresById,
   fetchAllDiaries,
+  updateDiaresById,
 } from 'redux/diary/diaryOperations';
 
 const RecommentedPart = () => {
-  const name = 'snack';
+  const name = 'dinner';
   const lunch = [
     {
       title: 'mango',
@@ -27,17 +28,32 @@ const RecommentedPart = () => {
       fat: 50,
     },
   ];
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllDiaries());
   }, [dispatch]);
+
   const addDiares = () => {
     dispatch(addDiaries({ title: name, array: lunch }));
   };
 
-  const deleteDiariesById = () => {
-    dispatch(deleteDiaresById());
+  const deleteDiariesById = id => {
+    dispatch(deleteDiaresById({ id, title: 'dinner' }));
   };
+
+  const diary = {
+    meals: 'dinner',
+    title: 'kust',
+    calories: 100,
+    carbohydrates: 1400,
+    protein: 50,
+    fat: 10,
+  };
+  const handleUpdateDiaresById = id => {
+    dispatch(updateDiaresById({ id, diary }));
+  };
+
   const recommendedList = useSelector(selectRecommendedFood);
   const FoodCollections = recommendedList.map(item => {
     return (
@@ -55,8 +71,18 @@ const RecommentedPart = () => {
       <button type="submit" onClick={addDiares}>
         ADD DIARY
       </button>
-      <button type="submit" onClick={deleteDiariesById}>
+      <button
+        type="submit"
+        onClick={() => deleteDiariesById('6587093e01a983acce846ab3')}
+      >
         DELETE DIARIES BY ID
+      </button>
+      <button
+        type="submit"
+        onClick={() => handleUpdateDiaresById('65871b221da15baa743b08cf')}
+      >
+        {' '}
+        UPDATE DIARY BY ID
       </button>
       <Title>Recommented food</Title>
       <List> {FoodCollections}</List>
