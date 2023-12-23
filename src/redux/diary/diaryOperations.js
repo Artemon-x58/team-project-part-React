@@ -19,9 +19,9 @@ export const addDiaries = createAsyncThunk(
     try {
       const { data } = await axios.post('user/food-intake', {
         meals: title,
-        entries: [array],
+        entries: array,
       });
-
+      console.log(data);
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });

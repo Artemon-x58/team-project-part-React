@@ -33,7 +33,7 @@ export const Profile = () => {
     <Wrapper>
       <UserName>{userData.name}</UserName>
       <AvatarWrapper>
-        <img src={`https:${userData.avatarURL}`} alt={userData.name} />
+        <img src={`${userData.avatarURL}`} alt={userData.name} />
       </AvatarWrapper>
       <SettingWrapper>
         <OpenSettingBtn type="button" onClick={toggleShowSetting}>

@@ -23,7 +23,7 @@ const initialState = {
     protein: '',
     fat: '',
   },
-  lunchtSumNutrientsToday: {
+  lunchSumNutrientsToday: {
     calories: '',
     carbohydrates: '',
     protein: '',
@@ -62,26 +62,45 @@ const handleAddDiariesFuldilled = (state, action) => {
   const { breakfast, lunch, dinner, snack, newSumNutrientsPerDay } =
     action.payload;
 
-  state = {
-    ...state,
-    ...(breakfast && {
-      breakfast: [...state.breakfast, ...breakfast],
-      breakfastSumNutrientsToday: { ...newSumNutrientsPerDay },
-    }),
-    ...(lunch && {
-      lunch: [...state.lunch, ...lunch],
-      lunchtSumNutrientsToday: { ...newSumNutrientsPerDay },
-    }),
-    ...(dinner && {
-      dinner: [...state.dinner, ...dinner],
-      dinnerSumNutrientsToday: { ...newSumNutrientsPerDay },
-    }),
-    ...(snack && {
-      snack: [...state.snack, ...snack],
-      snackSumNutrientsToday: { ...newSumNutrientsPerDay },
-    }),
-    isRefreshing: false,
-  };
+  console.log(lunch);
+
+  if (breakfast) {
+    state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
+    state.breakfast = breakfast;
+  }
+  if (lunch) {
+    state.lunchSumNutrientsToday = newSumNutrientsPerDay;
+    state.lunch = lunch;
+  }
+  if (dinner) {
+    state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
+    state.dinner = dinner;
+  }
+  if (snack) {
+    state.snackSumNutrientsToday = newSumNutrientsPerDay;
+    state.snack = snack;
+  }
+
+  // state = {
+  //   ...state,
+  //   ...(breakfast && {
+  //     breakfast: [...state.breakfast, ...breakfast],
+  //     breakfastSumNutrientsToday: { ...newSumNutrientsPerDay },
+  //   }),
+  //   ...(lunch && {
+  //     lunch: lunch, // Перезаписываем lunch
+  //     lunchtSumNutrientsToday: { ...newSumNutrientsPerDay },
+  //   }),
+  //   ...(dinner && {
+  //     dinner: [...state.dinner, ...dinner],
+  //     dinnerSumNutrientsToday: { ...newSumNutrientsPerDay },
+  //   }),
+  //   ...(snack && {
+  //     snack: [...state.snack, ...snack],
+  //     snackSumNutrientsToday: { ...newSumNutrientsPerDay },
+  //   }),
+  //   isRefreshing: false,
+  // };
 };
 
 const handleDeleteDiaresById = (state, action) => {};
