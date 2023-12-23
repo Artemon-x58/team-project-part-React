@@ -62,3 +62,34 @@ export const removeWaterIntake = createAsyncThunk(
     }
   }
 );
+
+export const addFoodIntake = createAsyncThunk(
+  'statistics/addFoodIntake',
+  async ({ meals, entries }) => {
+    try {
+      const response = await axios.post('/user/food-intake', {
+        meals,
+        entries,
+      });
+
+      return response.data;
+    } catch (error) {
+      throw error.response.data;
+    }
+  }
+);
+
+export const removeFoodIntake = createAsyncThunk(
+  'statistics/removeFoodIntake',
+  async (mealType, thunkAPI) => {
+    try {
+      const { data } = await axios.delete('/user/food-intake', {
+        data: { meals: mealType },
+      });
+
+      return { newCaloriesAndDate: data.newCaloriesAndDate, mealType };
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
