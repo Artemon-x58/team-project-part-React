@@ -54,6 +54,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
     }
   };
   const handleSubmit = () => {
+    console.log('Submitting the form');
     handleClose();
   };
   const handleCancel = () => {
@@ -75,10 +76,13 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
           <Formik
             initialValues={generateInitialValues()}
             validationSchema={generateSchemaValues()}
-            onSubmit={handleSubmit}
+            onSubmit={(values, { setSubmitting }) => {
+              handleSubmit();
+              setSubmitting(false);
+            }}
           >
-            {({ values }) => (
-              <Form autoComplete="off">
+            {({ values, handleSubmit }) => (
+              <Form autoComplete="off" onSubmit={handleSubmit}>
                 <MealWrapper>
                   <Title>Record your meal</Title>
                   <FormikFieldsWrapper>
@@ -109,9 +113,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
                       </MealRecordWrap>
                     )}
                     <ButtonWrapper>
-                      <ButtonCancel type="reset" onClick={handleCancel}>
-                        Cancel
-                      </ButtonCancel>
+                      <ButtonCancel onClick={handleCancel}>Cancel</ButtonCancel>
                       <ButtonConfirm type="submit">Confirm</ButtonConfirm>
                     </ButtonWrapper>
                   </FormikFieldsWrapper>

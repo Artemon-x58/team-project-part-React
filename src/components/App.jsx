@@ -16,6 +16,7 @@ import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from './Recommented/Recommented';
 import { Diary } from './Diary/Diary';
+import { DiaryPart } from './DiaryPart/DiaryPart';
 
 export const App = () => {
   const dispatch = useDispatch();
