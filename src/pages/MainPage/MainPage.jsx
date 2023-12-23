@@ -1,4 +1,3 @@
-import { Container } from 'components/Container/Container.styled';
 import DailyGoal from 'components/DailyGoal';
 import { DiaryPart } from 'components/DiaryPart/DiaryPart';
 import Food from 'components/Food';
