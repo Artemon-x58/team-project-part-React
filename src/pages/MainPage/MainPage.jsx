@@ -6,7 +6,14 @@ import Water from 'components/Water';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAllStatistics } from 'redux/statistics/statisticsOperations';
-import { InfoWrapper, StyledLink, Topic, Wrapper } from './MainPage.styled';
+import {
+  FoodWrapepr,
+  InfoWrapper,
+  StyledLink,
+  Topic,
+  Wrapper,
+} from './MainPage.styled';
+import RecommentedPart from 'components/RecommentedPart/RecommentedPart';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
@@ -17,21 +24,20 @@ export const MainPage = () => {
 
   return (
     <>
-      <Container>
-        <Wrapper>
-          <Topic>Today</Topic>
-          <StyledLink>On the way to the goal</StyledLink>
-        </Wrapper>
-        <InfoWrapper>
-          <DailyGoal />
-          <Water />
-          <Food />
-        </InfoWrapper>
+      <Wrapper>
+        <Topic>Today</Topic>
+        <StyledLink>On the way to the goal</StyledLink>
+      </Wrapper>
+      <InfoWrapper>
+        <DailyGoal />
+        <Water />
+        <Food />
+      </InfoWrapper>
 
-        <div>
-          <DiaryPart />
-        </div>
-      </Container>
+      <FoodWrapepr>
+        <DiaryPart />
+        <RecommentedPart />
+      </FoodWrapepr>
     </>
   );
 };
