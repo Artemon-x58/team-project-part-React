@@ -25,17 +25,18 @@ import {
   HeightContainer,
   ArrowBack,
   WrapNameValue,
-  Wrap,
   BigWrap,
   Space,
   DishNameEdit,
   DishStatEdit,
   DishValueEdit,
-  Circle,
-  CircleG,
-  CircleR,
+  CircleWrap,
+  CircleCancel,
+  CircleSave,
+  CircleDelete,
 } from './Diary.styled';
 import { useState } from 'react';
+import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
 
 const initialValues = {
   1: true,
@@ -53,12 +54,14 @@ const mealPart = ['breakfast', 'lunch', 'dinner', 'snack'];
 
 export const Diary = () => {
   const [isDish, setDish] = useState(initialValues);
+  const [mealName, setMealName] = useState('');
   const [editMode, setEditMode] = useState({
     1: false,
     2: false,
     3: false,
     4: false,
   });
+  const [isOpen, setOpen] = useState(false);
   const [dishName, setDishName] = useState('English breakfast');
   const [dishValueCarbonoh, setDishValueCarbonoh] = useState(20);
   const [dishValueProt, setDishValueProt] = useState(20);
@@ -67,7 +70,13 @@ export const Diary = () => {
   const capitalizeFirstLetter = word => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
   };
-
+  const handleOpen = partMeal => () => {
+    setOpen(true);
+    setMealName(partMeal);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleEdit = number => {
     setEditMode({ ...editMode, [number]: true });
     setSaveDish(prevSaveDish => ({
@@ -130,43 +139,60 @@ export const Diary = () => {
                             <>
                               <DishNameEdit
                                 type="text"
+                                id={`${name}-${number}-dishname`}
                                 value={dishName}
                                 onChange={e => setDishName(e.target.value)}
                               />
-                              <CircleR onClick={() => handleCancel(number)} />
-                              <CircleG onClick={() => handleSave(number)} />
+                              <CircleWrap>
+                                <CircleSave onClick={() => handleSave(number)}>
+                                  <use xlinkHref={`${Icons}#icon-check`} />
+                                </CircleSave>
+                                <CircleCancel
+                                  onClick={() => handleCancel(number)}
+                                >
+                                  <use xlinkHref={`${Icons}#icon-x`} />
+                                </CircleCancel>
+                                <CircleDelete>
+                                  <use xlinkHref={`${Icons}#icon-basket`} />
+                                </CircleDelete>
+                              </CircleWrap>
+
                               <StatWrap>
-                                <DishStatEdit htmlFor={`carbonoh-${number}`}>
+                                <DishStatEdit
+                                  htmlFor={`${name}-${number}-carb`}
+                                >
                                   Carb.
                                 </DishStatEdit>
                                 <DishValueEdit
                                   type="number"
-                                  id={`carbonoh-${number}`}
-                                  name={`carbonoh-${number}`}
+                                  id={`${name}-${number}-carb`}
+                                  name={`${name}-${number}-carb`}
                                   value={dishValueCarbonoh}
                                   onChange={e =>
                                     setDishValueCarbonoh(e.target.value)
                                   }
                                 />
-                                <DishStatEdit htmlFor={`prot-${number}`}>
+                                <DishStatEdit
+                                  htmlFor={`${name}-${number}-prot`}
+                                >
                                   Prot.
                                 </DishStatEdit>
                                 <DishValueEdit
                                   type="number"
-                                  id={`prot-${number}`}
-                                  name={`prot-${number}`}
+                                  id={`${name}-${number}-prot`}
+                                  name={`${name}-${number}-prot`}
                                   value={dishValueProt}
                                   onChange={e =>
                                     setDishValueProt(e.target.value)
                                   }
                                 />
-                                <DishStatEdit htmlFor={`fat-${number}`}>
+                                <DishStatEdit htmlFor={`${name}-${number}-fat`}>
                                   Fat.
                                 </DishStatEdit>
                                 <DishValueEdit
                                   type="number"
-                                  id={`fat-${number}`}
-                                  name={`fat-${number}`}
+                                  id={`${name}-${number}-fat`}
+                                  name={`${name}-${number}-fat`}
                                   value={dishValueFat}
                                   onChange={e =>
                                     setDishValueFat(e.target.value)
@@ -176,7 +202,9 @@ export const Diary = () => {
                             </>
                           ) : (
                             <>
-                              <DishName>{dishName}</DishName>
+                              <DishName id={`${name}-${number}-dishname`}>
+                                {dishName}
+                              </DishName>
                               <EditWrap onClick={() => handleEdit(number)}>
                                 <svg width="16px" height="16px">
                                   <use xlinkHref={`${Icons}#icon-edit`} />
@@ -185,11 +213,17 @@ export const Diary = () => {
                               </EditWrap>
                               <StatWrap>
                                 <DishStat>Carb.</DishStat>
-                                <DishValue>{dishValueCarbonoh}</DishValue>
+                                <DishValue id={`${name}-${number}-carb`}>
+                                  {dishValueCarbonoh}
+                                </DishValue>
                                 <DishStat>Prot.</DishStat>
-                                <DishValue>{dishValueProt}</DishValue>
+                                <DishValue id={`${name}-${number}-prot`}>
+                                  {dishValueProt}
+                                </DishValue>
                                 <DishStat>Fat.</DishStat>
-                                <DishValue>{dishValueFat}</DishValue>
+                                <DishValue id={`${name}-${number}-fat`}>
+                                  {dishValueFat}
+                                </DishValue>
                               </StatWrap>
                             </>
                           )}
@@ -198,7 +232,10 @@ export const Diary = () => {
                         <>
                           {!isDish[1] ||
                             (isDish[number - 1] !== false ? (
-                              <MealRecordWrap key={number - 0.5}>
+                              <MealRecordWrap
+                                key={number - 0.5}
+                                onClick={handleOpen(name)}
+                              >
                                 <svg width="16px" height="16px">
                                   <use xlinkHref={`${Icons}#icon-add`} />
                                 </svg>
@@ -216,6 +253,11 @@ export const Diary = () => {
             </MealWrap>
           ))}
         </BigWrap>
+        <RecordDiaryModal
+          handleClose={handleClose}
+          open={isOpen}
+          mealName={mealName}
+        />
       </HeightContainer>
     </Container>
   );

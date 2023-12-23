@@ -198,10 +198,10 @@ export const DishName = styled.p`
   line-height: 20px;
 
   @media screen and (min-width: 834px) {
-    margin-right: 225px;
+    margin-right: 215px;
   }
   @media screen and (min-width: 1440px) {
-    margin-right: 170px;
+    margin-right: 150px;
   }
 `;
 export const StatWrap = styled.div`
@@ -282,28 +282,82 @@ export const Space = styled.div`
   }
 `;
 export const DishNameEdit = styled.input`
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
   @media screen and (min-width: 834px) {
+    margin-right: 165px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 60px;
   }
 `;
 export const DishStatEdit = styled.label`
+  color: #b6b6b6;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-right: 5px;
   @media screen and (min-width: 834px) {
+    display: none;
   }
 `;
 export const DishValueEdit = styled.input`
+  width: 30px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 5px;
   @media screen and (min-width: 834px) {
+    width: 50px;
+    margin-right: 20px;
   }
 `;
-export const CircleG = styled.button`
-  background: green;
-  width: 16px;
-  height: 16px;
+export const CircleSave = styled.svg`
+  width: 14px;
+  height: 14px;
+  fill: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
   @media screen and (min-width: 834px) {
+    width: 16px;
+    height: 16px;
   }
 `;
-export const CircleR = styled.button`
-  background: red;
-  width: 16px;
-  height: 16px;
+export const CircleCancel = styled.svg`
+  width: 14px;
+  height: 14px;
+  fill: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
   @media screen and (min-width: 834px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+export const CircleDelete = styled.svg`
+  width: 14px;
+  height: 14px;
+  fill: #fff;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  @media screen and (min-width: 834px) {
+    width: 16px;
+    height: 16px;
+  }
+`;
+export const CircleWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  @media screen and (min-width: 834px) {
+    gap: 8px;
+    order: 2;
+  }
+  @media screen and (min-width: 1440px) {
+    gap: 6px;
+    order: 2;
   }
 `;
