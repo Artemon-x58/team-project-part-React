@@ -7,6 +7,8 @@ import {
   removeWaterIntake,
   addFoodIntake,
   removeFoodIntake,
+  updateUser,
+  updateAvatar,
 } from './statisticsOperations';
 
 const initialState = {
@@ -153,9 +155,18 @@ const handleRemoveFoodIntakeFulfilled = (state, action) => {
 
   state.isRefreshing = false;
 };
+const fetchStatisticsFulfild = (state, action) => {
+  state.isRefreshing = false;
+};
+const updateAvatarPending = (state, action) => {
+  state.isRefreshing = true;
+};
+const updateAvatarFulfilled = (state, action) => {
+  state.user.avatarURL = action.payload.avatarURL;
+};
 
-const authSlice = createSlice({
-  name: 'auth',
+const statisticsSlice = createSlice({
+  name: 'statistics',
   initialState,
   extraReducers: builder => {
     builder
@@ -172,8 +183,12 @@ const authSlice = createSlice({
       .addCase(addFoodIntake.pending, fetchStatisticsPending)
       .addCase(addFoodIntake.fulfilled, handleAddFoodIntakeFulfilled)
       .addCase(removeFoodIntake.pending, fetchStatisticsPending)
-      .addCase(removeFoodIntake.fulfilled, handleRemoveFoodIntakeFulfilled);
+      .addCase(removeFoodIntake.fulfilled, handleRemoveFoodIntakeFulfilled)
+      .addCase(updateUser.pending, fetchStatisticsPending)
+      .addCase(updateUser.fulfilled, fetchStatisticsFulfild)
+      .addCase(updateAvatar.pending, updateAvatarPending)
+      .addCase(updateAvatar.fulfilled, updateAvatarFulfilled);
   },
 });
 
-export const statisticsReducer = authSlice.reducer;
+export const statisticsReducer = statisticsSlice.reducer;

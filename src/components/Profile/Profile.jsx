@@ -25,6 +25,14 @@ export const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const createAvatarUrl = url => {
+    if (url.includes('https:')) {
+      return url;
+    } else {
+      return `https:${userData.avatarURL}`;
+    }
+  };
+
   const toggleShowSetting = () => {
     setShowSetting(showSetting => !showSetting);
   };
@@ -33,7 +41,7 @@ export const Profile = () => {
     <Wrapper>
       <UserName>{userData.name}</UserName>
       <AvatarWrapper>
-        <img src={`${userData.avatarURL}`} alt={userData.name} />
+        <img src={createAvatarUrl(userData.avatarURL)} alt={userData.name} />
       </AvatarWrapper>
       <SettingWrapper>
         <OpenSettingBtn type="button" onClick={toggleShowSetting}>
@@ -43,7 +51,13 @@ export const Profile = () => {
         </OpenSettingBtn>
         {showSetting && (
           <SettingMenu>
-            <SettingBtn type="button" onClick={() => navigate('/setting')}>
+            <SettingBtn
+              type="button"
+              onClick={() => {
+                toggleShowSetting();
+                navigate('/setting');
+              }}
+            >
               <svg>
                 <use xlinkHref={`${Icons}#icon-settings`} />
               </svg>
