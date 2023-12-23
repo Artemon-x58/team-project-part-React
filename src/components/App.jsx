@@ -75,7 +75,6 @@ export const App = () => {
           />
         </Route>
       </Routes>
-
       <Toaster />
     </>
   );

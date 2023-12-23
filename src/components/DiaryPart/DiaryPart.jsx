@@ -32,7 +32,7 @@ const recordedValues = {
   snack: false,
 };
 export const DiaryPart = () => {
-  const [isRecorded, ,] = useState(recordedValues);
+  const [isRecorded] = useState(recordedValues);
   const [isOpen, setOpen] = useState(false);
   const [mealName, setMealName] = useState('');
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { Container } from 'components/Container/Container.styled';
 import DailyGoal from 'components/DailyGoal';
-import { DiaryPart } from 'components/Diary/DiaryPart';
+import { DiaryPart } from 'components/DiaryPart/DiaryPart';
 import Food from 'components/Food';
 import Water from 'components/Water';
 import { useEffect } from 'react';
