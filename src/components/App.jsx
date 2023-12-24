@@ -15,6 +15,7 @@ import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from '../pages/Recommented/Recommented';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
+import DashboardPage from 'pages/DashboardPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -77,6 +78,15 @@ export const App = () => {
             path="recommended-food"
             element={
               <PrivateRoute redirectTo="/" component={<Recommented />} />
+            }
+          />
+          <Route
+            path="graphs"
+            element={
+              <PrivateRoute
+                redirectTo="/graphs"
+                component={<DashboardPage />}
+              />
             }
           />
         </Route>

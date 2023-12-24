@@ -24,7 +24,7 @@ export const Title = styled.h2`
     padding-left: 10px;
     padding-top: 16px;
   }
-  @media screen and (min-width: 834px) and (max-width: 1200px) {
+  @media screen and (min-width: 834px) and (max-width: 1440px) {
     padding-left: 27px;
   }
 `;
@@ -44,7 +44,7 @@ export const Wrapper = styled.div`
     row-gap: 20px;
   }
 
-  @media screen and (min-width: 834px) and (max-width: 1200px) {
+  @media screen and (min-width: 834px) and (max-width: 1440px) {
     max-width: 834px;
     margin: 0;
     row-gap: 24px;
@@ -91,7 +91,7 @@ export const List = styled.ul`
     flex-direction: column;
     align-items: center;
   }
-  @media screen and (min-width: 834px) and (max-width: 1200px) {
+  @media screen and (min-width: 834px) and (max-width: 1440px) {
     width: auto;
     justify-content: center;
     gap: 20px;
