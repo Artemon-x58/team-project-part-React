@@ -54,7 +54,7 @@ export const DiaryPart = () => {
       <DiaryWrapper>
         <TitleWrap>
           <Title>Diary</Title>
-          <MoreLink to="">See more</MoreLink>
+          <MoreLink to="/diary">See more</MoreLink>
         </TitleWrap>
 
         <WrapMeal ismealrecorded={isRecorded.breakfast.toString()}>
