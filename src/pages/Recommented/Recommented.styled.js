@@ -83,7 +83,7 @@ export const List = styled.ul`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #ecf0f1;
+    background-color: #050505;
   }
   @media screen and (min-width: 320px) and (max-width: 833px) {
     max-width: 320px;
