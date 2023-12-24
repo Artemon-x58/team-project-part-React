@@ -19,16 +19,11 @@ const authPersistConfig = {
   storage,
   whitelist: ['token'],
 };
-const statisticsPersistConfig = {
-  key: 'statistics',
-  storage,
-  whitelist: ['user'],
-};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    statistics: persistReducer(statisticsPersistConfig, statisticsReducer),
+    statistics: statisticsReducer,
     recommendedFoodPage: recommendedReducer,
   },
   middleware: getDefaultMiddleware =>
