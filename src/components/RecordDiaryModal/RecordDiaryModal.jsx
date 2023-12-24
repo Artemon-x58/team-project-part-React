@@ -17,9 +17,12 @@ import {
 } from './RecordDiaryModal.styled';
 import { AddRecordMeal } from './AddRecordMeal';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addFoodIntake } from 'redux/statistics/statisticsOperations';
 
 export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
   const [numComponents, setNumComponents] = useState(1);
+  const dispatch = useDispatch();
 
   const generateInitialValues = () => {
     const initialValues = {};
@@ -54,8 +57,31 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
       setNumComponents(prevNum => prevNum + 1);
     }
   };
+
   const handleFormSubmit = values => {
-    console.log('Submitting the form', values);
+    const formattedEntries = [];
+
+    // Цикл по всім рядкам у введеннях
+    for (let i = 1; i <= numComponents; i++) {
+      // Створюємо об'єкт для кожного рядка
+      const entry = {
+        title: values[`${i}-name`],
+        calories: values[`${i}-calories`],
+        carbohydrates: values[`${i}-carbonoh`],
+        protein: values[`${i}-protein`],
+        fat: values[`${i}-fat`],
+      };
+
+      // Додаємо об'єкт до масиву
+      formattedEntries.push(entry);
+    }
+
+    console.log('>>>>>>>>>>>', {
+      meals: mealName,
+      entries: formattedEntries,
+    });
+
+    dispatch(addFoodIntake({ meals: mealName, entries: formattedEntries }));
     handleClose();
   };
 
