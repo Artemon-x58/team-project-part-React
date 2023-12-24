@@ -34,6 +34,7 @@ import {
   CircleCancel,
   CircleSave,
   CircleDelete,
+  MoreLink,
 } from './Diary.styled';
 import { useEffect, useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
@@ -126,9 +127,11 @@ export const Diary = () => {
     <Container>
       <HeightContainer>
         <TitleWrap>
-          <ArrowBack>
-            <use xlinkHref={`${Icons}#icon-arrow-right`} />
-          </ArrowBack>
+          <MoreLink to="/main">
+            <ArrowBack>
+              <use xlinkHref={`${Icons}#icon-arrow-right`} />
+            </ArrowBack>
+          </MoreLink>
           <Title>Diary</Title>
         </TitleWrap>
         <BigWrap>

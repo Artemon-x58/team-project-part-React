@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeightContainer = styled.div`
@@ -359,5 +360,13 @@ export const CircleWrap = styled.div`
   @media screen and (min-width: 1440px) {
     gap: 6px;
     order: 2;
+  }
+`;
+export const MoreLink = styled(Link)`
+  width: 16px;
+  height: 16px;
+  @media screen and (min-width: 834px) {
+    width: 24px;
+    height: 24px;
   }
 `;
