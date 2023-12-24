@@ -40,7 +40,7 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
           id={generateId('name')}
           name={generateId('name')}
           placeholder="The name of the product or dish"
-          value={values[generateId('name')]}
+          value={values[generateId('name')] || ''}
           isvalue={'name'}
           err={hasError(generateId('name'))}
           onChange={e => handleInputChange(generateId('name'), e)}
@@ -56,7 +56,7 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
           placeholder="Carbonoh."
           isvalue={'carbonoh'}
           err={hasError(generateId('carbonoh'))}
-          value={values[generateId('carbonoh')]}
+          value={values[generateId('carbonoh')] || ''}
           onChange={e => handleInputChange(generateId('carbonoh'), e)}
         />
         <ErrorMsg name={generateId('carbonoh')} component="div" />
@@ -68,7 +68,7 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
           id={generateId('protein')}
           name={generateId('protein')}
           placeholder="Protein"
-          value={values[generateId('protein')]}
+          value={values[generateId('protein')] || ''}
           isvalue={'protein'}
           err={hasError(generateId('protein'))}
           onChange={e => handleInputChange(generateId('protein'), e)}
@@ -86,7 +86,7 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
             placeholder="Fat"
             isvalue={'fat'}
             err={hasError(generateId('fat'))}
-            value={values[generateId('fat')]}
+            value={values[generateId('fat')] || ''}
             onChange={e => handleInputChange(generateId('fat'), e)}
           />
           <ErrorMsg name={generateId('fat')} component="div" />
@@ -100,7 +100,7 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
             placeholder="Calories"
             isvalue={'calories'}
             err={hasError(generateId('calories'))}
-            value={values[generateId('calories')]}
+            value={values[generateId('calories')] || ''}
             onChange={e => handleInputChange(generateId('calories'), e)}
           />
           <ErrorMsg name={generateId('calories')} component="div" />
