@@ -84,10 +84,10 @@ export const removeFoodIntake = createAsyncThunk(
   async (mealType, thunkAPI) => {
     try {
       const { data } = await axios.delete('/user/food-intake', {
-        data: { meals: mealType },
+        params: { meals: mealType },
       });
 
-      return { newCaloriesAndDate: data.newCaloriesAndDate, mealType };
+      return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });
     }

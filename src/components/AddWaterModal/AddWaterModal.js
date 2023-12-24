@@ -98,7 +98,7 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
               placeholder="Enter milliliters"
               value={values.amount}
               onChange={handleChange}
-              hasError={!!errors.amount}
+              className={errors.amount ? 'hasError' : ''}
             />
             {errors.amount && <ErrorMessage>*{errors.amount}</ErrorMessage>}
             <ModalButtonConfirm style={{ width: '100%' }} type="submit">
