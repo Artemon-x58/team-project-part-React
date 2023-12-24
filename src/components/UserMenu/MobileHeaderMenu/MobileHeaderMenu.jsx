@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -44,6 +44,7 @@ import {
   CurrentDate,
   ValueDate,
   DateWrapper,
+  StyledErrorMessage,
 } from './MobileHeaderMenu.styled';
 import { Profile } from '../../Profile/Profile';
 import { useDispatch, useSelector } from 'react-redux';
@@ -54,7 +55,11 @@ import {
 import { Loader } from 'components/Loader/Loader';
 
 const validationSchema = Yup.object().shape({
-  weight: Yup.number().positive().min(5).max(300).required(),
+  weight: Yup.number()
+    .positive('Weight must be a positive value')
+    .min(5, 'The value cannot be less than 5')
+    .max(300, 'The value cannot exceed 300')
+    .required('Weight is required'),
 });
 
 export const MobileHeaderMenu = () => {
@@ -65,6 +70,7 @@ export const MobileHeaderMenu = () => {
   const userData = useSelector(selectDataUser);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectisRefreshing);
+  const menuRef = useRef();
 
   const toggleShowMenu = () => {
     setShowMenu(showMenu => {
@@ -81,6 +87,7 @@ export const MobileHeaderMenu = () => {
   const toggleShowWeight = () => {
     setShowWeight(showWeight => !showWeight);
   };
+
   const switchGoal = goal => {
     switch (goal) {
       case 'lose fat':
@@ -135,8 +142,23 @@ export const MobileHeaderMenu = () => {
     setShowWeight(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false);
+        setShowGoal(false);
+        setShowWeight(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <MobileMenuWrapper>
+    <MobileMenuWrapper ref={menuRef}>
       <OpenMenuBtn type="button" onClick={toggleShowMenu}>
         <svg>
           <use xlinkHref={`${Icons}#icon-menu-header-mobile`} />
@@ -271,7 +293,7 @@ export const MobileHeaderMenu = () => {
                   name="weight"
                   placeholder="Enter your weight"
                 />
-                <ErrorMessage name="weight" component="div" />
+                <ErrorMessage name="weight" component={StyledErrorMessage} />
               </InputWrapper>
 
               <ButtonWrapper>

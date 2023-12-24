@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -32,6 +32,7 @@ import {
   Name,
   OpenMenuBtn,
   Span,
+  StyledErrorMessage,
   StyledFields,
   StyledForm,
   Subtitle,
@@ -50,7 +51,11 @@ import {
 } from 'redux/statistics/statisticsOperations';
 
 const validationSchema = Yup.object().shape({
-  weight: Yup.number().positive().min(5).max(300).required(),
+  weight: Yup.number()
+    .positive('Weight must be a positive value')
+    .min(5, 'The value cannot be less than 5')
+    .max(300, 'The value cannot exceed 300')
+    .required('Weight is required'),
 });
 
 export const TablDeskHeaderMenu = () => {
@@ -58,6 +63,7 @@ export const TablDeskHeaderMenu = () => {
   const [showWeight, setShowWeight] = useState(false);
   const dispatch = useDispatch();
   const userData = useSelector(selectDataUser);
+  const menuRef = useRef();
 
   const initialValues = {
     yourGoal: `${userData.yourGoal}`,
@@ -67,10 +73,20 @@ export const TablDeskHeaderMenu = () => {
   };
 
   const toggleShowGoal = () => {
-    setShowGoal(showGoal => !showGoal);
+    setShowGoal(prevState => {
+      if (showWeight === true) {
+        setShowWeight(false);
+      }
+      return !prevState;
+    });
   };
   const toggleShowWeight = () => {
-    setShowWeight(showWeight => !showWeight);
+    setShowWeight(prevState => {
+      if (showGoal === true) {
+        setShowGoal(false);
+      }
+      return !prevState;
+    });
   };
   const switchGoal = goal => {
     switch (goal) {
@@ -116,9 +132,21 @@ export const TablDeskHeaderMenu = () => {
     dispatch(updateWeight(values));
     setShowWeight(false);
   };
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowGoal(false);
+        setShowWeight(false);
+      }
+    };
 
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
   return (
-    <MenuWrapper>
+    <MenuWrapper ref={menuRef}>
       <CardMenuWrapper>
         <CardItemWrapper>
           <ImgWrapper>
@@ -244,7 +272,7 @@ export const TablDeskHeaderMenu = () => {
                     name="weight"
                     placeholder="Enter your weight"
                   />
-                  <ErrorMessage name="weight" component="div" />
+                  <ErrorMessage name="weight" component={StyledErrorMessage} />
                 </InputWrapper>
 
                 <Button type="submit">Confirm</Button>

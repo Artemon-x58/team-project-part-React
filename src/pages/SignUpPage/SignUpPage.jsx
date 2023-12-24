@@ -44,35 +44,39 @@ import { Loader } from 'components/Loader/Loader';
 
 const validationSchemas = {
   step1: Yup.object().shape({
-    name: Yup.string().required('Please enter your name'),
-    email: Yup.string().email().required(),
-    password: Yup.string().required(),
+    name: Yup.string().required('Name is required'),
+    email: Yup.string()
+      .email('Please provide a valid email')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must contain more than 6 characters')
+      .required('Password is required'),
   }),
   step2: Yup.object().shape({
     yourGoal: Yup.string().required(),
   }),
   step3: Yup.object().shape({
     gender: Yup.string().required(),
-    age: Yup.number()
-      .required("Поле обов'язкове")
+    age: Yup.number('The value must be an integer')
+      .required('Age is required')
       .min(1)
-      .max(110)
-      .positive('Вік повинен бути додатнім числом'),
+      .max(110, 'The value cannot exceed 110')
+      .positive('Age must be a positive value'),
   }),
   step4: Yup.object().shape({
-    height: Yup.number()
-      .required("Поле обов'язкове")
-      .min(50)
-      .max(240)
-      .positive('Ріст повинен бути додатнім числом'),
-    weight: Yup.number()
-      .required("Поле обов'язкове")
-      .min(5)
-      .max(300)
-      .positive('Вага повинна бути додатнім числом'),
+    height: Yup.number('The value must be an integer')
+      .required('Height is required')
+      .min(50, 'The value cannot be less than 50')
+      .max(240, 'The value cannot exceed 240')
+      .positive('Height must be a positive value'),
+    weight: Yup.number('The value must be an integer')
+      .required('Weight is required')
+      .min(5, 'The value cannot be less than 5')
+      .max(300, 'The value cannot exceed 300')
+      .positive('Weight must be a positive value'),
   }),
   step5: Yup.object().shape({
-    kef: Yup.string().required("Поле обов'язкове"),
+    kef: Yup.string().required(),
   }),
 };
 
