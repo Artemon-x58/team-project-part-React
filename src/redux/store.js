@@ -1,3 +1,5 @@
+// store.js
+
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -12,6 +14,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { statisticsReducer } from './statistics/statisticsSlice';
+import diaryReducer from './diary/diarySlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -23,11 +26,17 @@ const statisticsPersistConfig = {
   storage,
   whitelist: ['user'],
 };
+const diaryPersistConfig = {
+  key: 'diary',
+  storage,
+  whitelist: ['breakfast', 'lunch', 'dinner', 'snack'],
+};
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     statistics: persistReducer(statisticsPersistConfig, statisticsReducer),
+    diary: diaryReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

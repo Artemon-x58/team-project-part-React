@@ -15,6 +15,7 @@ import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from './Recommented/Recommented';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
+import { Diary } from './Diary/Diary';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -72,6 +73,10 @@ export const App = () => {
             element={
               <PrivateRoute redirectTo="/setting" component={<ProfileMain />} />
             }
+          />
+          <Route
+            path="diary"
+            element={<PrivateRoute redirectTo="/diary" component={<Diary />} />}
           />
         </Route>
       </Routes>
