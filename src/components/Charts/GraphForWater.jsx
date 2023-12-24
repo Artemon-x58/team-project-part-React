@@ -15,11 +15,14 @@ import {
   TitleContainer,
   GraphsTitle,
   GraphsSubtitle,
-  GraphsCaption,
+  // GraphsCaption,
   Graph,
   GraphLabelBlock,
   GraphLabelContent,
 } from './Graphs.Styled';
+
+import { useSelector } from 'react-redux';
+import { averageValueWater } from 'redux/graphs/graphsSelectors';
 
 ChartJS.register(
   CategoryScale,
@@ -73,7 +76,7 @@ const GraphForWater = () => {
         offset: true,
         ticks: {
           color: '#B6B6B6',
-          padding: 6,
+          padding: 8,
           font: {
             family: 'Poppins',
             size: 10,
@@ -98,7 +101,7 @@ const GraphForWater = () => {
           },
           color: '#B6B6B6',
           stepSize: 1000,
-          callback: value => `${value / 1000} K`,
+          callback: value => `${value / 1000}L`,
           padding: 6,
           font: {
             family: 'Poppins',
@@ -140,12 +143,14 @@ const GraphForWater = () => {
     ],
   };
 
+    const water = useSelector(averageValueWater);
+
   return (
     <>
       <TitleContainer>
         <GraphsTitle>{'Water'}</GraphsTitle>
         <GraphsSubtitle>
-          Average value: <GraphsCaption>{1700 + ' ml'}</GraphsCaption>
+          Average value: <span>{`${water} ml`}</span>
         </GraphsSubtitle>
       </TitleContainer>
       <Graph>
