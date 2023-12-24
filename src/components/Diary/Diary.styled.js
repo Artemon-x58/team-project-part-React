@@ -115,6 +115,18 @@ export const MealContain = styled.p`
   font-weight: 400;
   line-height: 20px;
 `;
+export const MealContainCal = styled.p`
+  display: none;
+  @media screen and (min-width: 834px) {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: -70px;
+    margin-right: 20px;
+  }
+`;
 export const MealValue = styled.p`
   color: #b6b6b6;
   font-size: 14px;
@@ -287,10 +299,10 @@ export const DishNameEdit = styled.input`
   background: transparent;
   color: #fff;
   @media screen and (min-width: 834px) {
-    margin-right: 165px;
+    margin-right: 125px;
   }
   @media screen and (min-width: 1440px) {
-    margin-right: 60px;
+    margin-right: 70px;
   }
 `;
 export const DishStatEdit = styled.label`
@@ -298,22 +310,31 @@ export const DishStatEdit = styled.label`
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
-  margin-right: 5px;
+  margin-right: 4px;
   @media screen and (min-width: 834px) {
     display: none;
   }
 `;
 export const DishValueEdit = styled.input`
-  width: 30px;
+  width: 25px;
   border: 1px solid #fff;
   background: transparent;
   color: #fff;
   font-size: 12px;
   font-weight: 400;
-  margin-right: 5px;
+  margin-right: 4px;
+  &:last-child {
+    margin-right: 0;
+  }
   @media screen and (min-width: 834px) {
-    width: 50px;
-    margin-right: 20px;
+    width: 60px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 40px;
+    height: 20px;
+    margin-right: 5px;
   }
 `;
 export const CircleSave = styled.svg`
@@ -344,6 +365,7 @@ export const CircleDelete = styled.svg`
   fill: #fff;
   border: 1px solid #fff;
   border-radius: 50%;
+  stroke: #fff;
   @media screen and (min-width: 834px) {
     width: 16px;
     height: 16px;
@@ -368,5 +390,16 @@ export const MoreLink = styled(Link)`
   @media screen and (min-width: 834px) {
     width: 24px;
     height: 24px;
+  }
+`;
+export const StatEditWrap = styled.div`
+  display: flex;
+  @media screen and (min-width: 834px) {
+    order: 1;
+    gap: 32px;
+    margin-left: -65px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-left: -45px;
   }
 `;
