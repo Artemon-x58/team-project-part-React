@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
@@ -24,6 +24,7 @@ export const Profile = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const menuSettingRef = useRef();
 
   const createAvatarUrl = url => {
     if (url.includes('https:')) {
@@ -36,9 +37,24 @@ export const Profile = () => {
   const toggleShowSetting = () => {
     setShowSetting(showSetting => !showSetting);
   };
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        menuSettingRef.current &&
+        !menuSettingRef.current.contains(event.target)
+      ) {
+        setShowSetting(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <Wrapper>
+    <Wrapper ref={menuSettingRef}>
       <UserName>{userData.name}</UserName>
       <AvatarWrapper>
         <img src={createAvatarUrl(userData.avatarURL)} alt={userData.name} />
