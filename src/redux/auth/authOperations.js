@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://team-project-part-node.onrender.com/api';
-// axios.defaults.baseURL = 'http://localhost:5000/api';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -17,7 +16,6 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post('/auth/signup', credentials);
-      // setAuthHeader(res.toFormData.token);
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
@@ -31,7 +29,6 @@ export const forgotPassword = createAsyncThunk(
       const { data } = await axios.post('/auth/forgot-password', credentials);
       return data;
     } catch (err) {
-      // console.log(err);
       return thunkAPI.rejectWithValue(err.message);
     }
   }

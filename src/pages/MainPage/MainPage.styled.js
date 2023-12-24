@@ -12,12 +12,14 @@ export const Topic = styled.h1`
   }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled.button`
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.4;
   color: #b6b6b6;
+  background-color: transparent;
+  border: none;
 
   @media screen and (min-width: 834px) {
     font-size: 16px;
@@ -48,7 +50,7 @@ export const InfoWrapper = styled.div`
     align-items: center;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-wrap: nowrap;
   }
 `;
@@ -59,7 +61,7 @@ export const FoodWrapepr = styled.div`
   gap: 20px;
   padding-bottom: 80px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
   }
 `;

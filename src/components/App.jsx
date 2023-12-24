@@ -13,8 +13,9 @@ import { Toaster } from 'react-hot-toast';
 import { RestrictedRoute } from 'routes/RestrictedRoute';
 import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
-import Recommented from './Recommented/Recommented';
+import Recommented from '../pages/Recommented/Recommented';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
+import DashboardPage from 'pages/DashboardPage';
 import { Diary } from './Diary/Diary';
 
 export const App = () => {
@@ -71,12 +72,23 @@ export const App = () => {
           <Route
             path="setting"
             element={
-              <PrivateRoute redirectTo="/setting" component={<ProfileMain />} />
+              <PrivateRoute redirectTo="/" component={<ProfileMain />} />
             }
           />
           <Route
-            path="diary"
-            element={<PrivateRoute redirectTo="/diary" component={<Diary />} />}
+            path="recommended-food"
+            element={
+              <PrivateRoute redirectTo="/" component={<Recommented />} />
+            }
+          />
+          <Route
+            path="graphs"
+            element={
+              <PrivateRoute
+                redirectTo="/graphs"
+                component={<DashboardPage />}
+              />
+            }
           />
         </Route>
       </Routes>

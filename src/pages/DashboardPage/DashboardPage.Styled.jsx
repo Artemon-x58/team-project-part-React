@@ -126,13 +126,13 @@ export const SecondHeader = styled.h3`
 
 export const LineChartBlock = styled.div`
   display: flex;
-  @media screen and (min-width: 320px) {
-    flex-direction: column;
-  }
+  flex-direction: column;
+  
+
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     align-items: baseline;
-    justify-content: space-between;
+    gap: 20px;
   }
 `;
 

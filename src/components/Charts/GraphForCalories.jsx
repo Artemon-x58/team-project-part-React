@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+import { averageValueCalories } from 'redux/graphs/graphsSelectors';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -15,7 +18,7 @@ import {
   TitleContainer,
   GraphsTitle,
   GraphsSubtitle,
-  GraphsCaption,
+  // GraphsCaption,
   Graph,
   GraphLabelBlock,
   GraphLabelContent,
@@ -32,6 +35,13 @@ ChartJS.register(
 );
 
 const GraphForCalories = () => {
+
+
+
+
+
+
+
   const options = {
     interaction: {
       mode: 'index',
@@ -98,8 +108,8 @@ const GraphForCalories = () => {
           },
           color: '#B6B6B6',
           stepSize: 1000,
-          callback: value => `${value / 1000} K`,
-          padding: 6,
+          callback: value => `${value / 1000}K`,
+          padding: 8,
           font: {
             family: 'Poppins',
             size: 10,
@@ -140,14 +150,16 @@ const GraphForCalories = () => {
     ],
   };
 
+ 
+
   return (
     <>
-      <TitleContainer>
+      {/* <TitleContainer>
         <GraphsTitle>{'Calories'}</GraphsTitle>
         <GraphsSubtitle>
-          Average value: <GraphsCaption>{1700 + ' cal'}</GraphsCaption>
+          Average value: <span>{`${calories} cal`}</span>
         </GraphsSubtitle>
-      </TitleContainer>
+      </TitleContainer> */}
       <Graph>
         <Line data={data} options={options} />
         <GraphLabelBlock>

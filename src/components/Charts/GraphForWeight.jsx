@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import {
   List,
   Item,
@@ -6,9 +7,10 @@ import {
   TitleContainer,
   GraphsTitle,
   GraphsSubtitle,
-  GraphsCaption,
+  // GraphsCaption,
   Scale,
 } from './Graphs.Styled';
+import { averageValueWeight } from 'redux/graphs/graphsSelectors';
 
 const GraphForWeight = () => {
 
@@ -19,12 +21,14 @@ const GraphForWeight = () => {
     (i + 1).toString()
   );
 
+  const weight = useSelector(averageValueWeight);
+
   return (
     <>
       <TitleContainer>
         <GraphsTitle>Weight</GraphsTitle>
         <GraphsSubtitle>
-          Average value: <GraphsCaption>{110} kg</GraphsCaption>
+          Average value: <span>{`${weight} kg`}</span>
         </GraphsSubtitle>
       </TitleContainer>
       <Scale>

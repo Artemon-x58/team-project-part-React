@@ -13,16 +13,13 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { statisticsReducer } from './statistics/statisticsSlice';
 import { diariesReducer } from './diary/diarySlice';
+import { recommendedReducer } from './recommendedFood/recommendedSlice';
+import { graphsReducer } from './graphs/graphsSlice';
 
 const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
-};
-const statisticsPersistConfig = {
-  key: 'statistics',
-  storage,
-  whitelist: ['user'],
 };
 
 export const store = configureStore({
@@ -30,6 +27,9 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     statistics: persistReducer(statisticsPersistConfig, statisticsReducer),
     diaries: diariesReducer,
+    statistics: statisticsReducer,
+    recommendedFoodPage: recommendedReducer,
+    graphs: graphsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

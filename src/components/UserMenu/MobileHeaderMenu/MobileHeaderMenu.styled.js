@@ -202,7 +202,7 @@ export const Button = styled.button`
   @media screen and (min-width: 834px) {
     width: 380px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;
@@ -271,7 +271,7 @@ export const Input = styled(Field)`
   @media screen and (min-width: 834px) {
     max-width: 358px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 191px;
   }
 
@@ -282,4 +282,14 @@ export const Input = styled(Field)`
     line-height: 20px;
     color: #b6b6b6;
   }
+`;
+export const StyledErrorMessage = styled.div`
+  color: #e74a3b;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: -16px;
 `;

@@ -15,7 +15,7 @@ export const CardMenuWrapper = styled.div`
   height: 48px;
   margin-right: 73px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 350px;
     margin-right: 124px;
   }
@@ -181,7 +181,7 @@ export const Button = styled.button`
   line-height: 20px;
   color: black;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;
@@ -264,4 +264,14 @@ export const Input = styled(Field)`
     line-height: 20px;
     color: #b6b6b6;
   }
+`;
+export const StyledErrorMessage = styled.div`
+  color: #e74a3b;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: 4px;
 `;

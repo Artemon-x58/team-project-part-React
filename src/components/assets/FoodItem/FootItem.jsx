@@ -13,7 +13,8 @@ const FoodItem = ({ img, title, weight, calories }) => {
       <Wrapper>
         <Title>{title}</Title>
         <Text>
-          {weight} g<TextGrey>{calories} calories</TextGrey>
+          {weight}
+          <TextGrey> {calories} calories</TextGrey>
         </Text>
       </Wrapper>
     </Container>
