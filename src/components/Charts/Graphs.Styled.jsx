@@ -63,10 +63,10 @@ export const Graph = styled.div`
   margin-bottom: 8px;
   background-color: #0f0f0f;
 
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
 
   & canvas {
-    min-width: 676px;
+    padding: 0;
     width: 100%;
     margin: 0 auto;
   }
@@ -79,7 +79,8 @@ export const Graph = styled.div`
     /* padding: 25px 20px 24px 14px; */
 
     & canvas {
-      width: 100%;
+      padding: 0;
+
       min-height: 313px;
       margin: 0 auto;
     }
@@ -90,7 +91,7 @@ export const Graph = styled.div`
     /* padding: 25px 20px 24px 14px; */
     & canvas {
       padding: 0;
-      width: 100%;
+
       min-height: auto;
     }
   }

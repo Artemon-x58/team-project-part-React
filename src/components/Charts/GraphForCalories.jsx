@@ -35,13 +35,6 @@ ChartJS.register(
 );
 
 const GraphForCalories = () => {
-
-
-
-
-
-
-
   const options = {
     interaction: {
       mode: 'index',
@@ -149,8 +142,6 @@ const GraphForCalories = () => {
       },
     ],
   };
-
- 
 
   return (
     <>
