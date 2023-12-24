@@ -13,7 +13,6 @@ import {
   Wrapper,
 } from './MainPage.styled';
 import RecommentedPart from 'components/RecommentedPart/RecommentedPart';
-import Recommented from 'components/Recommented/Recommented';
 
 export const MainPage = () => {
   const dispatch = useDispatch();

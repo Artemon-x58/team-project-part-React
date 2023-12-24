@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { statisticsReducer } from './statistics/statisticsSlice';
+import { recommendedReducer } from './recommendedFood/recommendedSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,6 +29,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     statistics: persistReducer(statisticsPersistConfig, statisticsReducer),
+    recommendedFoodPage: recommendedReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

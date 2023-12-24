@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectDatarecommended } from 'redux/recommendedFood/recommendedSelectors';
 import { fetchAllRecommendedProduct } from 'redux/recommendedFood/recommendedOperations';
-import store from 'components/RecommentedPart/store';
 const Recommented = () => {
   const dispatch = useDispatch();
 
@@ -19,8 +18,7 @@ const Recommented = () => {
     dispatch(fetchAllRecommendedProduct());
   }, [dispatch]);
   const recommendedList = useSelector(selectDatarecommended);
-  console.log(recommendedList);
-  const FoodCollections = store.map(item => {
+  const FoodCollections = recommendedList.map(item => {
     return (
       <FoodItem
         key={item.name}
