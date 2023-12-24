@@ -1,5 +1,3 @@
-// store.js
-
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
@@ -25,11 +23,6 @@ const statisticsPersistConfig = {
   key: 'statistics',
   storage,
   whitelist: ['user'],
-};
-const diaryPersistConfig = {
-  key: 'diary',
-  storage,
-  whitelist: ['breakfast', 'lunch', 'dinner', 'snack'],
 };
 
 export const store = configureStore({
