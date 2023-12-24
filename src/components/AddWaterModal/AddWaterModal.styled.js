@@ -12,6 +12,10 @@ export const Button = styled.button`
   background: #e3ffa8;
 `;
 
+export const IconAdd = styled.svg`
+  stroke: #050505;
+`;
+
 export const ModalWrapper = styled.div`
   padding: 16px 12px;
 
