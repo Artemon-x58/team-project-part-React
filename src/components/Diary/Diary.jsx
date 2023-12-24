@@ -39,7 +39,11 @@ import {
 import { useEffect, useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchAllDiaries } from 'redux/diary/diaryOperations';
+import {
+  deleteDiariesById,
+  fetchAllDiaries,
+  updateDiariesById,
+} from 'redux/diary/diaryOperations';
 const validMealTypes = ['breakfast', 'lunch', 'dinner', 'snack'];
 
 const initialState = { title: '', carbohydrates: 0, protein: 0, fat: 0 };
@@ -50,6 +54,7 @@ export const Diary = () => {
   const [editMode, setEditMode] = useState({});
   const [mealName, setMealName] = useState('');
   const [isOpen, setOpen] = useState(false);
+  const [originalDish, setOriginalDish] = useState({});
   const capitalizeFirstLetter = word => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
   };
@@ -62,21 +67,61 @@ export const Diary = () => {
     setOpen(false);
   };
 
+  const handleDishDataChange = (field, value) => {
+    setCurrentDish(prev => {
+      const updatedDish = { ...prev, [field]: value };
+      console.log('Updated dish: ', updatedDish);
+      return updatedDish;
+    });
+  };
+
   const handleEdit = dish => {
     setEditMode(prev => ({ ...prev, [dish._id]: true }));
     setCurrentDish({ ...dish });
-  };
-
-  const handleDishDataChange = (field, value) => {
-    setCurrentDish(prev => ({ ...prev, [field]: value }));
+    setOriginalDish({ ...dish });
   };
 
   const handleCancel = dishId => {
+    setCurrentDish(originalDish);
     setEditMode(prev => ({ ...prev, [dishId]: false }));
   };
 
-  const handleSave = dishId => {
+  const handleSave = async (dishId, mealType) => {
+    const cleanedId = dishId.replace(/^"|"$/g, '');
+    dispatch(
+      updateDiariesById({
+        id: cleanedId,
+        diary: {
+          meals: mealType,
+          title: currentDish.title,
+          carbohydrates: currentDish.carbohydrates,
+          protein: currentDish.protein,
+          fat: currentDish.fat,
+        },
+      })
+    );
+    console.log('Отправка данных на сервер: ', {
+      id: cleanedId,
+      meals: mealType,
+      title: currentDish.title,
+      carbohydrates: currentDish.carbohydrates,
+      protein: currentDish.protein,
+      fat: currentDish.fat,
+    });
     setEditMode(prev => ({ ...prev, [dishId]: false }));
+  };
+  const handleDelete = async (dishId, mealType) => {
+    try {
+      await dispatch(
+        deleteDiariesById({
+          id: dishId,
+          title: mealType,
+        })
+      );
+      dispatch(fetchAllDiaries());
+    } catch (error) {
+      console.error('Ошибка при удалении:', error);
+    }
   };
   useEffect(() => {
     dispatch(fetchAllDiaries());
@@ -111,7 +156,7 @@ export const Diary = () => {
         const prevDish = mealData[i - 2] === undefined && i !== 1;
         if (dish !== undefined) {
           items.push(
-            <MealItem key={dish ? dish._id : `${mealType}-space-${i}`}>
+            <MealItem key={dish._id}>
               <Number>{i}</Number>
               {dish ? (
                 <Dish>
@@ -169,12 +214,19 @@ export const Diary = () => {
                         />
                       </StatWrap>
                       <CircleWrap>
-                        <CircleSave onClick={() => handleSave(dish._id)}>
+                        <CircleSave
+                          onClick={() => handleSave(dish._id, mealType)}
+                        >
                           <use xlinkHref={`${Icons}#icon-check`} />
                         </CircleSave>
                         <CircleCancel onClick={() => handleCancel(dish._id)}>
                           <use xlinkHref={`${Icons}#icon-x`} />
                         </CircleCancel>
+                        <CircleDelete
+                          onClick={() => handleDelete(dish._id, mealType)}
+                        >
+                          <use xlinkHref={`${Icons}#icon-basket`} />
+                        </CircleDelete>
                       </CircleWrap>
                     </>
                   ) : (
@@ -226,51 +278,49 @@ export const Diary = () => {
   };
 
   return (
-    <Container>
-      <HeightContainer>
-        <TitleWrap>
-          <MoreLink to="/main">
-            <ArrowBack>
-              <use xlinkHref={`${Icons}#icon-arrow-right`} />
-            </ArrowBack>
-          </MoreLink>
-          <Title>Diary</Title>
-        </TitleWrap>
-        <BigWrap>
-          {Object.keys(diaries)
-            .filter(mealType => validMealTypes.includes(mealType))
-            .map((mealType, index) => (
-              <MealWrap key={index}>
-                <WrapNameValue>
-                  <WrapMealName>
-                    <svg width="32px" height="32px">
-                      <use xlinkHref={`${Meals}#icon-${mealType}`} />
-                    </svg>
-                    <MealName>{capitalizeFirstLetter(mealType)}</MealName>
-                  </WrapMealName>
-                  <MealContainList>
-                    <MealContain>Carbonohidrates:</MealContain>
-                    <MealValue>20</MealValue>
-                    <MealContain>Protein:</MealContain>
-                    <MealValue>20</MealValue>
-                    <MealContain>Fat:</MealContain>
-                    <MealValue>20</MealValue>
-                  </MealContainList>
-                </WrapNameValue>
-                <ListWrap>
-                  <MealList>
-                    {renderMealItems(diaries[mealType], mealType)}
-                  </MealList>
-                </ListWrap>
-              </MealWrap>
-            ))}
-        </BigWrap>
-        <RecordDiaryModal
-          handleClose={handleClose}
-          open={isOpen}
-          mealName={mealName}
-        />
-      </HeightContainer>
-    </Container>
+    <HeightContainer>
+      <TitleWrap>
+        <MoreLink to="/main">
+          <ArrowBack>
+            <use xlinkHref={`${Icons}#icon-arrow-right`} />
+          </ArrowBack>
+        </MoreLink>
+        <Title>Diary</Title>
+      </TitleWrap>
+      <BigWrap>
+        {Object.keys(diaries)
+          .filter(mealType => validMealTypes.includes(mealType))
+          .map((mealType, index) => (
+            <MealWrap key={index}>
+              <WrapNameValue>
+                <WrapMealName>
+                  <svg width="32px" height="32px">
+                    <use xlinkHref={`${Meals}#icon-${mealType}`} />
+                  </svg>
+                  <MealName>{capitalizeFirstLetter(mealType)}</MealName>
+                </WrapMealName>
+                <MealContainList>
+                  <MealContain>Carbonohidrates:</MealContain>
+                  <MealValue>20</MealValue>
+                  <MealContain>Protein:</MealContain>
+                  <MealValue>20</MealValue>
+                  <MealContain>Fat:</MealContain>
+                  <MealValue>20</MealValue>
+                </MealContainList>
+              </WrapNameValue>
+              <ListWrap>
+                <MealList>
+                  {renderMealItems(diaries[mealType], mealType)}
+                </MealList>
+              </ListWrap>
+            </MealWrap>
+          ))}
+      </BigWrap>
+      <RecordDiaryModal
+        handleClose={handleClose}
+        open={isOpen}
+        mealName={mealName}
+      />
+    </HeightContainer>
   );
 };

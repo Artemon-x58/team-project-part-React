@@ -50,7 +50,6 @@ export const updateDiariesById = createAsyncThunk(
       const { data } = await axios.put(`user/food-intake/${id}`, {
         meals: diary.meals,
         title: diary.title,
-        calories: diary.calories,
         carbohydrates: diary.carbohydrates,
         protein: diary.protein,
         fat: diary.fat,
