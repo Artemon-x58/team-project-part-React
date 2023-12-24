@@ -16,6 +16,7 @@ import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from '../pages/Recommented/Recommented';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
 import DashboardPage from 'pages/DashboardPage';
+import { DiaryPage } from '../pages/DiaryPage/DiaryPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -87,6 +88,12 @@ export const App = () => {
                 redirectTo="/graphs"
                 component={<DashboardPage />}
               />
+            }
+          />
+          <Route
+            path="diary"
+            element={
+              <PrivateRoute redirectTo="/signin" component={<DiaryPage />} />
             }
           />
         </Route>
