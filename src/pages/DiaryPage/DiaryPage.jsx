@@ -36,7 +36,7 @@ import {
   MoreLink,
   MealContainCal,
   StatEditWrap,
-} from './Diary.styled';
+} from './DiaryPage.styled';
 import { useEffect, useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
 import { useSelector, useDispatch } from 'react-redux';
@@ -60,7 +60,7 @@ const initialState = {
   protein: 0,
   fat: 0,
 };
-export const Diary = () => {
+export const DiaryPage = () => {
   const dispatch = useDispatch();
   const [currentDish, setCurrentDish] = useState(initialState);
   const diaries = useSelector(state => state.diaries);
