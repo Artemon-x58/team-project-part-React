@@ -39,17 +39,7 @@ import {
 import { useEffect, useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  fetchMealData,
-  updateMealData,
-  deleteMealData,
-} from 'redux/diary/diaryOperations';
-import {
-  selectBreakfastData,
-  selectLunchData,
-  selectDinnerData,
-  selectSnackData,
-} from 'redux/diary/diarySelectors';
+import { fetchAllDiaries } from 'redux/diary/diaryOperations';
 
 const initialValues = {
   1: true,
@@ -76,10 +66,6 @@ export const Diary = () => {
   });
   const dispatch = useDispatch();
 
-  const breakfastData = useSelector(selectBreakfastData);
-  const lunchData = useSelector(selectLunchData);
-  const dinnerData = useSelector(selectDinnerData);
-  const snackData = useSelector(selectSnackData);
   const [isOpen, setOpen] = useState(false);
   const [dishName, setDishName] = useState('English breakfast');
   const [dishValueCarbonoh, setDishValueCarbonoh] = useState(20);
@@ -119,10 +105,9 @@ export const Diary = () => {
     setEditMode({ ...editMode, [number]: false });
   };
   useEffect(() => {
-    dispatch(fetchMealData());
+    dispatch(fetchAllDiaries());
   }, [dispatch]);
 
-  console.log(breakfastData);
   return (
     <Container>
       <HeightContainer>

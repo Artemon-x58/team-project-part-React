@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchMealData = createAsyncThunk(
-  'diary/fetchMealData',
+export const fetchAllDiaries = createAsyncThunk(
+  'diary/fetchAllDiaries',
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('user/food-intake');
@@ -13,11 +13,15 @@ export const fetchMealData = createAsyncThunk(
   }
 );
 
-export const updateMealData = createAsyncThunk(
-  'diary/updateMealData',
-  async ({ id, mealData, thunkAPI }) => {
+export const addDiaries = createAsyncThunk(
+  'diary/addDiaries',
+  async ({ title, array }, thunkAPI) => {
     try {
-      const { data } = await axios.put(`user/food-intake/${id}`, mealData);
+      const { data } = await axios.post('user/food-intake', {
+        meals: title,
+        entries: array,
+      });
+      console.log(data);
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });
@@ -25,11 +29,32 @@ export const updateMealData = createAsyncThunk(
   }
 );
 
-export const deleteMealData = createAsyncThunk(
-  'diary/deleteMealData',
-  async ({ id, title, thunkAPI }) => {
+export const deleteDiariesById = createAsyncThunk(
+  'diary/deleteDiariesById',
+  async ({ id, title }, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`user/food-intake/${id}`);
+      const { data } = await axios.delete(`user/food-intake/${id}`, {
+        params: { meals: title },
+      });
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
+
+export const updateDiariesById = createAsyncThunk(
+  'diary/updateDiariesById',
+  async ({ id, diary }, thunkAPI) => {
+    try {
+      const { data } = await axios.put(`user/food-intake/${id}`, {
+        meals: diary.meals,
+        title: diary.title,
+        calories: diary.calories,
+        carbohydrates: diary.carbohydrates,
+        protein: diary.protein,
+        fat: diary.fat,
+      });
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });

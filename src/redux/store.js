@@ -14,7 +14,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { statisticsReducer } from './statistics/statisticsSlice';
-import diaryReducer from './diary/diarySlice';
+import { diariesReducer } from './diary/diarySlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -36,7 +36,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     statistics: persistReducer(statisticsPersistConfig, statisticsReducer),
-    diary: diaryReducer,
+    diaries: diariesReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
