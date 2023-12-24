@@ -6,7 +6,7 @@ export const StepWrapper = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     align-items: start;
     justify-content: center;
@@ -22,7 +22,7 @@ export const ImageWrapper = styled.div`
     height: 376px;
     margin-bottom: 60px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 592px;
     height: 588px;
     margin: 0 104px 0 0;
@@ -35,7 +35,7 @@ export const FormikFieldsWrapper = styled.div`
     align-items: center;
     text-align: center;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin-top: 80px;
   }
 `;

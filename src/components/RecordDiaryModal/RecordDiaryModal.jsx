@@ -53,7 +53,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
   };
 
   const handleAddMore = () => {
-    if (numComponents < 5) {
+    if (numComponents < 4) {
       setNumComponents(prevNum => prevNum + 1);
     }
   };
@@ -134,7 +134,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
                       />
                     ))}
 
-                    {numComponents === 5 ? (
+                    {numComponents === 4 ? (
                       <></>
                     ) : (
                       <MealRecordWrap onClick={handleAddMore}>

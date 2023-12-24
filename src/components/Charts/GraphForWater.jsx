@@ -143,16 +143,16 @@ const GraphForWater = () => {
     ],
   };
 
-    const water = useSelector(averageValueWater);
+  const water = useSelector(averageValueWater);
 
   return (
     <>
-      <TitleContainer>
+      {/* <TitleContainer>
         <GraphsTitle>{'Water'}</GraphsTitle>
         <GraphsSubtitle>
           Average value: <span>{`${water} ml`}</span>
         </GraphsSubtitle>
-      </TitleContainer>
+      </TitleContainer> */}
       <Graph>
         <Line data={data} options={options} />
         <GraphLabelBlock>

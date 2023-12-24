@@ -202,7 +202,7 @@ export const Button = styled.button`
   @media screen and (min-width: 834px) {
     width: 380px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;
@@ -271,7 +271,7 @@ export const Input = styled(Field)`
   @media screen and (min-width: 834px) {
     max-width: 358px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 191px;
   }
 
