@@ -13,9 +13,13 @@ import {
   Wrapper,
 } from './MainPage.styled';
 import RecommentedPart from 'components/RecommentedPart/RecommentedPart';
+import DashboardPage from 'pages/DashboardPage';
+import { useNavigate } from 'react-router-dom';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchAllStatistics());
@@ -25,7 +29,9 @@ export const MainPage = () => {
     <>
       <Wrapper>
         <Topic>Today</Topic>
-        <StyledLink>On the way to the goal</StyledLink>
+        <StyledLink onClick={() => navigate('/graphs')}>
+          On the way to the goal
+        </StyledLink>
       </Wrapper>
       <InfoWrapper>
         <DailyGoal />

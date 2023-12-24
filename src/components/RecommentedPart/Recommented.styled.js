@@ -11,7 +11,7 @@ export const Container = styled.div`
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 835px) and (max-width: 1200px) {
+  @media screen and (min-width: 835px) and (max-width: 1440px) {
     margin: 0 auto;
     width: 780px;
     height: 278px;
@@ -41,7 +41,7 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  @media screen and (min-width: 835px) and (max-width: 1200px) {
+  @media screen and (min-width: 835px) and (max-width: 1440px) {
     & > li {
       width: 360px;
     }

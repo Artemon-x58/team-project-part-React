@@ -31,7 +31,7 @@ export const Body = styled.div`
     padding: 24px 22px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 444px;
     padding: 24px 40px;
   }
