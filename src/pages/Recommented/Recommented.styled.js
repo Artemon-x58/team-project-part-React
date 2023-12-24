@@ -77,7 +77,8 @@ export const List = styled.ul`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #3498db;
+    /* background-color: #3498db; */
+    background-color: rgba(15, 15, 15, 0.9);
     border-radius: 6px;
   }
 

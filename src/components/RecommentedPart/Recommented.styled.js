@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -47,13 +48,12 @@ export const List = styled.ul`
   }
 `;
 
-export const Btn = styled.button`
+export const StyledLink = styled(Link)`
   width: 100px;
   height: 22px;
   margin-top: 16px;
   background: none;
   border: none;
-  cursor: pointer;
 
   color: #b6b6b6;
   font-family: Poppins;
