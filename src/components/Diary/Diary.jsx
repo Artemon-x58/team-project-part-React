@@ -1,5 +1,4 @@
 import Icons from '../../icons/icons.svg';
-import { Container } from 'components/Container/Container.styled';
 import Meals from '../../icons/meals.svg';
 import {
   DishName,
@@ -35,8 +34,6 @@ import {
   CircleSave,
   CircleDelete,
   MoreLink,
-  DishStatEditAd,
-  CalWrap,
   MealContainCal,
   StatEditWrap,
 } from './Diary.styled';
