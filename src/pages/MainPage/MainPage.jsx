@@ -13,7 +13,6 @@ import {
   Wrapper,
 } from './MainPage.styled';
 import RecommentedPart from 'components/RecommentedPart/RecommentedPart';
-import DashboardPage from 'pages/DashboardPage';
 import { useNavigate } from 'react-router-dom';
 
 export const MainPage = () => {
