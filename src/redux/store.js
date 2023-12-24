@@ -25,9 +25,8 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    statistics: persistReducer(statisticsPersistConfig, statisticsReducer),
-    diaries: diariesReducer,
     statistics: statisticsReducer,
+    diaries: diariesReducer,
     recommendedFoodPage: recommendedReducer,
     graphs: graphsReducer,
   },
