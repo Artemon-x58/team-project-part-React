@@ -93,3 +93,34 @@ export const removeFoodIntake = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  'statistics/updateUser',
+  async (value, thunkAPI) => {
+    try {
+      const { data } = await axios.put('/user/update', value);
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);
+
+export const updateAvatar = createAsyncThunk(
+  'statistics/updateAvatar',
+  async (file, thunkAPI) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+
+      const { data } = await axios.patch('/user/avatars', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      return data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue({ message });
+    }
+  }
+);

@@ -7,8 +7,6 @@ export const FoodWrapper = styled.div`
   height: 100%;
 
   flex-grow: 1;
-
-  border: solid 1px green;
 `;
 
 export const FoodTitle = styled.h2`

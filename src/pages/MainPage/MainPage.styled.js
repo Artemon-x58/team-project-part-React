@@ -45,9 +45,21 @@ export const InfoWrapper = styled.div`
   @media screen and (min-width: 834px) {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
   }
 
   @media screen and (min-width: 1200px) {
     flex-wrap: nowrap;
+  }
+`;
+
+export const FoodWrapepr = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 80px;
+
+  @media screen and (min-width: 1200px) {
+    flex-direction: row;
   }
 `;

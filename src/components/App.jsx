@@ -14,6 +14,7 @@ import { RestrictedRoute } from 'routes/RestrictedRoute';
 import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from './Recommented/Recommented';
+import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -51,17 +52,29 @@ export const App = () => {
             }
           />
 
-          <Route path="forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="setting" element={<div>"Сторінка налаштувань"</div>} />
+          <Route
+            path="forgot-password"
+            element={
+              <RestrictedRoute
+                redirectTo="/main"
+                component={<ForgotPasswordPage />}
+              />
+            }
+          />
           <Route
             path="main"
             element={
               <PrivateRoute redirectTo="/signin" component={<MainPage />} />
             }
           />
+          <Route
+            path="setting"
+            element={
+              <PrivateRoute redirectTo="/setting" component={<ProfileMain />} />
+            }
+          />
         </Route>
       </Routes>
-
       <Toaster />
     </>
   );

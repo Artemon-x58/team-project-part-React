@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
@@ -24,16 +24,40 @@ export const Profile = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const menuSettingRef = useRef();
+
+  const createAvatarUrl = url => {
+    if (url.includes('https:')) {
+      return url;
+    } else {
+      return `https:${userData.avatarURL}`;
+    }
+  };
 
   const toggleShowSetting = () => {
     setShowSetting(showSetting => !showSetting);
   };
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (
+        menuSettingRef.current &&
+        !menuSettingRef.current.contains(event.target)
+      ) {
+        setShowSetting(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <Wrapper>
+    <Wrapper ref={menuSettingRef}>
       <UserName>{userData.name}</UserName>
       <AvatarWrapper>
-        <img src={`https:${userData.avatarURL}`} alt={userData.name} />
+        <img src={createAvatarUrl(userData.avatarURL)} alt={userData.name} />
       </AvatarWrapper>
       <SettingWrapper>
         <OpenSettingBtn type="button" onClick={toggleShowSetting}>
@@ -43,7 +67,13 @@ export const Profile = () => {
         </OpenSettingBtn>
         {showSetting && (
           <SettingMenu>
-            <SettingBtn type="button" onClick={() => navigate('/setting')}>
+            <SettingBtn
+              type="button"
+              onClick={() => {
+                toggleShowSetting();
+                navigate('/setting');
+              }}
+            >
               <svg>
                 <use xlinkHref={`${Icons}#icon-settings`} />
               </svg>

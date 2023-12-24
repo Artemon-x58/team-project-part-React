@@ -265,3 +265,13 @@ export const Input = styled(Field)`
     color: #b6b6b6;
   }
 `;
+export const StyledErrorMessage = styled.div`
+  color: #e74a3b;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: 4px;
+`;

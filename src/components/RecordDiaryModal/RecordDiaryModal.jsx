@@ -20,9 +20,9 @@ import { useState } from 'react';
 
 export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
   const [numComponents, setNumComponents] = useState(1);
+
   const generateInitialValues = () => {
     const initialValues = {};
-    const numComponents = 5;
 
     for (let i = 1; i <= numComponents; i++) {
       initialValues[`${i}-name`] = '';
@@ -34,9 +34,9 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
 
     return initialValues;
   };
+
   const generateSchemaValues = () => {
     const schemasValues = {};
-    const numComponents = 5;
 
     for (let i = 1; i <= numComponents; i++) {
       schemasValues[`${i}-name`] = Yup.string().required('Required');
@@ -48,26 +48,32 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
 
     return Yup.object().shape(schemasValues);
   };
+
   const handleAddMore = () => {
     if (numComponents < 5) {
       setNumComponents(prevNum => prevNum + 1);
     }
   };
-  const handleSubmit = () => {
+  const handleFormSubmit = values => {
+    console.log('Submitting the form', values);
     handleClose();
   };
+
   const handleCancel = () => {
     setNumComponents(1);
     handleClose();
   };
+
   const handleDelete = () => {
     if (numComponents > 1) {
       setNumComponents(prevNum => prevNum - 1);
     }
   };
+
   const capitalizeFirstLetter = word => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
   };
+
   return (
     <Container>
       <ModalRecord open={open} onClose={handleCancel}>
@@ -75,10 +81,14 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
           <Formik
             initialValues={generateInitialValues()}
             validationSchema={generateSchemaValues()}
-            onSubmit={handleSubmit}
+            onSubmit={(values, { setSubmitting }) => {
+              handleFormSubmit(values);
+              setSubmitting(false);
+              setNumComponents(1);
+            }}
           >
-            {({ values }) => (
-              <Form autoComplete="off">
+            {({ values, handleSubmit }) => (
+              <Form autoComplete="off" onSubmit={handleSubmit}>
                 <MealWrapper>
                   <Title>Record your meal</Title>
                   <FormikFieldsWrapper>
@@ -109,7 +119,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
                       </MealRecordWrap>
                     )}
                     <ButtonWrapper>
-                      <ButtonCancel type="reset" onClick={handleCancel}>
+                      <ButtonCancel type="button" onClick={handleCancel}>
                         Cancel
                       </ButtonCancel>
                       <ButtonConfirm type="submit">Confirm</ButtonConfirm>
