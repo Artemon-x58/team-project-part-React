@@ -20,7 +20,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addFoodIntake } from 'redux/statistics/statisticsOperations';
 
-export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
+export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   const [numComponents, setNumComponents] = useState(1);
   const dispatch = useDispatch();
 
@@ -81,7 +81,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
       entries: formattedEntries,
     });
 
-    dispatch(addFoodIntake({ meals: mealName, entries: formattedEntries }));
+    dispatch(adddiary({ meals: mealName, entries: formattedEntries }));
     handleClose();
   };
 

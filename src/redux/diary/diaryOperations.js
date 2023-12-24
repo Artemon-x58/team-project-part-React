@@ -15,14 +15,13 @@ export const fetchAllDiaries = createAsyncThunk(
 
 export const addDiaries = createAsyncThunk(
   'diary/addDiaries',
-  async ({ title, array }, thunkAPI) => {
+  async ({ meals, entries }, thunkAPI) => {
     try {
-      const { data } = await axios.post('user/food-intake', {
-        meals: title,
-        entries: array,
+      const response = await axios.post('user/food-intake', {
+        meals,
+        entries,
       });
-      console.log(data);
-      return data;
+      return response.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue({ message });
     }
