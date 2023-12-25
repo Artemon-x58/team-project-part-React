@@ -15,14 +15,13 @@ import {
   CardTitle,
   CounterList,
   Counter,
-} from './Food.styled';
+} from './Food.Styled';
 
 import { useSelector } from 'react-redux';
 import {
   selectCaloriesToday,
   selectRecommendedCalories,
 } from 'redux/statistics/statisticsSelectors';
-
 
 const Food = () => {
   const { calories, protein, fat, carbohydrates } = useSelector(
