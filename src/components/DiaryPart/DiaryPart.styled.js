@@ -56,8 +56,8 @@ export const WrapMeal = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    width: ${({ ismealrecorded }) =>
-      ismealrecorded === 'true' ? '558px' : '306px'};
+    width: ${({ $ismealrecorded }) =>
+      $ismealrecorded === 'true' ? '558px' : '306px'};
     justify-content: space-between;
     margin-top: 0;
 
@@ -137,4 +137,5 @@ export const BasketIcon = styled.svg`
   width: 20px;
   height: 20px;
   stroke: rgba(227, 255, 168, 1);
+  stroke: #e3ffa8;
 `;

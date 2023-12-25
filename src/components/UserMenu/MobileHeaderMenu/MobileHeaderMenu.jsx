@@ -199,7 +199,7 @@ export const MobileHeaderMenu = () => {
                     <Weight>{userData.weight}</Weight>
                     <Mark>kg</Mark>
                     <EditWeightBtn type="button" onClick={toggleShowWeight}>
-                      <svg>
+                      <svg stroke="#E3FFA8">
                         <use xlinkHref={`${Icons}#icon-edit`} />
                       </svg>
                     </EditWeightBtn>

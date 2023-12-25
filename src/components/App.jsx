@@ -93,7 +93,7 @@ export const App = () => {
           <Route
             path="diary"
             element={
-              <PrivateRoute redirectTo="/signin" component={<DiaryPage />} />
+              <PrivateRoute redirectTo="/diary" component={<DiaryPage />} />
             }
           />
           <Route
