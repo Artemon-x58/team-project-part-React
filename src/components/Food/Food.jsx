@@ -15,7 +15,7 @@ import {
   CardTitle,
   CounterList,
   Counter,
-} from './Food.Styled';
+} from './Food.styled';
 
 const Food = () => {
   return (
