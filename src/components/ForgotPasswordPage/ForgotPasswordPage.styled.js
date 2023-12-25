@@ -8,7 +8,7 @@ export const StepWrapper = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     flex-direction: row;
     align-items: start;
     justify-content: center;
@@ -24,7 +24,7 @@ export const ImageWrapper = styled.div`
     height: 376px;
     margin-bottom: 60px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 592px;
     height: 588px;
     margin: 0 104px 0 0;
@@ -37,7 +37,7 @@ export const FormikFieldsWrapper = styled.div`
     align-items: center;
     text-align: center;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     margin-top: 80px;
   }
 `;
@@ -73,7 +73,7 @@ export const InputWrapper = styled.div`
   @media screen and (min-width: 834px) {
     width: 380px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;
@@ -97,7 +97,7 @@ export const Input = styled(Field)`
   @media screen and (min-width: 834px) {
     max-width: 358px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 191px;
   }
 
@@ -128,7 +128,7 @@ export const ButtonWrapper = styled.div`
     align-items: center;
     margin-bottom: 286px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     align-items: start;
     margin-bottom: 248px;
   }
@@ -149,7 +149,7 @@ export const Button = styled.button`
   @media screen and (min-width: 834px) {
     width: 380px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;

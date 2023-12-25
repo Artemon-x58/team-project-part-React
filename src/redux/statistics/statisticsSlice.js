@@ -34,7 +34,7 @@ const initialState = {
     protein: '',
     fat: '',
   },
-  lunchtSumNutrientsToday: {
+  lunchSumNutrientsToday: {
     calories: '',
     carbohydrates: '',
     protein: '',
@@ -72,7 +72,7 @@ const handleLogInFulfilled = (state, action) => {
   state.waterToday = action.payload.waterToday;
   state.recommendedFood = action.payload.recommendedFoodForMainPage;
   state.snackSumNutrientsToday = action.payload.snackSumNutrientsToday;
-  state.lunchtSumNutrientsToday = action.payload.lunchtSumNutrientsToday;
+  state.lunchSumNutrientsToday = action.payload.lunchSumNutrientsToday;
   state.dinnerSumNutrientsToday = action.payload.dinnerSumNutrientsToday;
   state.breakfastSumNutrientsToday = action.payload.breakfastSumNutrientsToday;
 };
@@ -106,24 +106,26 @@ const handleUpdateWeightFulfilled = (state, action) => {
 };
 
 const handleAddFoodIntakeFulfilled = (state, action) => {
-  const { mealType, newCaloriesAndDate, newSumNutrientsPerDay } =
-    action.payload;
+  const {
+    breakfast,
+    lunch,
+    dinner,
+    snack,
+    newSumNutrientsPerDay,
+    newCaloriesAndDate,
+  } = action.payload;
 
-  switch (mealType) {
-    case 'breakfast':
-      state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
-      break;
-    case 'lunch':
-      state.lunchtSumNutrientsToday = newSumNutrientsPerDay;
-      break;
-    case 'dinner':
-      state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
-      break;
-    case 'snack':
-      state.snackSumNutrientsToday = newSumNutrientsPerDay;
-      break;
-    default:
-      break;
+  if (breakfast) {
+    state.breakfastSumNutrientsToday = newSumNutrientsPerDay;
+  }
+  if (lunch) {
+    state.lunchSumNutrientsToday = newSumNutrientsPerDay;
+  }
+  if (dinner) {
+    state.dinnerSumNutrientsToday = newSumNutrientsPerDay;
+  }
+  if (snack) {
+    state.snackSumNutrientsToday = newSumNutrientsPerDay;
   }
 
   state.caloriesToday = newCaloriesAndDate;
@@ -132,27 +134,28 @@ const handleAddFoodIntakeFulfilled = (state, action) => {
 
 const handleRemoveFoodIntakeFulfilled = (state, action) => {
   const {
-    newCaloriesAndDate: { newCaloriesAndDate },
-    mealType,
+    breakfast,
+    lunch,
+    dinner,
+    snack,
+
+    newCaloriesAndDate,
   } = action.payload;
 
-  switch (mealType) {
-    case 'breakfast':
-      state.breakfastSumNutrientsToday = newCaloriesAndDate;
-      break;
-    case 'lunch':
-      state.lunchtSumNutrientsToday = newCaloriesAndDate;
-      break;
-    case 'dinner':
-      state.dinnerSumNutrientsToday = newCaloriesAndDate;
-      break;
-    case 'snack':
-      state.snackSumNutrientsToday = newCaloriesAndDate;
-      break;
-    default:
-      break;
+  if (breakfast) {
+    state.breakfastSumNutrientsToday = breakfast;
+  }
+  if (lunch) {
+    state.lunchSumNutrientsToday = lunch;
+  }
+  if (dinner) {
+    state.dinnerSumNutrientsToday = dinner;
+  }
+  if (snack) {
+    state.snackSumNutrientsToday = snack;
   }
 
+  state.caloriesToday = newCaloriesAndDate;
   state.isRefreshing = false;
 };
 const fetchStatisticsFulfild = (state, action) => {

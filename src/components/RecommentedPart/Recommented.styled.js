@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -10,7 +11,7 @@ export const Container = styled.div`
     margin: 0 auto;
   }
 
-  @media screen and (min-width: 835px) and (max-width: 1200px) {
+  @media screen and (min-width: 835px) and (max-width: 1440px) {
     margin: 0 auto;
     width: 780px;
     height: 278px;
@@ -40,20 +41,19 @@ export const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  @media screen and (min-width: 835px) and (max-width: 1200px) {
+  @media screen and (min-width: 835px) and (max-width: 1440px) {
     & > li {
       width: 360px;
     }
   }
 `;
 
-export const Btn = styled.button`
+export const StyledLink = styled(Link)`
   width: 100px;
   height: 22px;
   margin-top: 16px;
   background: none;
   border: none;
-  cursor: pointer;
 
   color: #b6b6b6;
   font-family: Poppins;

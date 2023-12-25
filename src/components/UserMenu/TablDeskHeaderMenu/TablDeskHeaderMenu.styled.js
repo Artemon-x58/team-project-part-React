@@ -15,7 +15,7 @@ export const CardMenuWrapper = styled.div`
   height: 48px;
   margin-right: 73px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 350px;
     margin-right: 124px;
   }
@@ -181,7 +181,7 @@ export const Button = styled.button`
   line-height: 20px;
   color: black;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     width: 212px;
   }
 `;

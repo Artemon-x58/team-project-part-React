@@ -12,6 +12,10 @@ export const Button = styled.button`
   background: #e3ffa8;
 `;
 
+export const IconAdd = styled.svg`
+  stroke: #050505;
+`;
+
 export const ModalWrapper = styled.div`
   padding: 16px 12px;
 
@@ -59,9 +63,9 @@ export const ModalInput = styled.input`
   width: 250px;
   padding: 8px 10px;
   border-radius: 12px;
-  border: 1px solid #e3ffa8;
   background-color: #0f0f0f;
   color: #fff;
+  border: 1px solid ${({ hasError }) => (hasError ? 'red' : '#e3ffa8')};
 
   &:focus-visible {
     outline: 1px solid ${({ hasError }) => (hasError ? 'red' : '#4670ed')};
@@ -74,6 +78,10 @@ export const ModalInput = styled.input`
     font-weight: 400;
     line-height: 20px;
     color: #b6b6b6;
+  }
+
+  &.hasError {
+    border: 1px solid red;
   }
 
   @media screen and (min-width: 834px) {

@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
     align-items: center;
     padding: 0 27px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -28,7 +28,7 @@ export const ImageWrapper = styled.div`
     height: 376px;
     margin-bottom: 80px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     max-width: 592px;
     height: 588px;
     margin: 0 104px 0 0;
@@ -66,7 +66,7 @@ export const Description = styled.p`
     line-height: 32px;
     text-align: center;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
     text-align: left;
     padding: 0 28px 0 0;
   }
@@ -139,7 +139,7 @@ export const PossibilityList = styled.ul`
         margin-bottom: 16px;
       }
     }
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1440px) {
       &:not(:last-child) {
         margin-bottom: 16px;
       }

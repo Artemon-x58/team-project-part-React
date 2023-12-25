@@ -17,6 +17,7 @@ const Recommented = () => {
   useEffect(() => {
     dispatch(fetchAllRecommendedProduct());
   }, [dispatch]);
+
   const recommendedList = useSelector(selectDatarecommended);
   const FoodCollections = recommendedList.map(item => {
     return (

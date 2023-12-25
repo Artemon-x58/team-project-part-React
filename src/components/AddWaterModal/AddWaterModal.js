@@ -13,6 +13,7 @@ import {
   Title,
   ModalWrapper,
   ErrorMessage,
+  IconAdd,
 } from './AddWaterModal.styled';
 
 Modal.setAppElement('#root');
@@ -72,9 +73,9 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
   return (
     <>
       <Button onClick={openModal}>
-        <svg height={16} width={16}>
+        <IconAdd height={16} width={16}>
           <use href={`${linkIconsSprite}#icon-add`} />
-        </svg>
+        </IconAdd>
         Add water intake
       </Button>
 
@@ -98,7 +99,7 @@ const AddWaterModal = ({ addWater, dailyGoal, consumedWater }) => {
               placeholder="Enter milliliters"
               value={values.amount}
               onChange={handleChange}
-              hasError={!!errors.amount}
+              className={errors.amount ? 'hasError' : ''}
             />
             {errors.amount && <ErrorMessage>*{errors.amount}</ErrorMessage>}
             <ModalButtonConfirm style={{ width: '100%' }} type="submit">

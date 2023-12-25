@@ -11,8 +11,8 @@ export const selectWaterToday = state => state.statistics.waterToday;
 
 export const selectSnackSumNutrientsToday = state =>
   state.statistics.snackSumNutrientsToday;
-export const selectLunchtSumNutrientsToday = state =>
-  state.statistics.lunchtSumNutrientsToday;
+export const selectLunchSumNutrientsToday = state =>
+  state.statistics.lunchSumNutrientsToday;
 export const selectDinnerSumNutrientsToday = state =>
   state.statistics.dinnerSumNutrientsToday;
 export const selectBreakfastSumNutrientsToday = state =>

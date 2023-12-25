@@ -17,9 +17,11 @@ import {
 } from './RecordDiaryModal.styled';
 import { AddRecordMeal } from './AddRecordMeal';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
+export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   const [numComponents, setNumComponents] = useState(1);
+  const dispatch = useDispatch();
 
   const generateInitialValues = () => {
     const initialValues = {};
@@ -50,12 +52,35 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
   };
 
   const handleAddMore = () => {
-    if (numComponents < 5) {
+    if (numComponents < 4) {
       setNumComponents(prevNum => prevNum + 1);
     }
   };
+
   const handleFormSubmit = values => {
-    console.log('Submitting the form', values);
+    const formattedEntries = [];
+
+    // Цикл по всім рядкам у введеннях
+    for (let i = 1; i <= numComponents; i++) {
+      // Створюємо об'єкт для кожного рядка
+      const entry = {
+        title: values[`${i}-name`],
+        calories: Number(values[`${i}-calories`]),
+        carbohydrates: Number(values[`${i}-carbonoh`]),
+        protein: Number(values[`${i}-protein`]),
+        fat: Number(values[`${i}-fat`]),
+      };
+
+      // Додаємо об'єкт до масиву
+      formattedEntries.push(entry);
+    }
+
+    console.log('>>>>>>>>>>>', {
+      meals: mealName,
+      entries: formattedEntries,
+    });
+
+    dispatch(adddiary({ meals: mealName, entries: formattedEntries }));
     handleClose();
   };
 
@@ -108,7 +133,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
                       />
                     ))}
 
-                    {numComponents === 5 ? (
+                    {numComponents === 4 ? (
                       <></>
                     ) : (
                       <MealRecordWrap onClick={handleAddMore}>

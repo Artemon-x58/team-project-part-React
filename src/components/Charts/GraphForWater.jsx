@@ -1,3 +1,6 @@
+import { useSelector } from 'react-redux';
+import { waterPerThisMonth } from 'redux/graphs/graphsSelectors';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,17 +15,12 @@ import {
 import { Line } from 'react-chartjs-2';
 
 import {
-  TitleContainer,
-  GraphsTitle,
-  GraphsSubtitle,
-  // GraphsCaption,
   Graph,
   GraphLabelBlock,
   GraphLabelContent,
 } from './Graphs.Styled';
+import { getDaysInMonth } from './getDaysOfMonth';
 
-import { useSelector } from 'react-redux';
-import { averageValueWater } from 'redux/graphs/graphsSelectors';
 
 ChartJS.register(
   CategoryScale,
@@ -34,7 +32,11 @@ ChartJS.register(
   Legend
 );
 
-const GraphForWater = () => {
+const GraphForWater = ({ month, year }) => {
+  const waterPerMonth = useSelector(waterPerThisMonth);
+  const arrOfWater = waterPerMonth.map(item => item.water);
+  const arrOfDate = getDaysInMonth(month, year);
+
   const options = {
     interaction: {
       mode: 'index',
@@ -120,17 +122,10 @@ const GraphForWater = () => {
   };
 
   const data = {
-    labels: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-    ], // arrOfDay,
+    labels: arrOfDate, // arrOfDay,
     datasets: [
       {
-        data: [
-          2000, 2000, 2000, 1900, 2000, 2000, 2000, 1900, 2000, 2000, 1900,
-          2000, 1650, 1700, 2200, 1900, 1700, 1803, 1900, 2000, 2000, 2000,
-          2000, 1900, 1700, 1700, 1850, 2000, 2000, 2000, 2000,
-        ], // ArrOfCal,
+        data: arrOfWater, // ArrOfCal,
         borderColor: '#E3FFA8',
         borderWidth: 1,
         pointRadius: 0,
@@ -143,16 +138,8 @@ const GraphForWater = () => {
     ],
   };
 
-    const water = useSelector(averageValueWater);
-
   return (
     <>
-      <TitleContainer>
-        <GraphsTitle>{'Water'}</GraphsTitle>
-        <GraphsSubtitle>
-          Average value: <span>{`${water} ml`}</span>
-        </GraphsSubtitle>
-      </TitleContainer>
       <Graph>
         <Line data={data} options={options} />
         <GraphLabelBlock>

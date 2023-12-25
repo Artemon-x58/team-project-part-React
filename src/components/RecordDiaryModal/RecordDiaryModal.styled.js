@@ -31,7 +31,7 @@ export const TitleWrapper = styled.div`
   margin-bottom: 16px;
   @media screen and (min-width: 834px) {
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const Title = styled.p`
@@ -44,7 +44,7 @@ export const Title = styled.p`
     font-size: 30px;
     line-height: 36px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const MealPart = styled.p`
@@ -56,7 +56,7 @@ export const MealPart = styled.p`
     font-size: 22px;
     line-height: 32px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const InputWrapper = styled.div`
@@ -64,13 +64,14 @@ export const InputWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 40px;
-
+  gap: 16px;
   @media screen and (min-width: 834px) {
     flex-direction: row;
     width: 660px;
     height: 38px;
+    gap: 0;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const Input = styled(Field)`
@@ -122,7 +123,7 @@ export const ButtonWrapper = styled.div`
     gap: 12px;
     justify-content: flex-end;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const ButtonConfirm = styled.button`
@@ -142,7 +143,7 @@ export const ButtonConfirm = styled.button`
   @media screen and (min-width: 834px) {
     width: 192px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const ButtonCancel = styled.button`
@@ -157,7 +158,7 @@ export const ButtonCancel = styled.button`
   @media screen and (min-width: 834px) {
     width: 192px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1440px) {
   }
 `;
 export const MealRecordWrap = styled.div`

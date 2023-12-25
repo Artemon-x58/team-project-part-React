@@ -1,7 +1,15 @@
 import GraphForCalories from 'components/Charts/GraphForCalories';
 import GraphForWater from 'components/Charts/GraphForWater';
 import GraphForWeight from 'components/Charts/GraphForWeight';
-import { Container } from 'components/Container/Container.styled';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { fetchAllValues } from 'redux/graphs/graphsOperations';
+import {
+  averageValueCalories,
+  averageValueWater,
+  averageValueWeight,
+} from 'redux/graphs/graphsSelectors';
 
 import {
   DashboardSection,
@@ -9,57 +17,74 @@ import {
   ChartGrid,
   ScaleChartBlock,
 } from './DashboardPage.Styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { fetchAllValues } from 'redux/graphs/graphsOperations';
-import { averageValueCalories, averageValueWater } from 'redux/graphs/graphsSelectors';
-import { GraphsSubtitle, GraphsTitle, TitleContainer } from 'components/Charts/Graphs.Styled';
+
+import {
+  ContainerGraph,
+  GraphsSubtitle,
+  GraphsTitle,
+  TitleContainer,
+} from 'components/Charts/Graphs.Styled';
 
 const DashboardPage = () => {
-  const [period, setPeriod] = useState('december');
-  
-  // const title = 'december';
+  const [year, setYear] = useState(2023);
+  const [nameMonth, setNameMonth] = useState('november');
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllValues(period));
-  }, [dispatch, period])
+    dispatch(fetchAllValues(nameMonth));
+  }, [dispatch, nameMonth]);
 
+  const handleChangeMonth = value => {
+    setNameMonth(value);
+    setYear(value);
+  };
 
-
-  const handleChangeMonth = (value) => {
-    setPeriod(value);
-    // onChange
-  }
-
-   const calories = useSelector(averageValueCalories);
-   console.log(calories);
+  const calories = useSelector(averageValueCalories);
+  const water = useSelector(averageValueWater);
+  const weight = useSelector(averageValueWeight);
 
   return (
-    // <Container>
-    // <DashboardSection>
-    <>
+    <DashboardSection>
+      <button onClick={handleChangeMonth}></button>
       <LineChartBlock>
-        <div>
+        <ContainerGraph>
           <TitleContainer>
             <GraphsTitle>{'Calories'}</GraphsTitle>
             <GraphsSubtitle>
               Average value: <span>{`${calories} cal`}</span>
+              <button type="button" onClick={handleChangeMonth}></button>
             </GraphsSubtitle>
           </TitleContainer>
-          <ChartGrid>
-            <GraphForCalories dataFormat={2023} type={'calories'} />
+          <ChartGrid style={{ width: '100%' }}>
+            <GraphForCalories month={nameMonth} year={year} type={'calories'} />
           </ChartGrid>
-        </div>
-        <ChartGrid>
-          <GraphForWater dataFormat={2023} type={'water'} />
-        </ChartGrid>
+        </ContainerGraph>
+        <ContainerGraph>
+          <TitleContainer>
+            <GraphsTitle>{'Water'}</GraphsTitle>
+            <GraphsSubtitle>
+              Average value: <span>{`${water} ml`}</span>
+            </GraphsSubtitle>
+          </TitleContainer>
+          <ChartGrid style={{ width: '100%' }}>
+            <GraphForWater month={nameMonth} year={year} type={'water'} />
+          </ChartGrid>
+        </ContainerGraph>
       </LineChartBlock>
       <ScaleChartBlock>
-        <GraphForWeight dataFormat={2023} />
+        <TitleContainer>
+          <GraphsTitle>Weight</GraphsTitle>
+          <GraphsSubtitle>
+            Average value: <span>{`${weight} kg`}</span>
+          </GraphsSubtitle>
+        </TitleContainer>
+        <ChartGrid>
+04-add-UpdateDashboard
+          <GraphForWeight month={nameMonth} year={year} />
+
+        </ChartGrid>
       </ScaleChartBlock>
-    </>
-    // </DashboardSection>
-    // </Container>
+    </DashboardSection>
   );
 };
 

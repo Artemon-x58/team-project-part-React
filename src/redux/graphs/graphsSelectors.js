@@ -6,7 +6,7 @@ export const averageValueWeight = state => state.graphs.averageValueWeight;
 
 export const caloriesPerThisMonth = state => state.graphs.caloriesPerMonth;
 
-export const waterPerThisMonth = state => state.graphs.waterPerThisMonth;
+export const waterPerThisMonth = state => state.graphs.waterPerMonth;
 
-export const weightPerThisMonth = state => state.graphs.weightPerThisMonth;
+export const weightPerThisMonth = state => state.graphs.weightPerMonth;
 
