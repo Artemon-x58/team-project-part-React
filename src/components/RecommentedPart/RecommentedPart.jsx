@@ -12,7 +12,7 @@ const RecommentedPart = () => {
         key={item.name}
         img={item.img}
         title={item.name}
-        weight={item.weight}
+        weight={item.amount}
         calories={item.calories}
       />
     );
