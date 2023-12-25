@@ -93,12 +93,14 @@ export const App = () => {
           <Route
             path="diary"
             element={
-              <PrivateRoute redirectTo="/signin" component={<DiaryPage />} />
+              <PrivateRoute redirectTo="/diary" component={<DiaryPage />} />
             }
           />
           <Route
             path="test"
-            element={<PrivateRoute redirectTo="/test" component={<MonthSelector />} />}
+            element={
+              <PrivateRoute redirectTo="/test" component={<MonthSelector />} />
+            }
           />
         </Route>
       </Routes>

@@ -137,4 +137,5 @@ export const BasketIcon = styled.svg`
   width: 20px;
   height: 20px;
   stroke: rgba(227, 255, 168, 1);
+  stroke: #e3ffa8;
 `;

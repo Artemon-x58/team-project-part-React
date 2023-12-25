@@ -12,21 +12,25 @@ const initialState = {
   dinner: [],
   snack: [],
   breakfastSumNutrientsToday: {
+    calories: 0,
     carbohydrates: 0,
     protein: 0,
     fat: 0,
   },
   dinnerSumNutrientsToday: {
+    calories: 0,
     carbohydrates: 0,
     protein: 0,
     fat: 0,
   },
   lunchSumNutrientsToday: {
+    calories: 0,
     carbohydrates: 0,
     protein: 0,
     fat: 0,
   },
   snackSumNutrientsToday: {
+    calories: 0,
     carbohydrates: 0,
     protein: 0,
     fat: 0,

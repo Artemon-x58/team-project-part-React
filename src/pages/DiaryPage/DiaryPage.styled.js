@@ -124,7 +124,6 @@ export const MealContainCal = styled.p`
     font-weight: 400;
     line-height: 20px;
     margin-left: -70px;
-    margin-right: 20px;
   }
 `;
 export const MealValue = styled.p`
@@ -211,6 +210,7 @@ export const DishName = styled.p`
   line-height: 20px;
 
   @media screen and (min-width: 834px) {
+    width: 120px;
     margin-right: 215px;
   }
   @media screen and (min-width: 1440px) {

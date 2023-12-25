@@ -2,6 +2,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Meals from '../../icons/meals.svg';
 import Icons from '../../icons/icons.svg';
+import Snack from '../../img/snack.png';
 import { Container } from 'components/Container/Container.styled';
 import {
   FormikFieldsWrapper,
@@ -19,10 +20,15 @@ import { AddRecordMeal } from './AddRecordMeal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
+export const RecordDiaryModal = ({
+  handleClose,
+  open,
+  mealName,
+  adddiary,
+  length,
+}) => {
   const [numComponents, setNumComponents] = useState(1);
   const dispatch = useDispatch();
-
   const generateInitialValues = () => {
     const initialValues = {};
 
@@ -52,7 +58,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   };
 
   const handleAddMore = () => {
-    if (numComponents < 4) {
+    if (numComponents + length < 4) {
       setNumComponents(prevNum => prevNum + 1);
     }
   };
@@ -110,9 +116,18 @@ export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
                   <Title>Record your meal</Title>
                   <FormikFieldsWrapper>
                     <TitleWrapper>
-                      <svg width="36px" height="36px">
-                        <use xlinkHref={`${Meals}#icon-${mealName}`} />
-                      </svg>
+                      {mealName === 'snack' ? (
+                        <img
+                          src={Snack}
+                          alt={'snack'}
+                          width="36px"
+                          height="36px"
+                        ></img>
+                      ) : (
+                        <svg width="36px" height="36px">
+                          <use xlinkHref={`${Meals}#icon-${mealName}`} />
+                        </svg>
+                      )}
                       <MealPart>{capitalizeFirstLetter(mealName)}</MealPart>
                     </TitleWrapper>
 
@@ -125,11 +140,11 @@ export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
                       />
                     ))}
 
-                    {numComponents === 4 ? (
+                    {numComponents + length === 4 ? (
                       <></>
                     ) : (
                       <MealRecordWrap onClick={handleAddMore}>
-                        <svg width="16px" height="16px">
+                        <svg width="16px" height="16px" stroke="#E3FFA8">
                           <use xlinkHref={`${Icons}#icon-add`} />
                         </svg>
                         Add more

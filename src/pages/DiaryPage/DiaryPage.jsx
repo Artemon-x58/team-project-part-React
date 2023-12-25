@@ -1,5 +1,6 @@
 import Icons from '../../icons/icons.svg';
 import Meals from '../../icons/meals.svg';
+import Snack from '../../img/snack.png';
 import {
   DishName,
   DishStat,
@@ -95,7 +96,7 @@ export const DiaryPage = () => {
   };
 
   const handleEdit = (dish, mealType) => {
-    setEditMode(prev => ({ ...prev, [dish._id]: true }));
+    setEditMode({ [dish._id]: true });
     setEditCal(true);
     setCurrentDish({ ...dish });
     setOriginalDish({ ...dish });
@@ -104,7 +105,7 @@ export const DiaryPage = () => {
 
   const handleCancel = dishId => {
     setCurrentDish(originalDish);
-    setEditMode(prev => ({ ...prev, [dishId]: false }));
+    setEditMode({ [dishId]: false });
     setEditCal(false);
   };
 
@@ -124,7 +125,7 @@ export const DiaryPage = () => {
       })
     );
     setEditCal(false);
-    setEditMode(prev => ({ ...prev, [dishId]: false }));
+    setEditMode({ [dishId]: false });
   };
   const handleDelete = async (dishId, mealType) => {
     try {
@@ -157,6 +158,8 @@ export const DiaryPage = () => {
         return 0;
     }
   };
+  const lengthModal = diaries[mealName] ? diaries[mealName].length : 0;
+
   const renderMealItems = (mealData, mealType) => {
     let items = [];
     const hasData = mealData && mealData.length > 0;
@@ -337,14 +340,24 @@ export const DiaryPage = () => {
             <MealWrap key={index}>
               <WrapNameValue>
                 <WrapMealName>
-                  <svg width="32px" height="32px">
-                    <use xlinkHref={`${Meals}#icon-${mealType}`} />
-                  </svg>
+                  {mealType === 'snack' ? (
+                    <img src={Snack} alt={'snack'}></img>
+                  ) : (
+                    <svg width="32px" height="32px">
+                      <use xlinkHref={`${Meals}#icon-${mealType}`} />
+                    </svg>
+                  )}
+
                   <MealName>{capitalizeFirstLetter(mealType)}</MealName>
                 </WrapMealName>
                 <MealContainList>
                   {editCal && editingMealType === mealType ? (
-                    <MealContainCal>Calories</MealContainCal>
+                    <>
+                      <MealContainCal>Calories:</MealContainCal>
+                      <MealValue>
+                        {getNutrients(mealType, 'calories')}
+                      </MealValue>
+                    </>
                   ) : (
                     <></>
                   )}
@@ -371,6 +384,7 @@ export const DiaryPage = () => {
         handleClose={handleClose}
         open={isOpen}
         mealName={mealName}
+        length={lengthModal}
       />
     </HeightContainer>
   );

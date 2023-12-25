@@ -1,4 +1,5 @@
 import Meals from '../../icons/meals.svg';
+import Snack from '../../img/snack.png';
 import Icons from '../../icons/icons.svg';
 import {
   DiaryWrapper,
@@ -149,7 +150,7 @@ export const DiaryPart = () => {
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('lunch')}>
-              <svg width="16px" height="16px">
+              <svg width="16px" height="16px" stroke="#E3FFA8">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
               Record your meal
@@ -184,7 +185,7 @@ export const DiaryPart = () => {
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('dinner')}>
-              <svg width="16px" height="16px">
+              <svg width="16px" height="16px" stroke="#E3FFA8">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
               Record your meal
@@ -193,9 +194,7 @@ export const DiaryPart = () => {
         </WrapMeal>
         <WrapMeal $ismealrecorded={isRecorded.snack.toString()}>
           <WrapMealName>
-            <svg width="36px" height="36px">
-              <use xlinkHref={`${Meals}#icon-snack`} />
-            </svg>
+            <img src={Snack} alt={'snack'} width="36px" height="36px"></img>
 
             <MealName>Snack</MealName>
           </WrapMealName>
@@ -211,14 +210,13 @@ export const DiaryPart = () => {
               <MealContain>
                 Fat: <MealValue>{snackNutrients.fat}</MealValue>
               </MealContain>
-              {/*TODO: Change to one li after adding Contain base*/}
               <BasketIcon onClick={() => dispatch(removeFoodIntake('snack'))}>
                 <use xlinkHref={`${Icons}#icon-basket`} />
               </BasketIcon>
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('snack')}>
-              <svg width="16px" height="16px">
+              <svg width="16px" height="16px" stroke="#E3FFA8">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
               Record your meal
@@ -232,6 +230,7 @@ export const DiaryPart = () => {
           handleClose={handleClose}
           open={isOpen}
           mealName={mealName}
+          length={0}
         />
       )}
     </>
