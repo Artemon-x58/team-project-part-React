@@ -1,5 +1,7 @@
-import Meals from '../../icons/meals.svg';
 import Snack from '../../img/snack.png';
+import Dinner from '../../img/dinner.png';
+import Lunch from '../../img/lunch.png';
+import Breakfast from '../../img/breakfast.png';
 import Icons from '../../icons/icons.svg';
 import {
   DiaryWrapper,
@@ -88,9 +90,7 @@ export const DiaryPart = () => {
 
         <WrapMeal $ismealrecorded={isRecorded.breakfast.toString()}>
           <WrapMealName>
-            <svg width="36px" height="36px">
-              <use xlinkHref={`${Meals}#icon-breakfast`} />
-            </svg>
+            <img src={Breakfast} alt={'breakfast'} width="36px" height="36px" />
             <MealName>Breakfast</MealName>
           </WrapMealName>
 
@@ -124,9 +124,7 @@ export const DiaryPart = () => {
         </WrapMeal>
         <WrapMeal $ismealrecorded={isRecorded.lunch.toString()}>
           <WrapMealName>
-            <svg width="36px" height="36px">
-              <use xlinkHref={`${Meals}#icon-lunch`} />
-            </svg>
+            <img src={Lunch} alt={'lunch'} width="36px" height="36px" />
 
             <MealName>Lunch</MealName>
           </WrapMealName>
@@ -159,9 +157,7 @@ export const DiaryPart = () => {
         </WrapMeal>
         <WrapMeal $ismealrecorded={isRecorded.dinner.toString()}>
           <WrapMealName>
-            <svg width="36px" height="36px">
-              <use xlinkHref={`${Meals}#icon-dinner`} />
-            </svg>
+            <img src={Dinner} alt={'dinner'} width="36px" height="36px" />
 
             <MealName>Dinner</MealName>
           </WrapMealName>
@@ -194,7 +190,7 @@ export const DiaryPart = () => {
         </WrapMeal>
         <WrapMeal $ismealrecorded={isRecorded.snack.toString()}>
           <WrapMealName>
-            <img src={Snack} alt={'snack'} width="36px" height="36px"></img>
+            <img src={Snack} alt={'snack'} width="36px" height="36px" />
 
             <MealName>Snack</MealName>
           </WrapMealName>
