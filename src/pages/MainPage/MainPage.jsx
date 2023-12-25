@@ -33,8 +33,10 @@ export const MainPage = () => {
         </StyledLink>
       </Wrapper>
       <InfoWrapper>
-        <DailyGoal />
-        <Water />
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <DailyGoal style={{ width: 'calc((100% - 20px) / 2)' }} />
+          <Water style={{ width: 'calc((100% - 20px) / 2)' }} />
+        </div>
         <Food />
       </InfoWrapper>
 

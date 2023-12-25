@@ -1,22 +1,38 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { useEffect, useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+const ChartForProtein = ({ protein, consumedProtein }) => {
+  const [consumedPercent, setConsumedPercent] = useState(0);
+  const [goal, setGoal] = useState(0);
+  const [consumed, setConsumed] = useState(0);
+  const [dataReady, setDataReady] = useState(false);
 
-const ChartForProtein = () => {
-  const goal = 127.5;
-  const consumed = 110;
-  const leftConsumed = goal - consumed;
-  const consumedPercent = Math.floor((consumed * 100) / goal);
+  useEffect(() => {
+    const goalValue = Number(protein);
+    const consumedValue = Number(consumedProtein);
 
+    if (!isNaN(goalValue) && !isNaN(consumedValue)) {
+      const percent = Math.floor((consumedValue * 100) / goalValue);
+      setConsumedPercent(percent);
+      setGoal(goalValue);
+      setConsumed(consumedValue);
+      setDataReady(true);
+    }
+  }, [protein, consumedProtein]);
+
+  if (!dataReady) {
+    return null;
+  }
   const warning = consumed > goal;
 
   const data = {
     datasets: [
       {
-        data: [consumed, leftConsumed >= 0 ? leftConsumed : 0],
+        data: [consumed, Math.max(goal - consumed, 0)],
         backgroundColor: [`${warning ? '#FF3522' : '#FFF3B7'}`, '#292928'],
-        borderRadius: `${leftConsumed > 0 ? 15 : 0}`,
+        borderRadius: consumed > goal ? 15 : 0,
         borderWidth: 0,
         cutout: '80%',
       },

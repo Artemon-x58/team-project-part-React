@@ -1,22 +1,38 @@
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { useState, useEffect } from 'react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const ChartForCarbohydrates = () => {
-  const goal = 170;
-  const consumed = 80;
-  const leftConsumed = goal - consumed;
-  const consumedPercent = Math.floor((consumed * 100) / goal);
+const ChartForCarbohydrates = ({ carbohydrates, consumedCarbohydrates }) => {
+  const [consumedPercent, setConsumedPercent] = useState(0);
+  const [goal, setGoal] = useState(0);
+  const [consumed, setConsumed] = useState(0);
+  const [dataReady, setDataReady] = useState(false);
 
-  const warning = consumed > goal;
+  useEffect(() => {
+    const goalValue = Number(carbohydrates);
+    const consumedValue = Number(consumedCarbohydrates);
+
+    if (!isNaN(goalValue) && !isNaN(consumedValue)) {
+      const percent = Math.floor((consumedValue * 100) / goalValue);
+      setConsumedPercent(percent);
+      setGoal(goalValue);
+      setConsumed(consumedValue);
+      setDataReady(true);
+    }
+  }, [carbohydrates, consumedCarbohydrates]);
+
+  if (!dataReady) {
+    return null;
+  }
 
   const data = {
     datasets: [
       {
-        data: [consumed, leftConsumed >= 0 ? leftConsumed : 0],
-        backgroundColor: [`${warning ? '#FF3522' : '#FFC4F7'}`, '#292928'],
-        borderRadius: `${leftConsumed > 0 ? 15 : 0}`,
+        data: [consumed, Math.max(goal - consumed, 0)],
+        backgroundColor: [consumed > goal ? '#FF3522' : '#FFC4F7', '#292928'],
+        borderRadius: consumed > goal ? 15 : 0,
         borderWidth: 0,
         cutout: '80%',
       },
@@ -33,17 +49,17 @@ const ChartForCarbohydrates = () => {
 
   const textCenter = {
     id: 'textCenter',
-    beforeDatasetsDraw(chart, args, pluginOptions) {
+    beforeDraw(chart) {
       const { ctx } = chart;
       const xCoor = chart.getDatasetMeta(0).data[0].x;
       const yCoor = chart.getDatasetMeta(0).data[0].y;
-
       ctx.save();
       ctx.font = `400 12px sans-serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillStyle = '#B6B6B6';
       ctx.fillText(consumedPercent + '%', xCoor, yCoor);
+      ctx.restore();
     },
   };
 
@@ -68,13 +84,11 @@ const ChartForCarbohydrates = () => {
   };
 
   return (
-    <>
-      <Doughnut
-        data={data}
-        options={options}
-        plugins={[textCenter, backgroundCircle]}
-      />
-    </>
+    <Doughnut
+      data={data}
+      options={options}
+      plugins={[textCenter, backgroundCircle]}
+    />
   );
 };
 
