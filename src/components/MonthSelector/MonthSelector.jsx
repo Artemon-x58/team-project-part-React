@@ -23,38 +23,6 @@ import { useNavigate } from 'react-router-dom';
 //     setSelectedMonth(selectedOption);
 //   };
 
-//   const customStyles = {
-//     indicatorsContainer: provided => ({
-//       ...provided,
-//       padding: 0,
-//     }),
-//     control: provided => ({
-//       ...provided,
-//       background: 'transparent',
-//       border: 'none',
-//       boxShadow: 'none',
-//     }),
-//     valueContainer: provided => ({
-//       ...provided,
-//       display: 'none',
-//       background: 'transparent',
-//     }),
-//     dropdownIndicator: provided => ({
-//       ...provided,
-//       position: 'absolute',
-//       right: 0,
-//     }),
-//     menu: (provided, state) => ({
-//       ...provided,
-//       background: '#0F0F0F',
-//       color: '#B6B6B6',
-//     }),
-//     menuList: provided => ({
-//       ...provided,
-//       maxHeight: '144px',
-//     }),
-//   };
-
 //   return (
 //     <Box>
 //       <Container>
@@ -79,11 +47,12 @@ import { useNavigate } from 'react-router-dom';
 // export default MonthSelector;
 
 const MonthSelector = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isdropdownopen, setIsdropdownOpen] = useState(false);
   const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
   const [selectedMonth, setSelectedMonth] = useState(currentMonth);
   const wrapperRef = useRef(null); // Создаем ref для WrapperSelect
   const navigate = useNavigate();
+  console.log(selectedMonth);
 
   const months = [
     'January',
@@ -101,19 +70,19 @@ const MonthSelector = () => {
   ];
 
   const handleButtonClick = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsdropdownOpen(!isdropdownopen);
   };
 
   const handleMonthSelect = month => {
     setSelectedMonth(month);
-    setIsDropdownOpen(false);
+    setIsdropdownOpen(false);
     // Добавьте вашу логику обработки выбранного месяца здесь
   };
 
   const handleClickOutside = event => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       // Если клик был вне WrapperSelect, закрыть его
-      setIsDropdownOpen(false);
+      setIsdropdownOpen(false);
     }
   };
 
@@ -135,10 +104,10 @@ const MonthSelector = () => {
           </SvgSelectLeft>
           <ButtonSelect onClick={handleButtonClick}>
             Months{' '}
-            <SvgSelectDown isDropdownOpen={isDropdownOpen}>
+            <SvgSelectDown $isdropdownopen={`${isdropdownopen}`}>
               <UseSelect xlinkHref={`${Icons}#icon-arrow-down`} />
             </SvgSelectDown>
-            {isDropdownOpen && (
+            {isdropdownopen && (
               <WrapperSelect>
                 {months.map(month => (
                   <LabelSelect key={month} className="radio-label">
@@ -146,7 +115,6 @@ const MonthSelector = () => {
                       name="month"
                       type="radio"
                       value={month}
-                      checked={selectedMonth === month}
                       defaultChecked={currentMonth === month}
                       onChange={() => handleMonthSelect(month)}
                     />

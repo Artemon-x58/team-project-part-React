@@ -2,6 +2,13 @@ import styled from 'styled-components';
 
 export const Main = styled.div`
   color: #fff;
+  @media screen and (min-width: 834px) {
+    width: 380px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 444px;
+  }
 `;
 
 export const Title = styled.h2`
