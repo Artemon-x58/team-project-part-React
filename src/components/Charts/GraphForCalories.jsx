@@ -19,6 +19,7 @@ import {
   GraphLabelBlock,
   GraphLabelContent,
 } from './Graphs.Styled';
+import { getDaysInMonth } from './getDaysOfMonth';
 
 ChartJS.register(
   CategoryScale,
@@ -30,11 +31,11 @@ ChartJS.register(
   Legend
 );
 
-const GraphForCalories = () => {
-  
+const GraphForCalories = ({month, year}) => {
+
   const caloriesPerMonth = useSelector(caloriesPerThisMonth);
   const arrOfCalories = caloriesPerMonth.map(item => item.calories);
-  const arrOfDate = caloriesPerMonth.map(item => item.date.slice(-2));
+  const arrOfDate = getDaysInMonth(month, year);
 
   const options = {
     interaction: {
@@ -124,7 +125,8 @@ const GraphForCalories = () => {
     labels: arrOfDate, // arrOfDay,
     datasets: [
       {
-        data: arrOfCalories, // ArrOfCal,
+        data: arrOfCalories,
+        // arrOfCalories,
         borderColor: '#E3FFA8',
         borderWidth: 1,
         pointRadius: 0,

@@ -8,25 +8,32 @@ import {
   DataTitle,
   Scale,
 } from './Graphs.Styled';
+import { getDaysInMonth } from './getDaysOfMonth';
 
-const GraphForWeight = () => {
-
+const GraphForWeight = ({ month, year }) => {
   const weightPerMonth = useSelector(weightPerThisMonth);
+  const arrOfDate = getDaysInMonth(month, year);
 
   return (
     <>
       <Scale>
         <List>
-          {weightPerMonth.map(({date, weight }) => {
+          {arrOfDate.map(date => {
+            // Поиск объекта в массиве weightPerMonth по текущей дате
+            const weightObject = weightPerMonth.find(
+              obj => Number(obj.date.slice(-2)) === date
+            );
+
             return (
-              <Item key={`${date}+${weight}`}>
-                <WeightTitle>{weight}</WeightTitle>
-                <DataTitle>{date.slice(-2)}</DataTitle>
+              <Item key={date}>
+                <WeightTitle>
+                  {weightObject ? weightObject.weight : ''}
+                </WeightTitle>
+                <DataTitle>{date}</DataTitle>
               </Item>
             );
           })}
         </List>
-        
       </Scale>
     </>
   );

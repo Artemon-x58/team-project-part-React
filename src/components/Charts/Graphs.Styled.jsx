@@ -153,6 +153,7 @@ export const Scale = styled.div`
 export const List = styled.ul`
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-end;
 `;
 
 export const Item = styled.li`

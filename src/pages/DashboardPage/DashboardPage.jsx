@@ -26,15 +26,17 @@ import {
 } from 'components/Charts/Graphs.Styled';
 
 const DashboardPage = () => {
-  const [period, setPeriod] = useState('november');
+  const [year, setYear] = useState(2023);
+  const [nameMonth, setNameMonth] = useState('november');
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchAllValues(period));
-  }, [dispatch, period]);
+    dispatch(fetchAllValues(nameMonth));
+  }, [dispatch, nameMonth]);
 
   const handleChangeMonth = value => {
-    setPeriod(value);
+    setNameMonth(value);
+    setYear(value);
   };
 
   const calories = useSelector(averageValueCalories);
@@ -43,6 +45,7 @@ const DashboardPage = () => {
 
   return (
     <DashboardSection>
+      <button onClick={handleChangeMonth}></button>
       <LineChartBlock>
         <ContainerGraph>
           <TitleContainer>
@@ -52,7 +55,7 @@ const DashboardPage = () => {
             </GraphsSubtitle>
           </TitleContainer>
           <ChartGrid style={{ width: '100%' }}>
-            <GraphForCalories dataFormat={2023} type={'calories'} />
+            <GraphForCalories month={nameMonth} year={year} type={'calories'} />
           </ChartGrid>
         </ContainerGraph>
         <ContainerGraph>
@@ -63,7 +66,7 @@ const DashboardPage = () => {
             </GraphsSubtitle>
           </TitleContainer>
           <ChartGrid style={{ width: '100%' }}>
-            <GraphForWater dataFormat={2023} type={'water'} />
+            <GraphForWater month={nameMonth} year={year} type={'water'} />
           </ChartGrid>
         </ContainerGraph>
       </LineChartBlock>
@@ -74,8 +77,8 @@ const DashboardPage = () => {
             Average value: <span>{`${weight} kg`}</span>
           </GraphsSubtitle>
         </TitleContainer>
-        <ChartGrid >
-          <GraphForWeight dataFormat={2023} />
+        <ChartGrid>
+          <GraphForWeight month={nameMonth} year={year} />
         </ChartGrid>
       </ScaleChartBlock>
     </DashboardSection>
