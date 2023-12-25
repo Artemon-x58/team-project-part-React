@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/team-project-part-React/static/js/main.8aad0670.js",
+    "main.js": "/team-project-part-React/static/js/main.e2687cdf.js",
     "static/media/meals.svg": "/team-project-part-React/static/media/meals.424e924877aa92768982c57fdbcc61c3.svg",
     "static/media/Interactive-learning-experience.png": "/team-project-part-React/static/media/Interactive-learning-experience.5603302f0747672e85d4.png",
     "static/media/Ketogenic-diet.png": "/team-project-part-React/static/media/Ketogenic-diet.bd13d20fcd66588bb6fb.png",
@@ -9,11 +9,11 @@
     "static/media/Workout-fashion.png": "/team-project-part-React/static/media/Workout-fashion.9d9c2463eab2cc533c90.png",
     "static/media/Body-contouring.png": "/team-project-part-React/static/media/Body-contouring.a4695cbcc6e7b4b29d00.png",
     "static/media/Sport-and-fitness-tracker.png": "/team-project-part-React/static/media/Sport-and-fitness-tracker.a616831fd2b34ff13567.png",
-    "static/media/icons.svg": "/team-project-part-React/static/media/icons.be595ea3276e836738e71d47591f8fcb.svg",
+    "static/media/icons.svg": "/team-project-part-React/static/media/icons.88b4d86df4832152653d3af917ac190e.svg",
     "index.html": "/team-project-part-React/index.html",
-    "main.8aad0670.js.map": "/team-project-part-React/static/js/main.8aad0670.js.map"
+    "main.e2687cdf.js.map": "/team-project-part-React/static/js/main.e2687cdf.js.map"
   },
   "entrypoints": [
-    "static/js/main.8aad0670.js"
+    "static/js/main.e2687cdf.js"
   ]
 }
