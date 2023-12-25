@@ -41,6 +41,7 @@ import { useEffect, useState } from 'react';
 import { RecordDiaryModal } from 'components/RecordDiaryModal/RecordDiaryModal';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+  addDiaries,
   deleteDiariesById,
   fetchAllDiaries,
   updateDiariesById,
@@ -366,6 +367,7 @@ export const DiaryPage = () => {
           ))}
       </BigWrap>
       <RecordDiaryModal
+        adddiary={addDiaries}
         handleClose={handleClose}
         open={isOpen}
         mealName={mealName}

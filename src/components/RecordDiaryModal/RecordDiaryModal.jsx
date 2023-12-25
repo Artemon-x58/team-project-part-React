@@ -18,9 +18,8 @@ import {
 import { AddRecordMeal } from './AddRecordMeal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addFoodIntake } from 'redux/statistics/statisticsOperations';
 
-export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
+export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   const [numComponents, setNumComponents] = useState(1);
   const dispatch = useDispatch();
 
@@ -64,16 +63,16 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
     for (let i = 1; i <= numComponents; i++) {
       const entry = {
         title: values[`${i}-name`],
-        calories: values[`${i}-calories`],
-        carbohydrates: values[`${i}-carbonoh`],
-        protein: values[`${i}-protein`],
-        fat: values[`${i}-fat`],
+        calories: Number(values[`${i}-calories`]),
+        carbohydrates: Number(values[`${i}-carbonoh`]),
+        protein: Number(values[`${i}-protein`]),
+        fat: Number(values[`${i}-fat`]),
       };
 
       formattedEntries.push(entry);
     }
 
-    dispatch(addFoodIntake({ meals: mealName, entries: formattedEntries }));
+    dispatch(adddiary({ meals: mealName, entries: formattedEntries }));
     handleClose();
   };
 
