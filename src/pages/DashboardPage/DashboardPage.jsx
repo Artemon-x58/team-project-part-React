@@ -79,9 +79,7 @@ const DashboardPage = () => {
           </GraphsSubtitle>
         </TitleContainer>
         <ChartGrid>
-04-add-UpdateDashboard
           <GraphForWeight month={nameMonth} year={year} />
-
         </ChartGrid>
       </ScaleChartBlock>
     </DashboardSection>
