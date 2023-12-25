@@ -19,6 +19,7 @@ import {
   GraphLabelBlock,
   GraphLabelContent,
 } from './Graphs.Styled';
+import { getDaysInMonth } from './getDaysOfMonth';
 
 
 ChartJS.register(
@@ -31,11 +32,10 @@ ChartJS.register(
   Legend
 );
 
-const GraphForWater = () => {
-  
+const GraphForWater = ({ month, year }) => {
   const waterPerMonth = useSelector(waterPerThisMonth);
   const arrOfWater = waterPerMonth.map(item => item.water);
-  const arrOfDate = waterPerMonth.map(item => item.date.slice(-2));
+  const arrOfDate = getDaysInMonth(month, year);
 
   const options = {
     interaction: {
