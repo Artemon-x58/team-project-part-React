@@ -1,105 +1,51 @@
-# React homework template
+# Healthy Hub 🥬
 
-Este proyecto fue creado con la ayuda de
-[Create React App](https://github.com/facebook/create-react-app).
-[Consulte la documentación](https://facebook.github.io/create-react-app/docs/getting-started)
-para familiarizarse con las funciones opcionales y configurarlas.
+Healthy Hub es una aplicación web diseñada para ayudar a los usuarios a monitorear su nutrición, consumo de agua y cambios de peso. La aplicación permite a los usuarios realizar un seguimiento de sus metas diarias de calorías, agua y nutrientes, así como llevar un diario de alimentos.
 
-## Crear un repositorio desde una plantilla
+## Características Principales
 
-Usa este repositorio de la organización GoIT como plantilla para crear el repositorio de tu proyecto. 
-Para hacer esto, haz clic en `«Use this template»` y selecciona la opción
-`«Create a new repository»`, tal como se muestra en la imagen.
+### Página Principal (MainPage) 🏠
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+- Visualización de bloques como el título de la página, elementos de navegación, meta diaria, agua, alimentos, diario y alimentos recomendados.
+- Diseño receptivo para dispositivos móviles, tabletas y escritorio.
 
-Para el siguiente paso deberás abrir la página para crear un nuevo repositorio. 
-Ponle nombre, asegúrate de que el repositorio sea público y haz clic en el botón
-`«Create repository from template»`.
+### Meta Diaria (DailyGoal) 🎯
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- Visualización de las metas diarias de calorías y agua para el usuario.
+- Gráficos para seguir el progreso en el consumo de calorías y agua.
 
-Ahora ya tienes un repositorio de proyecto personal, junto a una estructura de 
-archivos y carpetas del repositorio de plantillas. Luego trabaja con esto, así 
-como con cualquier otro repositorio personal, realiza una copia en tu computadora 
-y súbelo a GitHub.
+### Alimentos (Food) 🍲
 
-## Prepararse para el trabajo
+- Gráficos que muestran la distribución de nutrientes (calorías, carbohidratos, proteínas, grasas) con la posibilidad de establecer metas y realizar un seguimiento del progreso.
 
-1. Asegúrate de que la versión LTS de Node.js está instalada en tu computador.
-   [Descárguela e instálela](https://nodejs.org/en/) de ser necesario.
-2. Instala las dependencias base del proyecto con el comando `npm install`.
-3. Inicia el modo de desarrollo ejecutando el comando `npm start`.
-4. En tu navegador, ve a la dirección
-   [http://localhost:3000](http://localhost:3000). Esta página se recargará
-   automáticamente después de guardar los cambios en los archivos del proyecto.
+### Rastreador de Agua (Water) 💧
 
-## Implementación
+- Mostrar el porcentaje de agua consumida en comparación con la meta diaria.
+- Funcionalidad para agregar agua consumida.
 
-La versión de producción del proyecto se verificará, compilará y desplegará
-automáticamente en GitHub Pages, en la rama `gh-pages`, cada vez que se
-actualice la rama `main`. Por ejemplo, después de un Push directo o de una
-Pool-request aceptada. Para ello, edita el campo `homepage` del archivo
-`package.json`, sustituyendo `your_username` y `your_repo_name` por los tuyos
-propios, y envía los cambios a GitHub.
+### Diario (Diary) 📓
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+- Registro de entradas de alimentos para el desayuno, almuerzo, cena y meriendas.
+- Información sobre nutrientes y la posibilidad de agregar nuevas entradas a través de una ventana modal.
 
-A continuación, ve a la configuración del repositorio de GitHub (`Settings` >
-`Pages`) y selecciona distribuir la versión de producción de los archivos desde
-la carpeta `/root` de la rama `gh-pages`, si no se ha hecho automáticamente.
+### Alimentos Recomendados (RecommendedFood) 🌽
 
-![GitHub Pages settings](./assets/repo-settings.png)
+- Lista de productos recomendados con detalles de calorías y volumen.
 
-### Estado de la implantación
+### Página del Tablero (DashboardPage) 📊
 
-El estado del último commit se indica con un icono junto al ID del commit.
+- Gráficos que muestran información sobre calorías, agua y cambios de peso durante períodos específicos.
+- Promedios y la posibilidad de elegir un período (mes).
 
-- **Color amarillo** - el proyecto está compilado e implementado.
-- **Color verde** - La implementación se completó con éxito.
-- **Color rojo** - Se ha producido un error durante la verificación, la
-  compilación o la implementación
+### Página del Diario (DiaryPage) 🗒️
 
-Se puede ver información de estado más detallada haciendo clic en el icono y en
-la ventana desplegable del enlace `Detalles`.
+- Sección donde los usuarios pueden registrar entradas de alimentos para diferentes comidas.
+- Visualización de nutrientes para cada comida y la posibilidad de agregar nuevas entradas a través de una ventana modal.
 
-![Deployment status](./assets/deploy-status.png)
+### Página de Alimentos Recomendados (RecommendedFoodPage) 🍏
 
-### Página activa
+- Lista de productos recomendados con detalles.
 
-Después de un tiempo, normalmente un par de minutos, la página real se puede ver
-en la dirección especificada en la propiedad `homepage`. Por ejemplo, aquí está
-el enlace a la versión activa de este repositorio
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
+### Página de Configuración (SettingsPage) ⚙️
 
-Si se abre una página en blanco, asegúrate de que no haya errores en la pestaña
-`Console` relacionados con rutas incorrectas de archivos CSS y JS del proyecto
-(**404**). Probablemente tienes un valor incorrecto para la propiedad `homepage`
-en el archivo `package.json`.
-
-### Enrutamiento
-
-Si la aplicación utiliza la librería `react-router-dom` para el enrutamiento, el
-componente `<BrowserRouter>` debe ser configurado adicionalmente pasando en la
-prop `basename`, el nombre exacto de tu repositorio. Las barras inclinadas al
-principio y al final de la cadena son obligatorias.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## ¿Cómo funciona?
-
-![How it works](./assets/how-it-works.png)
-
-1. Después de cada push a la rama `main` del repositorio GitHub, se ejecuta un
-   script especial (GitHub Action) del archivo `.github/workflows/deploy.yml`.
-2. Todos los archivos del repositorio se copian en el servidor, donde el
-   proyecto se inicializa, se verifica y se compila antes de ser implementado.
-3. Si todos los pasos tienen éxito, la versión de producción compilada de los
-   archivos del proyecto se envía a la rama `gh-pages`. De lo contrario, el
-   registro de ejecución del script indicará cuál es el problema.
+- Edición del perfil del usuario, incluida la foto, nombre, edad, género, peso y nivel de actividad física.
