@@ -106,7 +106,7 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
           <ErrorMsg name={generateId('calories')} component="div" />
         </ErrWrap>
 
-        <svg width="20px" height="20px" onClick={handleClean}>
+        <svg width="20px" height="20px" stroke="#E3FFA8" onClick={handleClean}>
           <use xlinkHref={`${Icons}#icon-basket`} />
         </svg>
       </SmallWrap>

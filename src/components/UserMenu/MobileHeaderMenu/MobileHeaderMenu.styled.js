@@ -21,6 +21,7 @@ export const OpenMenuBtn = styled.button`
 `;
 
 export const MobileMenu = styled.div`
+  z-index: 100;
   position: absolute;
   top: 100%;
   left: 50%;

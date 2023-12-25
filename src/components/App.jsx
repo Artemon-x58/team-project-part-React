@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { refreshUser } from 'redux/auth/authOperations';
@@ -93,14 +93,17 @@ export const App = () => {
           <Route
             path="diary"
             element={
-              <PrivateRoute redirectTo="/signin" component={<DiaryPage />} />
+              <PrivateRoute redirectTo="/diary" component={<DiaryPage />} />
             }
           />
           <Route
             path="test"
-            element={<PrivateRoute redirectTo="/test" component={<MonthSelector />} />}
+            element={
+              <PrivateRoute redirectTo="/test" component={<MonthSelector />} />
+            }
           />
         </Route>
+        <Route path="*" element={<Navigate to={'/'} />} />
       </Routes>
       <Toaster />
     </>

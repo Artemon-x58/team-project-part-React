@@ -33,6 +33,12 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     outline: transparent;
   }
+svg{
+  cursor: pointer;
+}
+label {
+  cursor: pointer;
+}
 
   img {
     display: block;
@@ -46,7 +52,5 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
 }
 
-input[type=number]{
-    -moz-appearance: textfield;
-}
+
 `;

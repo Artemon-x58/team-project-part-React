@@ -153,4 +153,5 @@ export const BusketIcon = styled.svg`
   height: 20px;
   cursor: pointer;
   stroke: rgba(227, 255, 168, 1);
+  stroke: #e3ffa8;
 `;
