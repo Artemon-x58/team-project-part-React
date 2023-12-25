@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAllStatistics } from 'redux/statistics/statisticsOperations';
 import {
+  ConteinerRecommended,
   FoodWrapepr,
   InfoWrapper,
   StyledLink,
@@ -33,10 +34,10 @@ export const MainPage = () => {
         </StyledLink>
       </Wrapper>
       <InfoWrapper>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <DailyGoal style={{ width: 'calc((100% - 20px) / 2)' }} />
-          <Water style={{ width: 'calc((100% - 20px) / 2)' }} />
-        </div>
+        <ConteinerRecommended>
+          <DailyGoal />
+          <Water />
+        </ConteinerRecommended>
         <Food />
       </InfoWrapper>
 
