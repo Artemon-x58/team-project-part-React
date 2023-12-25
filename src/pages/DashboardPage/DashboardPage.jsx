@@ -52,6 +52,7 @@ const DashboardPage = () => {
             <GraphsTitle>{'Calories'}</GraphsTitle>
             <GraphsSubtitle>
               Average value: <span>{`${calories} cal`}</span>
+              <button type="button" onClick={handleChangeMonth}></button>
             </GraphsSubtitle>
           </TitleContainer>
           <ChartGrid style={{ width: '100%' }}>
@@ -78,7 +79,9 @@ const DashboardPage = () => {
           </GraphsSubtitle>
         </TitleContainer>
         <ChartGrid>
+04-add-UpdateDashboard
           <GraphForWeight month={nameMonth} year={year} />
+
         </ChartGrid>
       </ScaleChartBlock>
     </DashboardSection>
