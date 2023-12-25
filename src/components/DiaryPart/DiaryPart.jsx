@@ -43,6 +43,7 @@ export const DiaryPart = () => {
   const lunchNutrients = useSelector(selectLunchSumNutrientsToday);
   const dinnerNutrients = useSelector(selectDinnerSumNutrientsToday);
   const snackNutrients = useSelector(selectSnackSumNutrientsToday);
+  console.log(lunchNutrients);
 
   useEffect(() => {
     // Визначаємо, чи є дані для кожного прийому їжі та оновлюємо значення isRecorded

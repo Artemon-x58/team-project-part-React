@@ -65,10 +65,10 @@ export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
       // Створюємо об'єкт для кожного рядка
       const entry = {
         title: values[`${i}-name`],
-        calories: values[`${i}-calories`],
-        carbohydrates: values[`${i}-carbonoh`],
-        protein: values[`${i}-protein`],
-        fat: values[`${i}-fat`],
+        calories: Number(values[`${i}-calories`]),
+        carbohydrates: Number(values[`${i}-carbonoh`]),
+        protein: Number(values[`${i}-protein`]),
+        fat: Number(values[`${i}-fat`]),
       };
 
       // Додаємо об'єкт до масиву
