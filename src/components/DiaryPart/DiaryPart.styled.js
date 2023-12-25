@@ -50,8 +50,8 @@ export const WrapMeal = styled.div`
     flex-direction: row;
     align-items: center;
     gap: 8px;
-    width: ${({ ismealrecorded }) =>
-      ismealrecorded === 'true' ? '558px' : '306px'};
+    width: ${({ $ismealrecorded }) =>
+      $ismealrecorded === 'true' ? '558px' : '306px'};
     justify-content: space-between;
     margin-top: 0;
     &:not(:last-child) {

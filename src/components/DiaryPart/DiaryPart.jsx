@@ -82,7 +82,7 @@ export const DiaryPart = () => {
           <MoreLink to="/diary">See more</MoreLink>
         </TitleWrap>
 
-        <WrapMeal ismealrecorded={isRecorded.breakfast.toString()}>
+        <WrapMeal $ismealrecorded={isRecorded.breakfast.toString()}>
           <WrapMealName>
             <svg width="36px" height="36px">
               <use xlinkHref={`${Meals}#icon-breakfast`} />
@@ -111,14 +111,14 @@ export const DiaryPart = () => {
             </MealContainList>
           ) : (
             <MealRecordWrap onClick={handleOpen('breakfast')}>
-              <svg width="16px" height="16px">
+              <svg width="16px" height="16px" stroke="#E3FFA8">
                 <use xlinkHref={`${Icons}#icon-add`} />
               </svg>
               Record your meal
             </MealRecordWrap>
           )}
         </WrapMeal>
-        <WrapMeal ismealrecorded={isRecorded.lunch.toString()}>
+        <WrapMeal $ismealrecorded={isRecorded.lunch.toString()}>
           <WrapMealName>
             <svg width="36px" height="36px">
               <use xlinkHref={`${Meals}#icon-lunch`} />
@@ -153,7 +153,7 @@ export const DiaryPart = () => {
             </MealRecordWrap>
           )}
         </WrapMeal>
-        <WrapMeal ismealrecorded={isRecorded.dinner.toString()}>
+        <WrapMeal $ismealrecorded={isRecorded.dinner.toString()}>
           <WrapMealName>
             <svg width="36px" height="36px">
               <use xlinkHref={`${Meals}#icon-dinner`} />
@@ -188,7 +188,7 @@ export const DiaryPart = () => {
             </MealRecordWrap>
           )}
         </WrapMeal>
-        <WrapMeal ismealrecorded={isRecorded.snack.toString()}>
+        <WrapMeal $ismealrecorded={isRecorded.snack.toString()}>
           <WrapMealName>
             <svg width="36px" height="36px">
               <use xlinkHref={`${Meals}#icon-snack`} />

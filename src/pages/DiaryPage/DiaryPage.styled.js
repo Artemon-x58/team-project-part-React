@@ -97,7 +97,7 @@ export const MealContainList = styled.div`
   display: inline-flex;
   align-items: flex-start;
   gap: 12px;
-  width: 178px;
+  width: 190px;
   flex-wrap: wrap;
   margin-bottom: 12px;
   @media screen and (min-width: 834px) {
