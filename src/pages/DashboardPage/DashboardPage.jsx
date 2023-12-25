@@ -33,9 +33,9 @@ const DashboardPage = () => {
     dispatch(fetchAllValues(period));
   }, [dispatch, period]);
 
-  const handleChangeMonth = value => {
-    setPeriod(value);
-  };
+  // const handleChangeMonth = value => {
+  //   setPeriod(value);
+  // };
 
   const calories = useSelector(averageValueCalories);
   const water = useSelector(averageValueWater);
@@ -74,7 +74,7 @@ const DashboardPage = () => {
             Average value: <span>{`${weight} kg`}</span>
           </GraphsSubtitle>
         </TitleContainer>
-        <ChartGrid >
+        <ChartGrid>
           <GraphForWeight dataFormat={2023} />
         </ChartGrid>
       </ScaleChartBlock>

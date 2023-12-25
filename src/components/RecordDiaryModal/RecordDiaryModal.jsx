@@ -18,7 +18,6 @@ import {
 import { AddRecordMeal } from './AddRecordMeal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addFoodIntake } from 'redux/statistics/statisticsOperations';
 
 export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   const [numComponents, setNumComponents] = useState(1);
