@@ -60,9 +60,7 @@ export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   const handleFormSubmit = values => {
     const formattedEntries = [];
 
-    // Цикл по всім рядкам у введеннях
     for (let i = 1; i <= numComponents; i++) {
-      // Створюємо об'єкт для кожного рядка
       const entry = {
         title: values[`${i}-name`],
         calories: Number(values[`${i}-calories`]),
@@ -71,14 +69,8 @@ export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
         fat: Number(values[`${i}-fat`]),
       };
 
-      // Додаємо об'єкт до масиву
       formattedEntries.push(entry);
     }
-
-    console.log('>>>>>>>>>>>', {
-      meals: mealName,
-      entries: formattedEntries,
-    });
 
     dispatch(adddiary({ meals: mealName, entries: formattedEntries }));
     handleClose();

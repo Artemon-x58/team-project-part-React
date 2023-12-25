@@ -226,12 +226,14 @@ export const DiaryPart = () => {
           )}
         </WrapMeal>
       </DiaryWrapper>
-      <RecordDiaryModal
-        adddiary={addFoodIntake}
-        handleClose={handleClose}
-        open={isOpen}
-        mealName={mealName}
-      />
+      {isOpen && (
+        <RecordDiaryModal
+          adddiary={addFoodIntake}
+          handleClose={handleClose}
+          open={isOpen}
+          mealName={mealName}
+        />
+      )}
     </>
   );
 };
