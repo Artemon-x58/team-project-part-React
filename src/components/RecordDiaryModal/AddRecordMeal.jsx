@@ -5,6 +5,7 @@ import {
   SmallWrap,
   ErrorMsg,
   ErrWrap,
+  ErrorMsgSmall,
 } from './RecordDiaryModal.styled';
 import Icons from '../../icons/icons.svg';
 
@@ -89,7 +90,11 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
             value={values[generateId('fat')] || ''}
             onChange={e => handleInputChange(generateId('fat'), e)}
           />
-          <ErrorMsg name={generateId('fat')} component="div" />
+          <ErrorMsgSmall
+            name={generateId('fat')}
+            isvalue={'fat'}
+            component="div"
+          />
         </ErrWrap>
         <ErrWrap>
           <label htmlFor={generateId('calories')}></label>
@@ -103,7 +108,11 @@ export const AddRecordMeal = ({ handleDelete, idPrefix }) => {
             value={values[generateId('calories')] || ''}
             onChange={e => handleInputChange(generateId('calories'), e)}
           />
-          <ErrorMsg name={generateId('calories')} component="div" />
+          <ErrorMsgSmall
+            name={generateId('calories')}
+            isvalue={'calories'}
+            component="div"
+          />
         </ErrWrap>
 
         <svg width="20px" height="20px" stroke="#E3FFA8" onClick={handleClean}>
