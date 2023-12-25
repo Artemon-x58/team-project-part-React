@@ -6,7 +6,17 @@ export const WraperLink = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #fff;
 
+  @media screen and (min-width: 834px) {
+    margin-bottom: 24px;
+  }
+`;
 export const SvgRight = styled.svg`
   transform: rotate(180deg) rotate(0deg);
   width: 16px;
@@ -20,7 +30,7 @@ export const ConteinerRecommended = styled.div`
 
   @media screen and (min-width: 834px) {
     font-size: 30px;
-    flex-direction: unset;
+    flex-direction: row;
   }
 `;
 
@@ -48,18 +58,6 @@ export const StyledLink = styled.button`
 
   @media screen and (min-width: 834px) {
     font-size: 16px;
-  }
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  color: #fff;
-
-  @media screen and (min-width: 834px) {
-    margin-bottom: 24px;
   }
 `;
 

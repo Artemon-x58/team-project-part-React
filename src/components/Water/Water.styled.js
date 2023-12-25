@@ -2,10 +2,6 @@ import styled from 'styled-components';
 
 export const Main = styled.div`
   color: #fff;
-
-  @media screen and (min-width: 834px) {
-    idth: calc((100%-20px) / 2);
-  }
 `;
 
 export const Title = styled.h2`
@@ -20,18 +16,17 @@ export const Title = styled.h2`
 `;
 
 export const Body = styled.div`
+  background-color: grey;
   display: flex;
   align-items: center;
-  max-width: 300px;
+  /* max-width: 300px;
   max-height: 212px;
-  flex-shrink: 0;
+  flex-shrink: 0; */
   border-radius: 12px;
   background-color: #0f0f0f;
   padding: 16px 12px;
 
   @media screen and (min-width: 834px) {
-    min-width: 350px;
-    height: 192px;
     padding: 24px 22px;
   }
 
@@ -56,12 +51,12 @@ export const Subtitle = styled.h3`
 export const Value = styled.p`
   display: flex;
   align-items: center;
-  column-gap: 4px;
+
+  /* column-gap: 4px; */
   font-size: 28px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 1.1;
-  min-width: 89px;
+  line-height: 1.21;
+  /* min-width: 89px; */
 
   @media screen and (min-width: 834px) {
     font-size: 32px;
@@ -71,14 +66,14 @@ export const Value = styled.p`
 export const ValueWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 8px;
+  /* row-gap: 8px; */
   margin-bottom: 16px;
-  width: 100%;
+  /* width: 100%; */
 
   @media screen and (min-width: 834px) {
     flex-direction: row;
     align-items: center;
-    column-gap: 40px;
+    column-gap: 31px;
   }
 `;
 
@@ -158,4 +153,10 @@ export const BusketIcon = styled.svg`
   cursor: pointer;
   stroke: rgba(227, 255, 168, 1);
   stroke: #e3ffa8;
+  @media screen and (min-width: 834px) {
+    right: 0;
+  }
+  @media screen and (min-width: 1440px) {
+    right: -20px;
+  }
 `;
