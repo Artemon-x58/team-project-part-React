@@ -86,6 +86,7 @@ const ChartForProtein = ({ protein, consumedProtein }) => {
   return (
     <>
       <Doughnut
+        key={consumedPercent}
         data={data}
         options={options}
         plugins={[textCenter, backgroundCircle]}
