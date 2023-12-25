@@ -1,66 +1,38 @@
 import { useSelector } from 'react-redux';
+import { weightPerThisMonth } from 'redux/graphs/graphsSelectors';
+
 import {
   List,
   Item,
-  //   WeightTitle, WeightValue
-  //   DataTitle, DataValue
-  TitleContainer,
-  GraphsTitle,
-  GraphsSubtitle,
-  // GraphsCaption,
+  WeightTitle,
+  DataTitle,
   Scale,
 } from './Graphs.Styled';
-import { averageValueWeight } from 'redux/graphs/graphsSelectors';
+import { getDaysInMonth } from './getDaysOfMonth';
 
-const GraphForWeight = () => {
-
-  const upperRowValues = Array.from({ length: 31 }, () =>
-    (Math.random() * (80 - 60) + 60).toFixed(0)
-  );
-  const lowerRowValues = Array.from({ length: 31 }, (_, i) =>
-    (i + 1).toString()
-  );
-
-  const weight = useSelector(averageValueWeight);
+const GraphForWeight = ({ month, year }) => {
+  const weightPerMonth = useSelector(weightPerThisMonth);
+  const arrOfDate = getDaysInMonth(month, year);
 
   return (
     <>
-      <TitleContainer>
-        <GraphsTitle>Weight</GraphsTitle>
-        <GraphsSubtitle>
-          Average value: <span>{`${weight} kg`}</span>
-        </GraphsSubtitle>
-      </TitleContainer>
       <Scale>
         <List>
-          {upperRowValues.map((value, index) => (
-            <Item key={index} className="table-cell upper">
-              {value}
-            </Item>
-          ))}
-          {/* {weight.map(({ _id, amount }) => {
+          {arrOfDate.map(date => {
+            // Поиск объекта в массиве weightPerMonth по текущей дате
+            const weightObject = weightPerMonth.find(
+              obj => Number(obj.date.slice(-2)) === date
+            );
+
             return (
-              <Item key={`${_id}+${amount}`}>
-                <WeightTitle>{amount}</WeightTitle>
-                <DataTitle>{_id}</DataTitle>
+              <Item key={date}>
+                <WeightTitle>
+                  {weightObject ? weightObject.weight : ''}
+                </WeightTitle>
+                <DataTitle>{date}</DataTitle>
               </Item>
             );
-          })} */}
-        </List>
-        <List>
-          {lowerRowValues.map((value, index) => (
-            <Item key={index} className="table-cell lower">
-              {value}
-            </Item>
-          ))}
-          {/* {weight.map(({ _id, amount }) => {
-            return (
-              <Item key={`${_id}+${amount}`}>
-                <WeightTitle>{amount}</WeightTitle>
-                <DataTitle>{_id}</DataTitle>
-              </Item>
-            );
-          })} */}
+          })}
         </List>
       </Scale>
     </>

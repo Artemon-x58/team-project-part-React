@@ -14,7 +14,6 @@ export const GraphsTitle = styled.h2`
   line-height: 1.44;
   margin-right: auto;
   color: #ffffff;
-  /* 77px; */
 
   @media screen and (min-width: 834px) {
     font-size: 22px;
@@ -54,16 +53,12 @@ export const ContainerGraph = styled.div`
 
 export const Graph = styled.div`
   position: relative;
-  /* width: 676px; */
-  /* height: 382px; */
-  /* height: 100%; */
   padding: 25px 20px 44px 14px;
   border-radius: 12px;
-  background-color: '#0F0F0F';
   margin-bottom: 8px;
   background-color: #0f0f0f;
 
-  /* border: 1px solid yellow; */
+  border: 1px solid yellow;
 
   & canvas {
     padding: 0;
@@ -71,27 +66,24 @@ export const Graph = styled.div`
     margin: 0 auto;
   }
 
+  @media screen and (max-width: 833px) {
+    width: 676px;
+  }
+
   @media screen and (min-width: 834px) {
     padding-right: 31px;
-    /* width: 780px; */
-    /* padding: 25px 31px 24px 14px;
-
-    /* padding: 25px 20px 24px 14px; */
 
     & canvas {
       padding: 0;
-
       min-height: 313px;
       margin: 0 auto;
     }
   }
   @media screen and (min-width: 1440px) {
     padding-right: 20px;
-    /* width: 676px; */
-    /* padding: 25px 20px 24px 14px; */
+    
     & canvas {
       padding: 0;
-
       min-height: auto;
     }
   }
@@ -106,7 +98,7 @@ export const GraphLabelBlock = styled.div`
   left: 0;
   /* padding: 8px 6px; */
   border-radius: 8px;
-  /* box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2); */
+  box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2);
 
   border: 1px solid blue;
 `;
@@ -139,20 +131,21 @@ export const Scale = styled.div`
   justify-content: center;
   background-color: #0f0f0f;
   border-radius: 12px;
-  height: 110px;
+  padding: 24px 24px 36px;
+  margin-bottom: 8px;
 
   border: 1px solid yellowgreen;
 
-  @media screen and (min-width: 320px) {
+  @media screen and (max-width: 833px) {
     width: 1372px;
-    padding: 24px 24px 36px;
   }
+
   @media screen and (min-width: 834px) {
-    width: 780px;
+    max-width: 780px;
     padding: 24px 20px 44px;
   }
   @media screen and (min-width: 1440px) {
-    width: 1372px;
+    max-width: 1372px;
     padding: 24px 24px 36px;
   }
 `;
@@ -160,6 +153,7 @@ export const Scale = styled.div`
 export const List = styled.ul`
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-end;
 `;
 
 export const Item = styled.li`

@@ -61,6 +61,7 @@ export const FoodWrapepr = styled.div`
   padding-bottom: 80px;
 
   @media screen and (min-width: 1440px) {
+    justify-content: space-between;
     flex-direction: row;
   }
 `;

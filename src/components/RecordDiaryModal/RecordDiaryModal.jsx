@@ -18,9 +18,8 @@ import {
 import { AddRecordMeal } from './AddRecordMeal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addFoodIntake } from 'redux/statistics/statisticsOperations';
 
-export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
+export const RecordDiaryModal = ({ handleClose, open, mealName, adddiary }) => {
   const [numComponents, setNumComponents] = useState(1);
   const dispatch = useDispatch();
 
@@ -61,27 +60,19 @@ export const RecordDiaryModal = ({ handleClose, open, mealName }) => {
   const handleFormSubmit = values => {
     const formattedEntries = [];
 
-    // Цикл по всім рядкам у введеннях
     for (let i = 1; i <= numComponents; i++) {
-      // Створюємо об'єкт для кожного рядка
       const entry = {
         title: values[`${i}-name`],
-        calories: values[`${i}-calories`],
-        carbohydrates: values[`${i}-carbonoh`],
-        protein: values[`${i}-protein`],
-        fat: values[`${i}-fat`],
+        calories: Number(values[`${i}-calories`]),
+        carbohydrates: Number(values[`${i}-carbonoh`]),
+        protein: Number(values[`${i}-protein`]),
+        fat: Number(values[`${i}-fat`]),
       };
 
-      // Додаємо об'єкт до масиву
       formattedEntries.push(entry);
     }
 
-    console.log('>>>>>>>>>>>', {
-      meals: mealName,
-      entries: formattedEntries,
-    });
-
-    dispatch(addFoodIntake({ meals: mealName, entries: formattedEntries }));
+    dispatch(adddiary({ meals: mealName, entries: formattedEntries }));
     handleClose();
   };
 

@@ -23,7 +23,10 @@ import {
   selectLunchSumNutrientsToday,
   selectSnackSumNutrientsToday,
 } from 'redux/statistics/statisticsSelectors';
-import { removeFoodIntake } from 'redux/statistics/statisticsOperations';
+import {
+  addFoodIntake,
+  removeFoodIntake,
+} from 'redux/statistics/statisticsOperations';
 
 export const DiaryPart = () => {
   const [isRecorded, setIsRecorded] = useState({
@@ -223,11 +226,14 @@ export const DiaryPart = () => {
           )}
         </WrapMeal>
       </DiaryWrapper>
-      <RecordDiaryModal
-        handleClose={handleClose}
-        open={isOpen}
-        mealName={mealName}
-      />
+      {isOpen && (
+        <RecordDiaryModal
+          adddiary={addFoodIntake}
+          handleClose={handleClose}
+          open={isOpen}
+          mealName={mealName}
+        />
+      )}
     </>
   );
 };

@@ -28,15 +28,15 @@ import {
 import Icons from '../../icons/icons.svg';
 
 const Water = () => {
-  const recomendedWater = useSelector(selectRecommendedWater);
-  const { water: consumedWater } = useSelector(selectWaterToday);
+  const recomendedWaters = useSelector(selectRecommendedWater);
+  const { water: consumedWaters } = useSelector(selectWaterToday);
   const dispatch = useDispatch();
 
-  const percentage = Number.isNaN((consumedWater / recomendedWater) * 100)
+  const percentage = Number.isNaN((consumedWaters / recomendedWaters) * 100)
     ? 0
-    : (consumedWater / recomendedWater) * 100;
+    : (consumedWaters / recomendedWaters) * 100;
 
-  const remainingWater = Math.max(0, recomendedWater - consumedWater);
+  const remainingWaters = Math.max(0, recomendedWaters - consumedWaters);
 
   const handleAddWater = amount => {
     dispatch(addWaterIntake(amount));
@@ -55,16 +55,16 @@ const Water = () => {
             <Subtitle>Water Consumption</Subtitle>
             <ValueWrapper>
               <Value>
-                {consumedWater} <Unit>ml</Unit>
+                {consumedWaters} <Unit>ml</Unit>
               </Value>
               <Left>
-                left: <Unit>{remainingWater} ml</Unit>
+                left: <Unit>{remainingWaters} ml</Unit>
               </Left>
             </ValueWrapper>
             <AddWaterModal
               addWater={handleAddWater}
-              dailyGoal={recomendedWater}
-              consumedWater={consumedWater}
+              dailyGoal={recomendedWaters}
+              consumedWater={consumedWaters}
             />
           </WaterInfoWrapper>
 

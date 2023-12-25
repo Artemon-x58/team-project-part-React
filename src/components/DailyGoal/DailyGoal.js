@@ -29,7 +29,10 @@ const DailyGoal = () => {
           </svg>
           <div>
             <Subtitle>Calories</Subtitle>
-            <Value>{recommendedCalories.calories}</Value>
+            <Value>
+              {recommendedCalories.calories}
+              <Unit>ml</Unit>
+            </Value>
           </div>
         </Wrapper>
         <Wrapper>

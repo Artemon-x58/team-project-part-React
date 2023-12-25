@@ -35,7 +35,7 @@ const initialState = {
     fat: '',
   },
   lunchSumNutrientsToday: {
-    // calories: '',
+    calories: '',
     carbohydrates: '',
     protein: '',
     fat: '',
@@ -72,7 +72,7 @@ const handleLogInFulfilled = (state, action) => {
   state.waterToday = action.payload.waterToday;
   state.recommendedFood = action.payload.recommendedFoodForMainPage;
   state.snackSumNutrientsToday = action.payload.snackSumNutrientsToday;
-  state.lunchtSumNutrientsToday = action.payload.lunchtSumNutrientsToday;
+  state.lunchSumNutrientsToday = action.payload.lunchSumNutrientsToday;
   state.dinnerSumNutrientsToday = action.payload.dinnerSumNutrientsToday;
   state.breakfastSumNutrientsToday = action.payload.breakfastSumNutrientsToday;
 };
@@ -128,7 +128,7 @@ const handleAddFoodIntakeFulfilled = (state, action) => {
     state.snackSumNutrientsToday = newSumNutrientsPerDay;
   }
 
-  state.caloriesToday = newCaloriesAndDate;
+  state.caloriesToday = newCaloriesAndDate.newCaloriesAndDate;
   state.isRefreshing = false;
 };
 
