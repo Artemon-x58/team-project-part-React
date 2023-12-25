@@ -2,19 +2,22 @@ import GraphForCalories from 'components/Charts/GraphForCalories';
 import GraphForWater from 'components/Charts/GraphForWater';
 import GraphForWeight from 'components/Charts/GraphForWeight';
 
-import {
-  DashboardSection,
-  LineChartBlock,
-  ChartGrid,
-  ScaleChartBlock,
-} from './DashboardPage.Styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchAllValues } from 'redux/graphs/graphsOperations';
 import {
   averageValueCalories,
   averageValueWater,
+  averageValueWeight,
 } from 'redux/graphs/graphsSelectors';
+
+import {
+  DashboardSection,
+  LineChartBlock,
+  ChartGrid,
+  ScaleChartBlock,
+} from './DashboardPage.Styled';
+
 import {
   ContainerGraph,
   GraphsSubtitle,
@@ -23,7 +26,7 @@ import {
 } from 'components/Charts/Graphs.Styled';
 
 const DashboardPage = () => {
-  const [period, setPeriod] = useState('december');
+  const [period, setPeriod] = useState('november');
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -36,6 +39,7 @@ const DashboardPage = () => {
 
   const calories = useSelector(averageValueCalories);
   const water = useSelector(averageValueWater);
+  const weight = useSelector(averageValueWeight);
 
   return (
     <DashboardSection>
@@ -64,7 +68,15 @@ const DashboardPage = () => {
         </ContainerGraph>
       </LineChartBlock>
       <ScaleChartBlock>
-        <GraphForWeight dataFormat={2023} />
+        <TitleContainer>
+          <GraphsTitle>Weight</GraphsTitle>
+          <GraphsSubtitle>
+            Average value: <span>{`${weight} kg`}</span>
+          </GraphsSubtitle>
+        </TitleContainer>
+        <ChartGrid >
+          <GraphForWeight dataFormat={2023} />
+        </ChartGrid>
       </ScaleChartBlock>
     </DashboardSection>
   );

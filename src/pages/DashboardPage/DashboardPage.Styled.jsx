@@ -23,17 +23,17 @@ export const DashboardContainer = styled.div`
   }
 `;
 
-export const HeaderBlock = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-`;
+// export const HeaderBlock = styled.div`
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   margin-bottom: 16px;
+// `;
 
-export const MainHeaderBlock = styled.div`
-  position: relative;
-  display: flex;
-`;
+// export const MainHeaderBlock = styled.div`
+//   position: relative;
+//   display: flex;
+// `;
 
 // export const BackLink = styled(NavLink)`
 //   display: flex;
@@ -45,94 +45,101 @@ export const MainHeaderBlock = styled.div`
 //   }
 // `;
 
-export const ArrowReturn = styled.img`
-  @media screen and (min-width: 320px) {
-    width: 16px;
-  }
-  @media screen and (min-width: 834px) {
-    width: 24px;
-  }
-`;
+// export const ArrowReturn = styled.img`
+//   @media screen and (min-width: 320px) {
+//     width: 16px;
+//   }
+//   @media screen and (min-width: 834px) {
+//     width: 24px;
+//   }
+// `;
 
-export const Header = styled.h1`
-  font-weight: 500;
+// export const Header = styled.h1`
+//   font-weight: 500;
 
-  @media screen and (min-width: 320px) {
-    font-size: 24px;
-    line-height: 1.25;
-  }
-  @media screen and (min-width: 834px) {
-    font-size: 30px;
-    line-height: 1.2;
-  }
-`;
+//   @media screen and (min-width: 320px) {
+//     font-size: 24px;
+//     line-height: 1.25;
+//   }
+//   @media screen and (min-width: 834px) {
+//     font-size: 30px;
+//     line-height: 1.2;
+//   }
+// `;
 
-export const Button = styled.button`
-  margin-left: 12px;
-  padding: 0;
-  border: none;
-  background-color: inherit;
-  color: inherit;
-`;
+// export const Button = styled.button`
+//   margin-left: 12px;
+//   padding: 0;
+//   border: none;
+//   background-color: inherit;
+//   color: inherit;
+// `;
 
-export const ToggleButton = styled.button`
-  position: absolute;
-  background-color: '#0F0F0F';
-  border: none;
-  padding: 16px 0 16px 12px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 14px 0px #e3ffa833;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  text-align: left;
-  color: inherit;
-  z-index: 1000;
+// export const ToggleButton = styled.button`
+//   position: absolute;
+//   background-color: '#0F0F0F';
+//   border: none;
+//   padding: 16px 0 16px 12px;
+//   border-radius: 12px;
+//   box-shadow: 0px 4px 14px 0px #e3ffa833;
+//   font-family: 'Poppins', sans-serif;
+//   font-weight: 400;
+//   text-align: left;
+//   color: inherit;
+//   z-index: 1000;
 
-  @media screen and (min-width: 320px) {
-    top: 32px;
-    left: 24px;
-    width: 188px;
-    height: 52px;
-    font-size: 16px;
-    line-height: 1.38;
-  }
-  @media screen and (min-width: 834px) {
-    top: 40px;
-    left: 36px;
-    width: 212px;
-    height: 64px;
-    font-size: 22px;
-    line-height: 1.45;
-  }
-`;
+//   @media screen and (min-width: 320px) {
+//     top: 32px;
+//     left: 24px;
+//     width: 188px;
+//     height: 52px;
+//     font-size: 16px;
+//     line-height: 1.38;
+//   }
+//   @media screen and (min-width: 834px) {
+//     top: 40px;
+//     left: 36px;
+//     width: 212px;
+//     height: 64px;
+//     font-size: 22px;
+//     line-height: 1.45;
+//   }
+// `;
 
-export const Arrow = styled.img`
-  width: 16px;
-  height: 16px;
-`;
+// export const Arrow = styled.img`
+//   width: 16px;
+//   height: 16px;
+// `;
 
-export const SecondHeader = styled.h3`
-  font-weight: 500;
+// export const SecondHeader = styled.h3`
+//   font-weight: 500;
 
-  @media screen and (min-width: 320px) {
-    font-size: 16px;
-    line-height: 1.38;
-  }
-  @media screen and (min-width: 834px) {
-    font-size: 18px;
-    line-height: 1.33;
-  }
-`;
+//   @media screen and (min-width: 320px) {
+//     font-size: 16px;
+//     line-height: 1.38;
+//   }
+//   @media screen and (min-width: 834px) {
+//     font-size: 18px;
+//     line-height: 1.33;
+//   }
+// `;
 
 export const LineChartBlock = styled.div`
   display: flex;
   flex-direction: column;
-  
+  gap: 27px;
+  margin-bottom: 27px;
+
+  @media screen and (min-width: 834px) {
+    gap: 40px;
+    margin-bottom: 40px;
+  }
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
     align-items: baseline;
     gap: 20px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -141,16 +148,11 @@ export const ChartGrid = styled.div`
     display: flex;
     flex-direction: column;
     overflow-x: scroll;
-    &:not(:last-child) {
-      margin-bottom: 27px;
-    }
   }
   @media screen and (min-width: 834px) {
     display: inline-block;
     overflow-x: hidden;
-    &:not(:last-child) {
-      margin-bottom: 40px;
-    }
+  
   }
 `;
 
@@ -159,13 +161,8 @@ export const ScaleChartBlock = styled.div`
     display: flex;
     flex-direction: column;
     overflow-x: scroll;
-    margin-top: 27px;
   }
   @media screen and (min-width: 834px) {
-    margin-top: 40px;
     overflow-x: hidden;
-  }
-  @media screen and (min-width: 1440px) {
-    margin-top: 20px;
   }
 `;
