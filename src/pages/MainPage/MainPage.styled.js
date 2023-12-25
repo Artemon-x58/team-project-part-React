@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const ConteinerRecommended = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 834px) {
+    font-size: 30px;
+    flex-direction: unset;
+  }
+`;
+
 export const Topic = styled.h1`
   font-size: 24px;
   font-style: normal;

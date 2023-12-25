@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const Main = styled.div`
   color: #fff;
+
+  @media screen and (min-width: 834px) {
+    idth: calc((100%-20px) / 2);
+  }
 `;
 
 export const Title = styled.h2`
@@ -148,7 +152,7 @@ export const PercentageText = styled.span`
 export const BusketIcon = styled.svg`
   position: absolute;
   top: 0;
-  right: 0;
+  right: -24px;
   width: 20px;
   height: 20px;
   cursor: pointer;

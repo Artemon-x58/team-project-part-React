@@ -133,6 +133,7 @@ export const ButtonConfirm = styled.button`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  border: none;
   border-radius: 12px;
   background: #e3ffa8;
   color: #0f0f0f;
