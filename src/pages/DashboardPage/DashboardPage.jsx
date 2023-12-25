@@ -33,9 +33,9 @@ const DashboardPage = () => {
     dispatch(fetchAllValues(period));
   }, [dispatch, period]);
 
-  // const handleChangeMonth = value => {
-  //   setPeriod(value);
-  // };
+  const handleChangeMonth = value => {
+    setPeriod(value);
+  };
 
   const calories = useSelector(averageValueCalories);
   const water = useSelector(averageValueWater);
@@ -49,6 +49,7 @@ const DashboardPage = () => {
             <GraphsTitle>{'Calories'}</GraphsTitle>
             <GraphsSubtitle>
               Average value: <span>{`${calories} cal`}</span>
+              <button type="button" onClick={handleChangeMonth}></button>
             </GraphsSubtitle>
           </TitleContainer>
           <ChartGrid style={{ width: '100%' }}>
