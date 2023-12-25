@@ -128,7 +128,7 @@ const handleAddFoodIntakeFulfilled = (state, action) => {
     state.snackSumNutrientsToday = newSumNutrientsPerDay;
   }
 
-  state.caloriesToday = newCaloriesAndDate;
+  state.caloriesToday = newCaloriesAndDate.newCaloriesAndDate;
   state.isRefreshing = false;
 };
 

@@ -15,67 +15,95 @@ import {
   CardTitle,
   CounterList,
   Counter,
-} from './Food.Styled';
+} from './Food.styled';
+import { useSelector } from 'react-redux';
+import {
+  selectCaloriesToday,
+  selectRecommendedCalories,
+} from 'redux/statistics/statisticsSelectors';
 
 const Food = () => {
+  const { calories, protein, fat, carbohydrates } = useSelector(
+    selectRecommendedCalories
+  );
+  const {
+    calories: consumedCalories,
+    protein: consumedProtein,
+    fat: consumedFat,
+    carbohydrates: consumedCarbohydrates,
+  } = useSelector(selectCaloriesToday);
+
+  const leftCarbohydrates = carbohydrates - consumedCarbohydrates;
+  const leftProtein = protein - consumedProtein;
+  const leftFat = fat - consumedFat;
+
   return (
     <FoodWrapper>
       <FoodTitle>Food</FoodTitle>
       <InfoBox>
         <MainChartBox>
-          <ChartForCalories />
+          <ChartForCalories
+            calories={calories}
+            consumedCalories={consumedCalories}
+          />
         </MainChartBox>
         <CardList>
           <Card>
             <ChartBox>
-              <ChartForCarbohydrates />
+              <ChartForCarbohydrates
+                carbohydrates={carbohydrates}
+                consumedCarbohydrates={consumedCarbohydrates}
+              />
             </ChartBox>
             <CardText>
               <CardTitle>Carbohydrates</CardTitle>
               <CounterList>
                 {/* мета вуглеводів  */}
                 <Counter>
-                  Goal: <span>{}</span>
+                  Goal: <span>{String(carbohydrates)}</span>
                 </Counter>
                 {/* залишилось вуглеводів */}
                 <Counter>
-                  left: <span>{}</span>
+                  left: <span>{String(leftCarbohydrates)}</span>
                 </Counter>
               </CounterList>
             </CardText>
           </Card>
           <Card>
             <ChartBox>
-              <ChartForProtein />
+              <ChartForProtein
+                protein={protein}
+                consumedProtein={consumedProtein}
+              />
             </ChartBox>
             <CardText>
               <CardTitle>Protein</CardTitle>
               <CounterList>
                 {/*мета протеїнів */}
                 <Counter>
-                  Goal: <span>{}</span>
+                  Goal: <span>{String(protein)}</span>
                 </Counter>
                 {/*залишилось протеїнів */}
                 <Counter>
-                  left: <span>{}</span>
+                  left: <span>{String(leftProtein)}</span>
                 </Counter>
               </CounterList>
             </CardText>
           </Card>
           <Card>
             <ChartBox>
-              <ChartForFat />
+              <ChartForFat fat={fat} consumedFat={consumedFat} />
             </ChartBox>
             <CardText>
               <CardTitle>Fat</CardTitle>
               <CounterList>
                 {/*мета жирів */}
                 <Counter>
-                  Goal: <span>{}</span>
+                  Goal: <span>{String(fat)}</span>
                 </Counter>
                 {/*залишилось жирів */}
                 <Counter>
-                  left: <span>{}</span>
+                  left: <span>{String(leftFat)}</span>
                 </Counter>
               </CounterList>
             </CardText>
