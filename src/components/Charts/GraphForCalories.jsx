@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { averageValueCalories } from 'redux/graphs/graphsSelectors';
+import { caloriesPerThisMonth } from 'redux/graphs/graphsSelectors';
 
 import {
   Chart as ChartJS,
@@ -15,10 +15,6 @@ import {
 import { Line } from 'react-chartjs-2';
 
 import {
-  TitleContainer,
-  GraphsTitle,
-  GraphsSubtitle,
-  // GraphsCaption,
   Graph,
   GraphLabelBlock,
   GraphLabelContent,
@@ -35,6 +31,11 @@ ChartJS.register(
 );
 
 const GraphForCalories = () => {
+  
+  const caloriesPerMonth = useSelector(caloriesPerThisMonth);
+  const arrOfCalories = caloriesPerMonth.map(item => item.calories);
+  const arrOfDate = caloriesPerMonth.map(item => item.date.slice(-2));
+
   const options = {
     interaction: {
       mode: 'index',
@@ -120,17 +121,10 @@ const GraphForCalories = () => {
   };
 
   const data = {
-    labels: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-    ], // arrOfDay,
+    labels: arrOfDate, // arrOfDay,
     datasets: [
       {
-        data: [
-          1700, 2000, 1700, 1700, 1450, 1700, 1707, 1800, 1700, 1700, 1800,
-          1700, 1650, 1700, 1500, 1600, 1700, 1803, 1900, 1700, 1750, 1500,
-          1700, 1900, 1700, 1700, 1850, 2000, 1700, 1700, 1550,
-        ], // ArrOfCal,
+        data: arrOfCalories, // ArrOfCal,
         borderColor: '#E3FFA8',
         borderWidth: 1,
         pointRadius: 0,
@@ -145,12 +139,6 @@ const GraphForCalories = () => {
 
   return (
     <>
-      {/* <TitleContainer>
-        <GraphsTitle>{'Calories'}</GraphsTitle>
-        <GraphsSubtitle>
-          Average value: <span>{`${calories} cal`}</span>
-        </GraphsSubtitle>
-      </TitleContainer> */}
       <Graph>
         <Line data={data} options={options} />
         <GraphLabelBlock>
