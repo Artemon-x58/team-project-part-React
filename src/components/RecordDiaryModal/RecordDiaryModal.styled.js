@@ -179,16 +179,27 @@ export const MealRecordWrap = styled.div`
 export const SmallWrap = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
 `;
 export const ErrorMsg = styled(ErrorMessage)`
   color: #e74a3b;
-
   text-align: center;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+`;
+export const ErrorMsgSmall = styled(ErrorMessage)`
+  color: #e74a3b;
+  position: absolute;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  transform: translate(13%, 280%);
 `;
 export const ErrWrap = styled.div`
   display: flex;
