@@ -46,6 +46,7 @@ export const ContainerSelect = styled.div``;
 export const WrapperSelect = styled.div`
   position: absolute;
 
+  z-index: 200;
   display: flex;
   gap: 8px;
   width: 212px;
@@ -76,6 +77,11 @@ export const BtnWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const WrapperBtnAndIcon = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const LabelSelect = styled.label`

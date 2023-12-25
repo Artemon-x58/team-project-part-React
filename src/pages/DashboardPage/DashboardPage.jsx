@@ -24,6 +24,7 @@ import {
   GraphsTitle,
   TitleContainer,
 } from 'components/Charts/Graphs.Styled';
+import MonthSelector from 'components/MonthSelector/MonthSelector';
 
 const DashboardPage = () => {
   const [year, setYear] = useState(2023);
@@ -45,6 +46,7 @@ const DashboardPage = () => {
 
   return (
     <DashboardSection>
+      <MonthSelector />
       <button onClick={handleChangeMonth}></button>
       <LineChartBlock>
         <ContainerGraph>

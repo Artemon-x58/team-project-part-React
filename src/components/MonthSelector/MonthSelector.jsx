@@ -10,8 +10,10 @@ import {
   SvgSelectLeft,
   TextSelect,
   UseSelect,
+  WrapperBtnAndIcon,
   WrapperSelect,
 } from './MonthSelector.styled';
+import { useNavigate } from 'react-router-dom';
 
 // const MonthSelector = () => {
 //   const currentMonthIndex = new Date().getMonth();
@@ -81,6 +83,7 @@ const MonthSelector = () => {
   const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
   const [selectedMonth, setSelectedMonth] = useState(currentMonth);
   const wrapperRef = useRef(null); // Создаем ref для WrapperSelect
+  const navigate = useNavigate();
 
   const months = [
     'January',
@@ -126,8 +129,8 @@ const MonthSelector = () => {
   return (
     <ContainerSelect>
       <BtnWrapper ref={wrapperRef}>
-        <div>
-          <SvgSelectLeft>
+        <WrapperBtnAndIcon>
+          <SvgSelectLeft onClick={() => navigate('/main')}>
             <UseSelect xlinkHref={`${Icons}#icon-arrow-right`} />
           </SvgSelectLeft>
           <ButtonSelect onClick={handleButtonClick}>
@@ -153,7 +156,7 @@ const MonthSelector = () => {
               </WrapperSelect>
             )}
           </ButtonSelect>
-        </div>
+        </WrapperBtnAndIcon>
         <TextSelect>{currentMonth}</TextSelect>
       </BtnWrapper>
     </ContainerSelect>

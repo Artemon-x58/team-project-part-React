@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+export const WraperLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+export const SvgRight = styled.svg`
+  transform: rotate(180deg) rotate(0deg);
+  width: 16px;
+  height: 16px;
+`;
+
 export const ConteinerRecommended = styled.div`
   display: flex;
   flex-direction: column;
@@ -23,6 +36,8 @@ export const Topic = styled.h1`
 `;
 
 export const StyledLink = styled.button`
+  margin-right: 6px;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
