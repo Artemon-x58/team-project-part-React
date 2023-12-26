@@ -13,6 +13,7 @@ export const WrapperSelect = styled.div`
   flex-direction: column;
   background-color: #0f0f0f;
   padding-top: 8px;
+  padding-bottom: 8px;
   overflow-y: scroll;
   box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2);
   border-radius: 12px;
