@@ -78,7 +78,7 @@ export const App = () => {
           <Route
             path="recommended-food"
             element={
-              <PrivateRoute redirectTo="/" component={<Recommented />} />
+              <PrivateRoute redirectTo="/signin" component={<Recommented />} />
             }
           />
           <Route
