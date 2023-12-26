@@ -23,7 +23,7 @@ const DailyGoal = () => {
     <Main>
       <Title>Daily goal</Title>
       <Body>
-        <Wrapper first="true">
+        <Wrapper $first="true">
           <svg height={80} width={80}>
             <use href={`${linkIconsSprite}#icon-calories-bubble`} />
           </svg>

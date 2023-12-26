@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
   display: flex;
   column-gap: 20px;
   align-items: center;
-  margin-bottom: ${({ first }) => (first ? '32px' : '0')};
+  margin-bottom: ${({ $first }) => ($first ? '32px' : '0')};
 `;
 
 export const Subtitle = styled.h3`

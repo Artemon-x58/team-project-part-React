@@ -48,7 +48,7 @@ const Water = () => {
       <Body>
         <WaterInfo>
           <PercentageContainer>
-            <PercentageFill percentage={percentage}></PercentageFill>
+            <PercentageFill $percentage={percentage}></PercentageFill>
             <PercentageText>{`${percentage.toFixed(0)}%`}</PercentageText>
           </PercentageContainer>
           <WaterInfoWrapper>
