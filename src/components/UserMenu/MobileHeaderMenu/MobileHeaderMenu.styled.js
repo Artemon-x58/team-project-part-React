@@ -21,7 +21,7 @@ export const OpenMenuBtn = styled.button`
 `;
 
 export const MobileMenu = styled.div`
-  z-index: 100;
+  z-index: 1;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -117,6 +117,7 @@ export const EditWeightBtn = styled(OpenMenuBtn)`
 
 export const GoalMenu = styled.div`
   position: absolute;
+  z-index: 2;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -215,6 +216,7 @@ export const ButtonBack = styled(Button)`
 //-------------------------------------//
 export const WeightMenu = styled.div`
   position: absolute;
+  z-index: 2;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);

@@ -107,6 +107,9 @@ export const AuthLink = styled(Link)`
       width: 192px;
     }
   }
+  &:hover {
+    background: rgba(227, 255, 168, 0.8);
+  }
 `;
 
 export const PossibilityList = styled.ul`

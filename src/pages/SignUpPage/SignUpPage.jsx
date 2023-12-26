@@ -50,6 +50,10 @@ const validationSchemas = {
       .required('Email is required'),
     password: Yup.string()
       .min(6, 'Password must contain more than 6 characters')
+      .matches(
+        /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]*$/,
+        'Password must contain at least one uppercase letter and one digit'
+      )
       .required('Password is required'),
   }),
   step2: Yup.object().shape({
