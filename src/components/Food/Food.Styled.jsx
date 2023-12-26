@@ -89,7 +89,7 @@ export const CounterList = styled.div`
 export const Counter = styled.p`
   display: flex;
   gap: 4px;
-  width: calc((100% - 12px) / 2);
+  /* width: calc((100% - 12px) / 2); */
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 400;
