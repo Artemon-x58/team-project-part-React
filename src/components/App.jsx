@@ -15,7 +15,6 @@ import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
 import Recommented from '../pages/Recommented/Recommented';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
-import MonthSelector from '../components/MonthSelector/MonthSelector';
 import DashboardPage from 'pages/DashboardPage';
 import { DiaryPage } from '../pages/DiaryPage/DiaryPage';
 export const App = () => {
