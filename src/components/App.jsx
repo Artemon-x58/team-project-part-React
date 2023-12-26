@@ -72,7 +72,7 @@ export const App = () => {
           <Route
             path="setting"
             element={
-              <PrivateRoute redirectTo="/" component={<ProfileMain />} />
+              <PrivateRoute redirectTo="/setting" component={<ProfileMain />} />
             }
           />
           <Route
@@ -94,12 +94,6 @@ export const App = () => {
             path="diary"
             element={
               <PrivateRoute redirectTo="/diary" component={<DiaryPage />} />
-            }
-          />
-          <Route
-            path="test"
-            element={
-              <PrivateRoute redirectTo="/test" component={<MonthSelector />} />
             }
           />
         </Route>
