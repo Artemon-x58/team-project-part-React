@@ -14,6 +14,8 @@ import {
   WrapperSelect,
 } from './MonthSelector.styled';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectMothsArr } from 'redux/graphs/graphsSelectors';
 
 const MonthSelector = ({ onClick, currentMonth }) => {
   const [isdropdownopen, setIsdropdownOpen] = useState(false);
@@ -23,20 +25,7 @@ const MonthSelector = ({ onClick, currentMonth }) => {
 
   const navigate = useNavigate();
 
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+  const months = useSelector(selectMothsArr);
 
   const handleButtonClick = () => {
     setIsdropdownOpen(!isdropdownopen);

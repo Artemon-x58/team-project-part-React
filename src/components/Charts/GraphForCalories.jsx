@@ -40,7 +40,7 @@ const GraphForCalories = ({ month, year }) => {
     const { calories } = caloriesPerMonth.find(data => {
       const dataDay = Number(data.date.slice(-2));
       return dataDay === day;
-    }) || { calories: 0 };
+    }) || { calories: null };
 
     return calories;
   });
