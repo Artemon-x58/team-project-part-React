@@ -59,7 +59,9 @@ Healthy Hub es una aplicación web diseñada para ayudar a los usuarios a monito
 ### Página de Alimentos Recomendados (RecommendedFoodPage) 🍏
 
 - Lista de productos recomendados con detalles.
+![RecommenedFood](assets/recommended-food.png)
 
 ### Página de Configuración (SettingsPage) ⚙️
 
 - Edición del perfil del usuario, incluida la foto, nombre, edad, género, peso y nivel de actividad física.
+ ![SettingsPage](assets/settings.png)

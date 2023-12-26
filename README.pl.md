@@ -59,7 +59,9 @@ Healthy Hub to aplikacja internetowa stworzona, aby pomóc użytkownikom monitor
 ### Strona Polecanych Produktów (RecommendedFoodPage) 🍏
 
 - Lista polecanych produktów z danymi szczegółowymi.
+  ![RecommenedFood](assets/recommended-food.png)
 
 ### Strona Ustawień (SettingsPage) ⚙️
 
 - Edycja profilu użytkownika, w tym zdjęcia, imienia, wieku, płci, wagi i poziomu aktywności fizycznej.
+ ![SettingsPage](assets/settings.png)

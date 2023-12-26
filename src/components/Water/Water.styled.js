@@ -154,16 +154,17 @@ export const PercentageText = styled.span`
 export const BusketIcon = styled.svg`
   position: absolute;
   top: 0;
-  right: -24px;
+  right: -13px;
+
   width: 20px;
   height: 20px;
   cursor: pointer;
   stroke: rgba(227, 255, 168, 1);
   stroke: #e3ffa8;
   @media screen and (min-width: 834px) {
-    right: 0;
+    right: -30px;
   }
   @media screen and (min-width: 1440px) {
-    right: -20px;
+    right: -56px;
   }
 `;
