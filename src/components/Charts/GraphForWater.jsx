@@ -29,7 +29,6 @@ ChartJS.register(
 
 const GraphForWater = ({ month, year }) => {
   const waterPerMonth = useSelector(waterPerThisMonth);
-  const arrOfWater = waterPerMonth.map(item => item.water);
   const arrOfDate = getDaysInMonth(month, year);
 
   const activeDays = Array.from(
