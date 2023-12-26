@@ -4,8 +4,6 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 6px;
-
-  border: 1px solid red;
 `;
 
 export const GraphsTitle = styled.h2`
@@ -36,13 +34,6 @@ export const GraphsSubtitle = styled.p`
   }
 `;
 
-// export const GraphsCaption = styled.span`
-//   font-weight: 500;
-//   font-size: 14px;
-//   line-height: 1.43;
-//   color: 'rgba(182, 182, 182, 1)';
-// `;
-
 export const ContainerGraph = styled.div`
   width: 100%;
 
@@ -57,9 +48,6 @@ export const Graph = styled.div`
   border-radius: 12px;
   margin-bottom: 8px;
   background-color: #0f0f0f;
-
-  border: 1px solid yellow;
-
   & canvas {
     padding: 0;
     width: 100%;
@@ -81,7 +69,7 @@ export const Graph = styled.div`
   }
   @media screen and (min-width: 1440px) {
     padding-right: 20px;
-    
+
     & canvas {
       padding: 0;
       min-height: auto;
@@ -90,17 +78,15 @@ export const Graph = styled.div`
 `;
 
 export const GraphLabelBlock = styled.div`
-  width: 90px;
+  width: 86px;
   height: 76px;
   position: absolute;
   opacity: 0;
   top: 0;
   left: 0;
-  /* padding: 8px 6px; */
   border-radius: 8px;
+  background-color: #0f0f0f;
   box-shadow: 0px 4px 14px 0px rgba(227, 255, 168, 0.2);
-
-  border: 1px solid blue;
 `;
 
 export const GraphLabelContent = styled.div`
@@ -109,10 +95,10 @@ export const GraphLabelContent = styled.div`
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
+  padding: 8px 6px;
 
-  border: 1px solid purple;
   & > p {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 500;
     line-height: 1.19;
   }
@@ -134,8 +120,6 @@ export const Scale = styled.div`
   padding: 24px 24px 36px;
   margin-bottom: 8px;
 
-  border: 1px solid yellowgreen;
-
   @media screen and (max-width: 833px) {
     width: 1372px;
   }
@@ -144,6 +128,7 @@ export const Scale = styled.div`
     max-width: 780px;
     padding: 24px 20px 44px;
   }
+
   @media screen and (min-width: 1440px) {
     max-width: 1372px;
     padding: 24px 24px 36px;
@@ -160,17 +145,18 @@ export const Item = styled.li`
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   text-align: center;
+
   &:not(:last-child) {
     margin-right: 13px;
   }
 `;
 
 export const WeightTitle = styled.p`
-  @media screen and (min-width: 320px) {
-    font-size: 14px;
-    line-height: 1.43;
-    margin-bottom: 16px;
-  }
+  color: '#ffffff';
+  font-size: 14px;
+  line-height: 1.43;
+  margin-bottom: 16px;
+
   @media screen and (min-width: 834px) {
     font-size: 10px;
     line-height: 1.6;
@@ -185,5 +171,5 @@ export const WeightTitle = styled.p`
 export const DataTitle = styled.p`
   font-size: 10px;
   line-height: 1.4;
-  color: '#B6B6B6';
+  color: '#b6b6b6';
 `;
