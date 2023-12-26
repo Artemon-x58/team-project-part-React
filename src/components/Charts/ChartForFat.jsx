@@ -88,6 +88,7 @@ const ChartForFat = ({ fat, consumedFat }) => {
   return (
     <>
       <Doughnut
+        key={consumedPercent}
         data={data}
         options={options}
         plugins={[textCenter, backgroundCircle]}

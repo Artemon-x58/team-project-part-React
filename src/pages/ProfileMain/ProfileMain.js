@@ -5,7 +5,6 @@ import * as yup from 'yup';
 import { string, number, mixed } from 'yup';
 
 import SettingImage from 'img/Interactive-learning-experience.png';
-import AvatarPic from 'img/Avatar.png';
 import DownLoadIcon from 'icons/icons.svg';
 import {
   ProfileTitle,
@@ -79,6 +78,13 @@ export const ProfileMain = () => {
     gender: `${userData.gender}`,
     kef: `${userData.kef}`,
   };
+    const createAvatarUrl = url => {
+    if (url.includes('https:')) {
+      return url;
+    } else {
+      return `https:${userData.avatarURL}`;
+    }
+  };
 
   const handleSubmit = async values => {
     const { name, age, gender, height, weight, kef, file } = values;
@@ -118,7 +124,7 @@ export const ProfileMain = () => {
                         src={
                           values.file
                             ? URL.createObjectURL(values.file)
-                            : AvatarPic
+                            : createAvatarUrl(userData.avatarURL)
                         }
                         alt="AvatarPic"
                       />

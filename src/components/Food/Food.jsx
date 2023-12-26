@@ -34,9 +34,9 @@ const Food = () => {
     carbohydrates: consumedCarbohydrates,
   } = useSelector(selectCaloriesToday);
 
-  const leftCarbohydrates = carbohydrates - consumedCarbohydrates;
-  const leftProtein = protein - consumedProtein;
-  const leftFat = fat - consumedFat;
+  const leftCarbohydrates = Math.max(carbohydrates - consumedCarbohydrates, 0);
+  const leftProtein = Math.max(protein - consumedProtein, 0);
+  const leftFat = Math.max(fat - consumedFat, 0);
 
   return (
     <FoodWrapper>
