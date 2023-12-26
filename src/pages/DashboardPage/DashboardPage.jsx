@@ -28,7 +28,8 @@ import MonthSelector from 'components/MonthSelector/MonthSelector';
 
 const DashboardPage = () => {
   const [year, setYear] = useState(2023);
-  const [nameMonth, setNameMonth] = useState('november');
+  const currentMonth = new Date().toLocaleString('en-US', { month: 'long' });
+  const [nameMonth, setNameMonth] = useState(currentMonth.toLowerCase());
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -46,15 +47,13 @@ const DashboardPage = () => {
 
   return (
     <DashboardSection>
-      <MonthSelector />
-      <button onClick={handleChangeMonth}></button>
+      <MonthSelector onClick={handleChangeMonth} currentMonth={currentMonth} />
       <LineChartBlock>
         <ContainerGraph>
           <TitleContainer>
             <GraphsTitle>{'Calories'}</GraphsTitle>
             <GraphsSubtitle>
               Average value: <span>{`${calories} cal`}</span>
-              <button type="button" onClick={handleChangeMonth}></button>
             </GraphsSubtitle>
           </TitleContainer>
           <ChartGrid style={{ width: '100%' }}>

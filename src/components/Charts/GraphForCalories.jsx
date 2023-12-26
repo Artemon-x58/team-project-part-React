@@ -14,11 +14,7 @@ import {
 
 import { Line } from 'react-chartjs-2';
 
-import {
-  Graph,
-  GraphLabelBlock,
-  GraphLabelContent,
-} from './Graphs.Styled';
+import { Graph, GraphLabelBlock, GraphLabelContent } from './Graphs.Styled';
 import { getDaysInMonth } from './getDaysOfMonth';
 
 ChartJS.register(
@@ -31,11 +27,23 @@ ChartJS.register(
   Legend
 );
 
-const GraphForCalories = ({month, year}) => {
-
+const GraphForCalories = ({ month, year }) => {
   const caloriesPerMonth = useSelector(caloriesPerThisMonth);
-  const arrOfCalories = caloriesPerMonth.map(item => item.calories);
   const arrOfDate = getDaysInMonth(month, year);
+
+  const activeDays = Array.from(
+    { length: arrOfDate.length },
+    (_, index) => index + 1
+  );
+
+  const resultArray = activeDays.map(day => {
+    const { calories } = caloriesPerMonth.find(data => {
+      const dataDay = Number(data.date.slice(-2));
+      return dataDay === day;
+    }) || { calories: 0 };
+
+    return calories;
+  });
 
   const options = {
     interaction: {
@@ -125,7 +133,7 @@ const GraphForCalories = ({month, year}) => {
     labels: arrOfDate, // arrOfDay,
     datasets: [
       {
-        data: arrOfCalories,
+        data: resultArray,
         // arrOfCalories,
         borderColor: '#E3FFA8',
         borderWidth: 1,
