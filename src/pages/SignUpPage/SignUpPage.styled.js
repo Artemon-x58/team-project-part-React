@@ -95,6 +95,9 @@ export const Button = styled.button`
   @media screen and (min-width: 1440px) {
     width: 212px;
   }
+  &:hover {
+    background: rgba(227, 255, 168, 0.8);
+  }
 `;
 export const ButtonBack = styled(Button)`
   margin-top: 5px;
@@ -236,4 +239,7 @@ export const RedirectionLink = styled(Link)`
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
+  &:hover {
+    color: rgba(182, 182, 182, 0.8);
+  }
 `;

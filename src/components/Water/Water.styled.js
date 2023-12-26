@@ -135,7 +135,7 @@ export const PercentageContainer = styled.div`
 export const PercentageFill = styled.div`
   order: 1;
   width: 64px;
-  height: ${props => Math.min(props.percentage, 100)}%;
+  height: ${props => Math.min(props.$percentage, 100)}%;
   background-color: #b6c3ff;
   border-radius: 20px;
   box-shadow: 0px 4px 8px 0px rgba(255, 255, 255, 0.12),
