@@ -70,7 +70,7 @@ const MonthSelector = ({ onClick, currentMonth }) => {
           </SvgSelectLeft>
           <ButtonSelect onClick={handleButtonClick}>
             Months{' '}
-            <SvgSelectDown $isdropdownopen={`${isdropdownopen}`}>
+            <SvgSelectDown $isdropdownopen={isdropdownopen}>
               <UseSelect xlinkHref={`${Icons}#icon-arrow-down`} />
             </SvgSelectDown>
             {isdropdownopen && (
