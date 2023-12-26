@@ -5,8 +5,8 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const ChartForCalories = ({ calories, consumedCalories }) => {
-  const goal = calories;
-  const consumed = consumedCalories;
+  const goal = calories || 0;
+  const consumed = consumedCalories || 0;
   const leftConsumed = goal - consumed;
 
   const warning = consumed > goal;
