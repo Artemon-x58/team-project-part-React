@@ -1,6 +1,8 @@
 import Icons from '../../icons/icons.svg';
-import Meals from '../../icons/meals.svg';
 import Snack from '../../img/snack.png';
+import Dinner from '../../img/dinner.png';
+import Lunch from '../../img/lunch.png';
+import Breakfast from '../../img/breakfast.png';
 import {
   DishName,
   DishStat,
@@ -140,6 +142,12 @@ export const DiaryPage = () => {
     } catch (error) {
       console.error('Ошибка при удалении:', error);
     }
+  };
+  const mealImages = {
+    snack: Snack,
+    dinner: Dinner,
+    lunch: Lunch,
+    breakfast: Breakfast,
   };
   useEffect(() => {
     dispatch(fetchAllDiaries());
@@ -340,13 +348,12 @@ export const DiaryPage = () => {
             <MealWrap key={index}>
               <WrapNameValue>
                 <WrapMealName>
-                  {mealType === 'snack' ? (
-                    <img src={Snack} alt={'snack'}></img>
-                  ) : (
-                    <svg width="32px" height="32px">
-                      <use xlinkHref={`${Meals}#icon-${mealType}`} />
-                    </svg>
-                  )}
+                  <img
+                    src={mealImages[mealType]}
+                    alt={mealType}
+                    width="32px"
+                    height="32px"
+                  />
 
                   <MealName>{capitalizeFirstLetter(mealType)}</MealName>
                 </WrapMealName>

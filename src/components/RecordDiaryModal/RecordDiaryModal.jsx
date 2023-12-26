@@ -1,8 +1,11 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Meals from '../../icons/meals.svg';
+
 import Icons from '../../icons/icons.svg';
 import Snack from '../../img/snack.png';
+import Dinner from '../../img/dinner.png';
+import Lunch from '../../img/lunch.png';
+import Breakfast from '../../img/breakfast.png';
 import { Container } from 'components/Container/Container.styled';
 import {
   FormikFieldsWrapper,
@@ -86,7 +89,12 @@ export const RecordDiaryModal = ({
     setNumComponents(1);
     handleClose();
   };
-
+  const mealImages = {
+    snack: Snack,
+    dinner: Dinner,
+    lunch: Lunch,
+    breakfast: Breakfast,
+  };
   const handleDelete = () => {
     if (numComponents > 1) {
       setNumComponents(prevNum => prevNum - 1);
@@ -116,18 +124,12 @@ export const RecordDiaryModal = ({
                   <Title>Record your meal</Title>
                   <FormikFieldsWrapper>
                     <TitleWrapper>
-                      {mealName === 'snack' ? (
-                        <img
-                          src={Snack}
-                          alt={'snack'}
-                          width="36px"
-                          height="36px"
-                        ></img>
-                      ) : (
-                        <svg width="36px" height="36px">
-                          <use xlinkHref={`${Meals}#icon-${mealName}`} />
-                        </svg>
-                      )}
+                      <img
+                        src={mealImages[mealName]}
+                        alt={mealName}
+                        width="36px"
+                        height="36px"
+                      />
                       <MealPart>{capitalizeFirstLetter(mealName)}</MealPart>
                     </TitleWrapper>
 

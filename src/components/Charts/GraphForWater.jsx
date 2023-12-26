@@ -14,13 +14,8 @@ import {
 
 import { Line } from 'react-chartjs-2';
 
-import {
-  Graph,
-  GraphLabelBlock,
-  GraphLabelContent,
-} from './Graphs.Styled';
+import { Graph, GraphLabelBlock, GraphLabelContent } from './Graphs.Styled';
 import { getDaysInMonth } from './getDaysOfMonth';
-
 
 ChartJS.register(
   CategoryScale,
@@ -34,8 +29,21 @@ ChartJS.register(
 
 const GraphForWater = ({ month, year }) => {
   const waterPerMonth = useSelector(waterPerThisMonth);
-  const arrOfWater = waterPerMonth.map(item => item.water);
   const arrOfDate = getDaysInMonth(month, year);
+
+  const activeDays = Array.from(
+    { length: arrOfDate.length },
+    (_, index) => index + 1
+  );
+
+  const resultArray = activeDays.map(day => {
+    const { water } = waterPerMonth.find(data => {
+      const dataDay = Number(data.date.slice(-2));
+      return dataDay === day;
+    }) || { water: 0 };
+
+    return water;
+  });
 
   const options = {
     interaction: {
@@ -125,7 +133,7 @@ const GraphForWater = ({ month, year }) => {
     labels: arrOfDate, // arrOfDay,
     datasets: [
       {
-        data: arrOfWater, // ArrOfCal,
+        data: resultArray, // ArrOfCal,
         borderColor: '#E3FFA8',
         borderWidth: 1,
         pointRadius: 0,

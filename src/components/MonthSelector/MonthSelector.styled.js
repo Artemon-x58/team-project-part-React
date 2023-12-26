@@ -1,51 +1,11 @@
 import styled from 'styled-components';
-// export const Box = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-// `;
-
-// export const StyledSelect = styled(Select)`
-// position: relative;
-//   width: 140px;
-// `;
-
-// export const CurrentMonth = styled.p`
-//   color: #FFFFFF;
-// font-size: 18px;
-// font-style: normal;
-// font-weight: 500;
-// line-height: 1.33;
-// `;
-
-// export const ChoiceMonth = styled.p`
-// position: absolute;
-// color: #FFFFFF;
-// font-size: 30px;
-// font-style: normal;
-// font-weight: 500;
-// line-height: 1.2;
-// `;
-// export const Container = styled.div`
-// display: flex;
-// align-items: center;
-// `;
-
-// export const Holder = styled.div`
-// display: flex;
-// `;
-
-// export const ArrowIcon = styled.svg`
-// margin-right: 12px;
-// width: 24px;
-// height: 24px;
-// `;
 
 export const ContainerSelect = styled.div``;
 
 export const WrapperSelect = styled.div`
   position: absolute;
 
+  z-index: 200;
   display: flex;
   gap: 8px;
   width: 212px;
@@ -78,8 +38,13 @@ export const BtnWrapper = styled.div`
   justify-content: space-between;
 `;
 
+export const WrapperBtnAndIcon = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export const LabelSelect = styled.label`
-  color: white; /* Белый цвет текста */
+  color: white;
 
   display: flex;
 
@@ -107,7 +72,6 @@ export const InputSelect = styled.input`
 
 export const ButtonSelect = styled.button`
   margin-right: 12px;
-  /* position: relative; */
   color: white;
   background-color: inherit;
   border: none;
@@ -127,9 +91,9 @@ export const TextSelect = styled.p`
 export const SvgSelectDown = styled.svg`
   width: 16px;
   height: 16px;
-  transform: ${({ isDropdownOpen }) =>
-    isDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
-  transition: transform 0.3s ease; // добавим плавный переход
+  transform: ${({ $isdropdownopen }) =>
+    $isdropdownopen ? 'rotate(180deg)' : 'rotate(0deg)'};
+  transition: transform 0.3s ease;
 `;
 
 export const UseSelect = styled.use``;
