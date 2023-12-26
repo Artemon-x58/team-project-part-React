@@ -78,16 +78,15 @@ Healthy Hub is a web application designed to help users monitor their nutrition,
 - Section where users can record food entries for different meals.
 - Display of nutrients for each meal and the ability to add new entries via a modal window.
 
-<div style="text-align:center">
-
 ![DiaryPage](assets/diary-page.png)
 
-</div>
 
 ### Recommended Food Page (RecommendedFoodPage) 🍏
 
 - List of recommended products with details.
+ ![RecommenedFood](assets/recommended-food.png)
 
 ### Settings Page (SettingsPage) ⚙️
 
 - Editing user profile, including photo, name, age, gender, weight, and physical activity level.
+ ![SettingsPage](assets/settings.png)
