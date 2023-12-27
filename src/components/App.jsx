@@ -22,8 +22,8 @@ import { ChangePasswordPage } from 'pages/ChangePasswordPage/ChangePasswordPage'
 export const App = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(refreshUser());
+  useEffect(async () => {
+    await dispatch(refreshUser());
   }, [dispatch]);
 
   return (

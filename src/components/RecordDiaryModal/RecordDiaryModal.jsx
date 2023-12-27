@@ -51,10 +51,22 @@ export const RecordDiaryModal = ({
 
     for (let i = 1; i <= numComponents; i++) {
       schemasValues[`${i}-name`] = Yup.string().required('Required');
-      schemasValues[`${i}-carbonoh`] = Yup.number().required('Required');
-      schemasValues[`${i}-protein`] = Yup.number().required('Required');
-      schemasValues[`${i}-fat`] = Yup.number().required('Required');
-      schemasValues[`${i}-calories`] = Yup.number().required('Required');
+      schemasValues[`${i}-carbonoh`] = Yup.number()
+        .min(0)
+        .max(6000)
+        .required('Required');
+      schemasValues[`${i}-protein`] = Yup.number()
+        .min(0)
+        .max(2000)
+        .required('Required');
+      schemasValues[`${i}-fat`] = Yup.number()
+        .min(0)
+        .max(2000)
+        .required('Required');
+      schemasValues[`${i}-calories`] = Yup.number()
+        .min(0)
+        .max(10000)
+        .required('Required');
     }
 
     return Yup.object().shape(schemasValues);
