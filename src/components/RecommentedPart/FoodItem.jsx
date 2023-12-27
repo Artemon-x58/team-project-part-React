@@ -4,8 +4,8 @@ import {
   Title,
   Wrapper,
   Text,
-  TextGrey,
 } from './FoodItem.styled';
+
 const FoodItem = ({ img, title, weight, calories }) => {
   return (
     <Container>
@@ -14,7 +14,7 @@ const FoodItem = ({ img, title, weight, calories }) => {
         <Title>{title}</Title>
         <Text>
           {weight}
-          <TextGrey> {calories} calories</TextGrey>
+          <span> {calories} calories</span>
         </Text>
       </Wrapper>
     </Container>

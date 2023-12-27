@@ -1,64 +1,68 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 676px;
-  height: 278px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    width: 300px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  @media screen and (min-width: 835px) and (max-width: 1440px) {
-    margin: 0 auto;
-    width: 780px;
-    height: 278px;
+  @media screen and (min-width: 1440px) {
+    max-width: 676px;
   }
 `;
 
 export const Title = styled.h2`
-  color: #fff;
-  font-family: Poppins;
-  font-size: 22px;
-  font-style: normal;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 1.33;
+  color: #ffffff;
 
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    color: Color-Primary-White;
-    font-family: Poppins;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
+  @media screen and (min-width: 834px) {
+    font-size: 22px;
+    line-height: 1.45;
   }
 `;
 
 export const List = styled.ul`
-  margin-top: 16px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  @media screen and (min-width: 835px) and (max-width: 1440px) {
-    & > li {
-      width: 360px;
-    }
+  flex-direction: column;
+  gap: 10px;
+  height: 182px;
+  overflow: hidden;
+
+   @media screen and (min-width: 834px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 192px;
   }
 `;
 
-export const StyledLink = styled(Link)`
-  width: 100px;
-  height: 22px;
-  margin-top: 16px;
-  background: none;
+
+
+export const WraperLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 6px;
+  cursor: pointer;
+`;
+
+export const StyledLink = styled.button`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.42;
+  color: #b6b6b6;
+  background-color: transparent;
   border: none;
 
-  color: #b6b6b6;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 22px;
+  @media screen and (min-width: 834px) {
+    font-size: 16px;
+    line-height: 1.37;
+  }
+`;
+
+export const SvgRight = styled.svg`
+  transform: rotate(180deg) rotate(0deg);
+  width: 16px;
+  height: 16px;
 `;

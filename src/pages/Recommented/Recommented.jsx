@@ -6,7 +6,7 @@ import {
   List,
 } from './Recommented.styled';
 import IllustrationSrc from '../../img/Ketogenic-diet.png';
-import FoodItem from 'components/assets/FoodItem/FootItem';
+import FoodItem from 'components/RecommentedPart/FoodItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { selectDatarecommended } from 'redux/recommendedFood/recommendedSelectors';
