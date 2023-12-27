@@ -68,15 +68,7 @@ export const Descriptions = styled.p`
     max-width: 428px;
   }
 `;
-export const InputWrapper = styled.div`
-  margin-bottom: 40px;
-  @media screen and (min-width: 834px) {
-    width: 380px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 212px;
-  }
-`;
+
 export const Input = styled(Field)`
   display: block;
   width: 100%;
@@ -94,6 +86,14 @@ export const Input = styled(Field)`
     margin-bottom: 20px;
   }
 
+  &.hasError {
+    border: 1px solid #e74a3b;
+  }
+
+  &.hasSuccess {
+    border: 1px solid #3cbc81;
+  }
+
   @media screen and (min-width: 834px) {
     max-width: 358px;
   }
@@ -109,6 +109,34 @@ export const Input = styled(Field)`
     color: #b6b6b6;
   }
 `;
+
+export const InputWrapper = styled.div`
+  position: relative;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 834px) {
+    width: 380px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 212px;
+  }
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  right: 14px;
+  top: 78px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  opacity: 0;
+
+  ${InputWrapper}:hover & {
+    opacity: 1;
+  }
+`;
+
 export const StyledErrorMessage = styled.div`
   color: #e74a3b;
   padding-left: 10px;
@@ -120,6 +148,31 @@ export const StyledErrorMessage = styled.div`
   margin-top: -16px;
   margin-bottom: 4px;
 `;
+
+export const SuccessfullyMessagesEmail = styled.div`
+  position: absolute;
+  top: 40px;
+  left: 0;
+  color: #3cbc81;
+  padding-left: 10px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+`;
+
+export const SuccessfullyMessagesPassword = styled.div`
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  color: #3cbc81;
+  padding-left: 10px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+`;
+
 export const ButtonWrapper = styled.div`
   margin-bottom: 54px;
   @media screen and (min-width: 834px) {
