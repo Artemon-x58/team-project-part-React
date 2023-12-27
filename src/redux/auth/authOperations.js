@@ -2,8 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://team-project-part-node.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:5000/api';
 
-const setAuthHeader = token => {
+export const setAuth = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -54,7 +55,7 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.post('/auth/signin', credentials);
-      setAuthHeader(data.token);
+      setAuth(data.token);
       return data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
@@ -80,7 +81,7 @@ export const refreshUser = createAsyncThunk(
     if (!persistedToken) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
-    setAuthHeader(persistedToken);
+    setAuth(persistedToken);
 
     try {
       const { data } = await axios.get('/auth/currentUser');

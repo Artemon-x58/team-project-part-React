@@ -1,14 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { setAuth } from 'redux/auth/authOperations';
 
 export const fetchAllStatistics = createAsyncThunk(
   'statistics/fetchAll',
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (!persistedToken) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    setAuth(persistedToken);
     try {
-      const { data } = await axios.get('/user/current');
-      return data;
-    } catch ({ message }) {
-      return thunkAPI.rejectWithValue({ message });
+      const response = await axios.get('/user/current', {});
+
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue({ message: error.message });
     }
   }
 );
