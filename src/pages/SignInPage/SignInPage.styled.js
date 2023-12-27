@@ -69,7 +69,9 @@ export const Descriptions = styled.p`
   }
 `;
 export const InputWrapper = styled.div`
+  position: relative;
   margin-bottom: 40px;
+
   @media screen and (min-width: 834px) {
     width: 380px;
   }
@@ -77,6 +79,31 @@ export const InputWrapper = styled.div`
     width: 212px;
   }
 `;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  right: 14px;
+  top: 71px;
+  cursor: pointer;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+export const CorrectIcons = styled.img`
+  position: absolute;
+  top: 11px;
+  right: 10px;
+`;
+
+export const ErrorIcons = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
 export const Input = styled(Field)`
   display: block;
   width: 100%;
@@ -90,8 +117,17 @@ export const Input = styled(Field)`
 
   font-family: inherit;
   color: #b6b6b6;
+
   &:not(:last-child) {
     margin-bottom: 20px;
+  }
+
+  &.hasError {
+    border: 1px solid #e74a3b;
+  }
+
+  &.hasSuccess {
+    border: 1px solid #3cbc81;
   }
 
   @media screen and (min-width: 834px) {
@@ -108,7 +144,12 @@ export const Input = styled(Field)`
     line-height: 20px;
     color: #b6b6b6;
   }
+
+  &:hover + ${IconWrapper} {
+    opacity: 1;
+  }
 `;
+
 export const StyledErrorMessage = styled.div`
   color: #e74a3b;
   padding-left: 10px;
@@ -120,6 +161,31 @@ export const StyledErrorMessage = styled.div`
   margin-top: -16px;
   margin-bottom: 4px;
 `;
+
+export const SuccessfullyMessagesEmail = styled.div`
+  color: #3cbc81;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: -16px;
+  margin-bottom: 4px;
+`;
+
+export const SuccessfullyMessagesPassword = styled.div`
+  color: #3cbc81;
+  padding-left: 10px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14px;
+  margin-top: -16px;
+  margin-bottom: 4px;
+`;
+
 export const ButtonWrapper = styled.div`
   margin-bottom: 54px;
   @media screen and (min-width: 834px) {
