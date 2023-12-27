@@ -163,15 +163,6 @@ export const StyledErrorMessage = styled.div`
 `;
 
 export const SuccessfullyMessagesEmail = styled.div`
-  /* position: absolute;
-  top: 40px;
-  left: 0;
-  margin-bottom: 4px;
-  padding-left: 10px;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px; */
   color: #3cbc81;
   padding-left: 10px;
 
@@ -184,14 +175,6 @@ export const SuccessfullyMessagesEmail = styled.div`
 `;
 
 export const SuccessfullyMessagesPassword = styled.div`
-  /* position: absolute;
-  bottom: -18px;
-  left: 0;
-  padding-left: 10px;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14px; */
   color: #3cbc81;
   padding-left: 10px;
 

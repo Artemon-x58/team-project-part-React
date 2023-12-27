@@ -3,7 +3,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ErrorIcon, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 import correctIcons from '../../icons/correct.svg';
 import errorIcons from '../../icons/error.svg';
