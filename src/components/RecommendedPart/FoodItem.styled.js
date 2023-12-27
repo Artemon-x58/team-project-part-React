@@ -3,16 +3,18 @@ import styled from 'styled-components';
 export const Container = styled.li`
   display: flex;
   align-items: center;
-
-  width: 308px;
-  height: 86px;
-  padding-left: 20px;
-  column-gap: 20px;
+  box-sizing: border-box;
+  padding: 20px 24px;
+  gap: 20px;
   border-radius: 12px;
   background: #0f0f0f;
 
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    width: 300px;
+  @media screen and (min-width: 834px) {
+    width: 380px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 328px;
   }
 `;
 
@@ -29,23 +31,22 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h3`
   color: #fff;
-  font-family: Poppins;
   font-size: 18px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 24px;
+  line-height: 1.33;
 `;
 
 export const Text = styled.p`
   color: #fff;
-  font-family: Poppins;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 20px;
-`;
-
-export const TextGrey = styled.span`
-  padding-left: 6px;
-  color: #b6b6b6;
+  line-height: 1.42;
+  
+  & > span {
+   font-size: 14px;
+    font-weight: 500;
+    line-height: 1.42;
+    padding-left: 6px;
+    color: #b6b6b6;
+  }
 `;

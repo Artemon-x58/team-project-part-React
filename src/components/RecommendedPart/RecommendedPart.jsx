@@ -1,10 +1,20 @@
 import { useSelector } from 'react-redux';
 import { selectRecommendedFood } from 'redux/statistics/statisticsSelectors';
+import { useNavigate } from 'react-router-dom';
 
-import FoodItem from 'components/assets/FoodItem/FootItem';
-import { Container, Title, List, StyledLink } from './Recommented.styled';
+import FoodItem from 'components/RecommendedPart/FoodItem';
+import Icon from '../../icons/icons.svg';
+import {
+  Container,
+  Title,
+  List,
+  StyledLink,
+  WraperLink,
+  SvgRight,
+} from './RecommendedPart.styled';
 
 const RecommentedPart = () => {
+  const navigate = useNavigate();
   const recommendedList = useSelector(selectRecommendedFood);
   const FoodCollections = recommendedList.map(item => {
     return (
@@ -19,9 +29,14 @@ const RecommentedPart = () => {
   });
   return (
     <Container>
-      <Title>Recommented food</Title>
+      <Title>Recommended food</Title>
       <List> {FoodCollections}</List>
-      <StyledLink to="/recommended-food">See more →</StyledLink>
+      <WraperLink onClick={() => navigate('/recommended-food')}>
+        <StyledLink>See more</StyledLink>
+        <SvgRight>
+          <use xlinkHref={`${Icon}#icon-arrow-right`} />
+        </SvgRight>
+      </WraperLink>
     </Container>
   );
 };

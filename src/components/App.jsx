@@ -13,7 +13,7 @@ import { Toaster } from 'react-hot-toast';
 import { RestrictedRoute } from 'routes/RestrictedRoute';
 import { MainPage } from '../pages/MainPage/MainPage';
 import { PrivateRoute } from 'routes/PrivateRoute';
-import Recommented from '../pages/Recommented/Recommented';
+import Recommented from '../pages/RecommendedPage/Recommended';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
 import DashboardPage from 'pages/DashboardPage';
 import { DiaryPage } from '../pages/DiaryPage/DiaryPage';
