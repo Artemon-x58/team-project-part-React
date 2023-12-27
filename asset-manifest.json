@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/team-project-part-React/static/js/main.57bd07db.js",
+    "main.js": "/team-project-part-React/static/js/main.c2cee7cd.js",
     "static/media/Interactive-learning-experience.png": "/team-project-part-React/static/media/Interactive-learning-experience.5603302f0747672e85d4.png",
     "static/media/Ketogenic-diet.png": "/team-project-part-React/static/media/Ketogenic-diet.bd13d20fcd66588bb6fb.png",
     "static/media/Summer-hiking.png": "/team-project-part-React/static/media/Summer-hiking.487152541279e1774b58.png",
@@ -10,9 +10,9 @@
     "static/media/Sport-and-fitness-tracker.png": "/team-project-part-React/static/media/Sport-and-fitness-tracker.a616831fd2b34ff13567.png",
     "static/media/icons.svg": "/team-project-part-React/static/media/icons.88b4d86df4832152653d3af917ac190e.svg",
     "index.html": "/team-project-part-React/index.html",
-    "main.57bd07db.js.map": "/team-project-part-React/static/js/main.57bd07db.js.map"
+    "main.c2cee7cd.js.map": "/team-project-part-React/static/js/main.c2cee7cd.js.map"
   },
   "entrypoints": [
-    "static/js/main.57bd07db.js"
+    "static/js/main.c2cee7cd.js"
   ]
 }
