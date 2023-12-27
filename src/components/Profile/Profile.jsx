@@ -60,7 +60,11 @@ export const Profile = () => {
         <img src={createAvatarUrl(userData.avatarURL)} alt={userData.name} />
       </AvatarWrapper>
       <SettingWrapper>
-        <OpenSettingBtn type="button" onClick={toggleShowSetting}>
+        <OpenSettingBtn
+          type="button"
+          onClick={toggleShowSetting}
+          $isOpen={showSetting}
+        >
           <svg>
             <use xlinkHref={`${Icons}#icon-arrow-down`} />
           </svg>

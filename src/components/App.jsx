@@ -17,6 +17,8 @@ import Recommented from '../pages/Recommented/Recommented';
 import { ProfileMain } from '../pages/ProfileMain/ProfileMain';
 import DashboardPage from 'pages/DashboardPage';
 import { DiaryPage } from '../pages/DiaryPage/DiaryPage';
+import { ChangePasswordPage } from 'pages/ChangePasswordPage/ChangePasswordPage';
+
 export const App = () => {
   const dispatch = useDispatch();
 
@@ -38,6 +40,15 @@ export const App = () => {
             path="signin"
             element={
               <RestrictedRoute redirectTo="/main" component={<SignInPage />} />
+            }
+          />
+          <Route
+            path="create-new-password"
+            element={
+              <RestrictedRoute
+                redirectTo="/main"
+                component={<ChangePasswordPage />}
+              />
             }
           />
           <Route
