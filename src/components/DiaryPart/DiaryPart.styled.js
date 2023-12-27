@@ -121,10 +121,13 @@ export const MealValue = styled.p`
   color: #b6b6b6;
   font-weight: 500;
 `;
-export const MealRecordWrap = styled.div`
+export const MealRecordWrap = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
   color: #e3ffa8;
   gap: 6px;
   font-size: 14px;

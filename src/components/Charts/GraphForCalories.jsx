@@ -44,6 +44,12 @@ const GraphForCalories = ({ month, year }) => {
 
     return calories;
   });
+  for (let i = 1; i < resultArray.length; i++) {
+    if (resultArray[i] !== null) {
+      resultArray[i - 1] = 0;
+      break;
+    }
+  }
 
   const options = {
     interaction: {

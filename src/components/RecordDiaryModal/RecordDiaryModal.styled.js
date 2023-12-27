@@ -162,17 +162,19 @@ export const ButtonCancel = styled.button`
   @media screen and (min-width: 1440px) {
   }
 `;
-export const MealRecordWrap = styled.div`
+export const MealRecordWrap = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
   color: #e3ffa8;
   gap: 6px;
+  background-color: inherit;
+  border: none;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
   margin-bottom: 64px;
-  width: 92px;
+  width: 150px;
   @media screen and (min-width: 834px) {
     margin-bottom: 120px;
   }

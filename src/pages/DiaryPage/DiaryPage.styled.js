@@ -97,7 +97,7 @@ export const MealContainList = styled.div`
   display: inline-flex;
   align-items: flex-start;
   gap: 12px;
-  width: 190px;
+  width: 225px;
   flex-wrap: wrap;
   margin-bottom: 12px;
   @media screen and (min-width: 834px) {
@@ -270,12 +270,14 @@ export const EditText = styled.p`
   @media screen and (min-width: 834px) {
   }
 `;
-export const MealRecordWrap = styled.div`
+export const MealRecordWrap = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
   color: #e3ffa8;
   gap: 6px;
+  background-color: transparent;
+  border: none;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
