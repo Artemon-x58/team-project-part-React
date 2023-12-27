@@ -1,16 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { selectDatarecommended } from 'redux/recommendedFood/recommendedSelectors';
+import { fetchAllRecommendedProduct } from 'redux/recommendedFood/recommendedOperations';
+import IllustrationSrc from '../../img/Ketogenic-diet.png';
+import FoodItem from 'components/RecommendedPart/FoodItem';
+
 import {
   Container,
   Title,
   Wrapper,
   IllustrationImg,
   List,
-} from './Recommented.styled';
-import IllustrationSrc from '../../img/Ketogenic-diet.png';
-import FoodItem from 'components/RecommentedPart/FoodItem';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { selectDatarecommended } from 'redux/recommendedFood/recommendedSelectors';
-import { fetchAllRecommendedProduct } from 'redux/recommendedFood/recommendedOperations';
+} from './Recommended.styled';
+
+
 const Recommented = () => {
   const dispatch = useDispatch();
 

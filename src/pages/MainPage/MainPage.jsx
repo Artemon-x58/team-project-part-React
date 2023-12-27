@@ -16,7 +16,7 @@ import {
   WraperLink,
   Wrapper,
 } from './MainPage.styled';
-import RecommentedPart from 'components/RecommentedPart/RecommentedPart';
+import RecommentedPart from 'components/RecommendedPart/RecommendedPart';
 import { useNavigate } from 'react-router-dom';
 
 export const MainPage = () => {
