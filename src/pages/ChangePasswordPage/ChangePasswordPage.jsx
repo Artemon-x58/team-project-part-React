@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 
 import Tracker from '../../img/Sport-and-fitness-tracker.png';
-
 import {
   ButtonWrapper,
   InputWrapper,
@@ -56,7 +55,6 @@ export const ChangePasswordPage = () => {
   };
   const handleSubmit = async ({ password }, { resetForm }) => {
     const { meta } = await dispatch(changePassword({ ...query, password }));
-    console.log(meta);
 
     if (meta.requestStatus === 'fulfilled') {
       toast.success('Password reset successfully');

@@ -26,9 +26,6 @@ export const Body = styled.div`
   background-color: grey;
   display: flex;
   align-items: center;
-  /* max-width: 300px;
-  max-height: 212px;
-  flex-shrink: 0; */
   border-radius: 12px;
   background-color: #0f0f0f;
   padding: 16px 12px;
@@ -59,11 +56,9 @@ export const Value = styled.p`
   display: flex;
   align-items: center;
 
-  /* column-gap: 4px; */
   font-size: 28px;
   font-weight: 500;
   line-height: 1.21;
-  /* min-width: 89px; */
 
   @media screen and (min-width: 834px) {
     font-size: 32px;
@@ -73,9 +68,7 @@ export const Value = styled.p`
 export const ValueWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* row-gap: 8px; */
   margin-bottom: 16px;
-  /* width: 100%; */
 
   @media screen and (min-width: 834px) {
     flex-direction: row;

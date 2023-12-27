@@ -48,7 +48,6 @@ export const DiaryPart = () => {
   const snackNutrients = useSelector(selectSnackSumNutrientsToday);
 
   useEffect(() => {
-    // Визначаємо, чи є дані для кожного прийому їжі та оновлюємо значення isRecorded
     setIsRecorded({
       breakfast: Boolean(
         breakfastNutrients.carbohydrates ||

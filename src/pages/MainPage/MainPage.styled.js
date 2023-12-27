@@ -38,7 +38,7 @@ export const Topic = styled.h1`
   font-size: 24px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.25; /* 125% */
+  line-height: 1.25;
 
   @media screen and (min-width: 834px) {
     font-size: 30px;

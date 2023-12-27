@@ -59,7 +59,6 @@ const handleRefreshUserFulfilled = (state, action) => {
 const handleRefreshUserRejected = state => {
   state.isRefreshing = false;
   state.isLoggedIn = false;
-  // state.isLoggedIn = false;
 };
 const changeUserPasswordFulfilled = state => {
   state.isRefreshing = false;

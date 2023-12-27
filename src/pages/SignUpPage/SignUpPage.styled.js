@@ -104,7 +104,6 @@ export const ButtonBack = styled(Button)`
   background: none;
   color: white;
 `;
-//---------------------step2--------------------//
 export const RadioWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -137,7 +136,6 @@ export const StyledLable = styled.label`
 export const StyledField = styled(Field)`
   margin: 0 8px 0 0;
 `;
-//---------------------step3--------------------//
 export const RadioWrapperGender = styled.div`
   margin-bottom: 24px;
   @media screen and (min-width: 834px) and (max-width: 1199px) {
@@ -193,7 +191,6 @@ export const StyledAgeLabel = styled.label`
 export const GenderRadioField = styled(Field)`
   margin: 0 8px 0 0;
 `;
-//---------------------step4--------------------//
 export const WrappperBodyParams = styled(WrapperAge)`
   margin-bottom: 40px;
 `;
@@ -203,7 +200,6 @@ export const StyledBodyParamsLabel = styled(StyledAgeLabel)`
     margin-bottom: 24px;
   }
 `;
-//---------------------step5--------------------//
 export const ActivityLabel = styled(StyledAgeLabel)`
   margin: 0;
   &:not(:last-child) {

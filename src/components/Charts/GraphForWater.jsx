@@ -103,7 +103,6 @@ const GraphForWater = ({ month, year }) => {
         beginAtZero: true,
         min: 0,
         max: 3000,
-        // yScaleMax,
         ticks: {
           alignToPixels: true,
           major: {
@@ -130,10 +129,10 @@ const GraphForWater = ({ month, year }) => {
   };
 
   const data = {
-    labels: arrOfDate, // arrOfDay,
+    labels: arrOfDate,
     datasets: [
       {
-        data: resultArray, // ArrOfCal,
+        data: resultArray,
         borderColor: '#E3FFA8',
         borderWidth: 1,
         pointRadius: 0,

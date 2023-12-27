@@ -5,14 +5,7 @@ import { fetchAllRecommendedProduct } from 'redux/recommendedFood/recommendedOpe
 import IllustrationSrc from '../../img/Ketogenic-diet.png';
 import FoodItem from 'components/RecommendedPart/FoodItem';
 
-import {
-  // Container,
-  Title,
-  Wrapper,
-  IllustrationImg,
-  List,
-} from './Recommended.styled';
-
+import { Title, Wrapper, IllustrationImg, List } from './Recommended.styled';
 
 const Recommented = () => {
   const dispatch = useDispatch();

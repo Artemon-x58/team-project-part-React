@@ -1,13 +1,7 @@
 import { useSelector } from 'react-redux';
 import { weightPerThisMonth } from 'redux/graphs/graphsSelectors';
 
-import {
-  List,
-  Item,
-  WeightTitle,
-  DataTitle,
-  Scale,
-} from './Graphs.Styled';
+import { List, Item, WeightTitle, DataTitle, Scale } from './Graphs.Styled';
 import { getDaysInMonth } from './getDaysOfMonth';
 
 const GraphForWeight = ({ month, year }) => {
@@ -19,7 +13,6 @@ const GraphForWeight = ({ month, year }) => {
       <Scale>
         <List>
           {arrOfDate.map(date => {
-            // Поиск объекта в массиве weightPerMonth по текущей дате
             const weightObject = weightPerMonth.find(
               obj => Number(obj.date.slice(-2)) === date
             );

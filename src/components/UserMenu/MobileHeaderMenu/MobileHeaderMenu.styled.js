@@ -216,7 +216,6 @@ export const ButtonBack = styled(Button)`
   background: none;
   color: white;
 `;
-//-------------------------------------//
 export const WeightMenu = styled.div`
   position: absolute;
   z-index: 2;

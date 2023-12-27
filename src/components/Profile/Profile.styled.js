@@ -29,15 +29,8 @@ export const AvatarWrapper = styled.div`
     width: 28px;
     height: 28px;
   }
-
-  /* svg {
-    width: 100%;
-    height: 100%;
-  } */
 `;
-export const SettingWrapper = styled.div`
-  /* position: relative; */
-`;
+export const SettingWrapper = styled.div``;
 export const OpenSettingBtn = styled.button`
   width: 14px;
   height: 14px;
