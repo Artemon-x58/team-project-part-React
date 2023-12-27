@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/team-project-part-React/static/js/main.51f0d386.js",
+    "main.js": "/team-project-part-React/static/js/main.82498518.js",
     "static/media/Interactive-learning-experience.png": "/team-project-part-React/static/media/Interactive-learning-experience.5603302f0747672e85d4.png",
     "static/media/Ketogenic-diet.png": "/team-project-part-React/static/media/Ketogenic-diet.bd13d20fcd66588bb6fb.png",
     "static/media/Summer-hiking.png": "/team-project-part-React/static/media/Summer-hiking.487152541279e1774b58.png",
@@ -9,10 +9,14 @@
     "static/media/Body-contouring.png": "/team-project-part-React/static/media/Body-contouring.a4695cbcc6e7b4b29d00.png",
     "static/media/Sport-and-fitness-tracker.png": "/team-project-part-React/static/media/Sport-and-fitness-tracker.a616831fd2b34ff13567.png",
     "static/media/icons.svg": "/team-project-part-React/static/media/icons.88b4d86df4832152653d3af917ac190e.svg",
+    "static/media/eye-off.svg": "/team-project-part-React/static/media/eye-off.5b0448e3675d9a819205952381ef662c.svg",
     "index.html": "/team-project-part-React/index.html",
-    "main.51f0d386.js.map": "/team-project-part-React/static/js/main.51f0d386.js.map"
+    "static/media/error.svg": "/team-project-part-React/static/media/error.bb2d6021b0a25706e178302640c022e3.svg",
+    "static/media/eye-hover.svg": "/team-project-part-React/static/media/eye-hover.7c6cdc5beb99f3e2a9ef43f719411585.svg",
+    "static/media/correct.svg": "/team-project-part-React/static/media/correct.37f002969b1336da5e0fe0040c8e2c93.svg",
+    "main.82498518.js.map": "/team-project-part-React/static/js/main.82498518.js.map"
   },
   "entrypoints": [
-    "static/js/main.51f0d386.js"
+    "static/js/main.82498518.js"
   ]
 }
