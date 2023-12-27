@@ -159,7 +159,11 @@ export const TablDeskHeaderMenu = () => {
             <Title>Goal</Title>
             <Value>
               <Goal> {switchGoal(userData.yourGoal)}</Goal>
-              <OpenMenuBtn type="button" onClick={toggleShowGoal}>
+              <OpenMenuBtn
+                type="button"
+                onClick={toggleShowGoal}
+                $isOpen={showGoal}
+              >
                 <svg>
                   <use xlinkHref={`${Icons}#icon-arrow-down`} />
                 </svg>

@@ -41,7 +41,9 @@ export const ForgotPasswordPage = () => {
     const { meta } = await dispatch(forgotPassword(values));
 
     if (meta.requestStatus === 'fulfilled') {
-      toast.success('A new password has been sent to your email address');
+      toast.success(
+        'A link to change your password has been sent to your email'
+      );
       resetForm();
       navigate('/signin');
     } else {

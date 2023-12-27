@@ -47,14 +47,17 @@ export const OpenSettingBtn = styled.button`
   svg {
     width: 100%;
     height: 100%;
+    transform: ${({ $isOpen }) =>
+      $isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+    transition: transform 0.3s ease;
   }
 `;
 export const SettingMenu = styled.div`
   position: absolute;
   top: 90%;
   right: 0;
+  z-index: 1;
   padding: 24px;
-  /* transform: translateX(-50%); */
 
   width: 110px;
   height: 64px;

@@ -159,7 +159,7 @@ export const MobileHeaderMenu = () => {
 
   return (
     <MobileMenuWrapper ref={menuRef}>
-      <OpenMenuBtn type="button" onClick={toggleShowMenu}>
+      <OpenMenuBtn type="button" onClick={toggleShowMenu} $isOpen={showMenu}>
         <svg>
           <use xlinkHref={`${Icons}#icon-menu-header-mobile`} />
         </svg>
@@ -181,7 +181,11 @@ export const MobileHeaderMenu = () => {
                   <Title>Goal</Title>
                   <Value>
                     <Goal> {switchGoal(userData.yourGoal)}</Goal>
-                    <OpenMenuBtn type="button" onClick={toggleShowGoal}>
+                    <OpenMenuBtn
+                      type="button"
+                      onClick={toggleShowGoal}
+                      $isOpen={showGoal}
+                    >
                       <svg>
                         <use xlinkHref={`${Icons}#icon-arrow-down`} />
                       </svg>

@@ -17,6 +17,9 @@ export const OpenMenuBtn = styled.button`
   svg {
     width: 100%;
     height: 100%;
+    transform: ${({ $isOpen }) =>
+      $isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+    transition: transform 0.3s ease;
   }
 `;
 
