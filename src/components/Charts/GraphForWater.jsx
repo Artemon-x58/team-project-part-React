@@ -40,7 +40,7 @@ const GraphForWater = ({ month, year }) => {
     const { water } = waterPerMonth.find(data => {
       const dataDay = Number(data.date.slice(-2));
       return dataDay === day;
-    }) || { water: 0 };
+    }) || { water: null };
 
     return water;
   });

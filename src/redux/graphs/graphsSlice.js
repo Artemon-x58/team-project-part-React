@@ -2,6 +2,7 @@ const { createSlice } = require('@reduxjs/toolkit');
 const { fetchAllValues } = require('./graphsOperations');
 
 const initialState = {
+  months: [],
   averageValueCalories: 0,
   averageValueWater: 0,
   averageValueWeight: 0,
@@ -22,6 +23,7 @@ const handleRejected = (state, action) => {
 };
 
 const handleFetchAllValuesFulfilled = (state, action) => {
+  state.months = action.payload.months;
   state.isRefreshing = false;
   state.averageValueCalories = action.payload.averageCalories;
   state.averageValueWater = action.payload.averageWater;

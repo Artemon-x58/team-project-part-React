@@ -19,7 +19,7 @@ import { graphsReducer } from './graphs/graphsSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'isLoggedIn'],
 };
 
 const statisticsPersistConfig = {
