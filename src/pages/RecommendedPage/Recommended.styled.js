@@ -1,99 +1,87 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  max-width: 1372px;
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  @media screen and (min-width: 834px) {
-    max-width: 834px;
-  }
-`;
 export const Title = styled.h2`
   color: #fff;
-
-  font-family: Poppins;
-  font-size: 30px;
-  font-style: normal;
+  font-size: 24px;
   font-weight: 500;
-  line-height: 36px;
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    font-size: 24px;
-    padding-left: 10px;
-    padding-top: 16px;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-right: auto;
+
+  @media screen and (min-width: 834px) {
+    font-size: 30px;
+    line-height: 1.2;
+    margin-bottom: 20px;
   }
-  @media screen and (min-width: 834px) and (max-width: 1439px) {
-    padding-left: 27px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 24px;
   }
 `;
 
 export const Wrapper = styled.div`
-  width: 1300px;
-  margin: 16px 0 0 116px;
   display: flex;
-  justify-content: center;
-  column-gap: 44px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
 
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    max-width: 320px;
-    margin: 0;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-  }
-
-  @media screen and (min-width: 834px) and (max-width: 1439px) {
-    max-width: 834px;
-    margin: 0;
-    row-gap: 24px;
-    flex-direction: column;
-    align-items: center;
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+    gap: 44px;
   }
 `;
 
 export const IllustrationImg = styled.img`
-  width: 538px;
-  height: 560px;
+  width: 280px;
+  height: auto;
 
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    width: 100%;
-    height: 310px;
+  @media screen and (min-width: 320px) {
+    width: 300px;
+    height: 312px;
+  }
+
+  @media screen and (min-width: 834px) {
+    width: 380px;
+    height: 396px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 536px;
+    height: 560px;
   }
 `;
 
 export const List = styled.ul`
-  width: 730px;
-  height: 510px;
-  overflow-y: scroll;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  row-gap: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  height: 510px;
+  width: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    width: 12px;
+    width: 0px;
   }
 
   &::-webkit-scrollbar-thumb {
-    /* background-color: #3498db; */
+    background-color: #3498db;
     background-color: rgba(15, 15, 15, 0.9);
-    border-radius: 6px;
+    /* border-radius: 3px; */
   }
 
   &::-webkit-scrollbar-track {
     background-color: #050505;
   }
-  @media screen and (min-width: 320px) and (max-width: 833px) {
-    max-width: 320px;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
+
+  @media screen and (min-width: 834px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 780px;
   }
-  @media screen and (min-width: 834px) and (max-width: 1439px) {
-    width: auto;
-    justify-content: center;
-    gap: 20px;
+
+  @media screen and (min-width: 1440px) {
+    width: 676px;
   }
 `;

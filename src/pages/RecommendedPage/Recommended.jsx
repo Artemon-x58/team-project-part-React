@@ -6,7 +6,7 @@ import IllustrationSrc from '../../img/Ketogenic-diet.png';
 import FoodItem from 'components/RecommendedPart/FoodItem';
 
 import {
-  Container,
+  // Container,
   Title,
   Wrapper,
   IllustrationImg,
@@ -34,13 +34,13 @@ const Recommented = () => {
     );
   });
   return (
-    <Container>
-      <Title>Recommented food</Title>
+    <>
+      <Title>Recommended food</Title>
       <Wrapper>
         <IllustrationImg src={IllustrationSrc} alt="illustration" />
         <List>{FoodCollections}</List>
       </Wrapper>
-    </Container>
+    </>
   );
 };
 

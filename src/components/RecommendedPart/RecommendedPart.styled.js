@@ -28,8 +28,23 @@ export const List = styled.ul`
   gap: 10px;
   height: 182px;
   overflow: hidden;
+  overflow-y: scroll;
 
-   @media screen and (min-width: 834px) {
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #3498db;
+    background-color: rgba(15, 15, 15, 0.9);
+    /* border-radius: 3px; */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #050505;
+  }
+
+  @media screen and (min-width: 834px) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
