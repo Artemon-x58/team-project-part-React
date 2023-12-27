@@ -3,8 +3,7 @@ import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-hot-toast';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { ErrorIcon, toast } from 'react-hot-toast';
 
 import correctIcons from '../../icons/correct.svg';
 import errorIcons from '../../icons/error.svg';
@@ -31,6 +30,7 @@ import {
   SuccessfullyMessagesEmail,
   SuccessfullyMessagesPassword,
   IconWrapper,
+  CorrectIcons,
 } from './SignInPage.styled';
 import { login } from 'redux/auth/authOperations';
 import { selectIsRefreshing } from 'redux/auth/authSelectors';
@@ -97,11 +97,23 @@ export const SignInPage = () => {
                   />
 
                   {formikProps.touched.email && !formikProps.errors.email && (
-                    <SuccessfullyMessagesEmail>
-                      Valid email
-                    </SuccessfullyMessagesEmail>
+                    <>
+                      <CorrectIcons src={correctIcons} alt="correctIcons" />
+                      <SuccessfullyMessagesEmail>
+                        Valid email
+                      </SuccessfullyMessagesEmail>
+                    </>
                   )}
-                  <ErrorMessage name="email" component={StyledErrorMessage} />
+
+                  {formikProps.touched.email && formikProps.errors.email && (
+                    <>
+                      <CorrectIcons src={errorIcons} alt="test" />
+                      <ErrorMessage
+                        name="email"
+                        component={StyledErrorMessage}
+                      />
+                    </>
+                  )}
 
                   <label htmlFor="password"></label>
                   <Input

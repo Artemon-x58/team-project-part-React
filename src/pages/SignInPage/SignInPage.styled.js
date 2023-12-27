@@ -92,6 +92,18 @@ export const IconWrapper = styled.div`
   }
 `;
 
+export const CorrectIcons = styled.img`
+  position: absolute;
+  top: 11px;
+  right: 10px;
+`;
+
+export const ErrorIcons = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
 export const Input = styled(Field)`
   display: block;
   width: 100%;
