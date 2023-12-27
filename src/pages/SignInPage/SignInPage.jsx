@@ -118,6 +118,7 @@ export const SignInPage = () => {
                         ? 'hasSuccess'
                         : ''
                     }
+                    ispassword="true"
                   />
                   <IconWrapper onClick={() => setShowPassword(!showPassword)}>
                     {showPassword ? (
