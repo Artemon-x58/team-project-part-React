@@ -82,26 +82,28 @@ export const InputWrapper = styled.div`
 
 export const IconWrapper = styled.div`
   position: absolute;
-  right: 14px;
-  top: 71px;
+  right: 40px;
+  top: 70px;
   cursor: pointer;
   opacity: 0;
 
   &:hover {
     opacity: 1;
   }
+
+  @media screen and (min-width: 834px) {
+    right: 20px;
+  }
 `;
 
 export const CorrectIcons = styled.img`
   position: absolute;
   top: 11px;
-  right: 10px;
-`;
+  right: 40px;
 
-export const ErrorIcons = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
+  @media screen and (min-width: 834px) {
+    right: 20px;
+  }
 `;
 
 export const Input = styled(Field)`
