@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+
 import {
   AvatarWrapper,
   OpenSettingBtn,
@@ -11,19 +11,19 @@ import {
   Wrapper,
 } from './Profile.styled';
 
-import { logOut } from 'redux/auth/authOperations';
-
 import Icons from 'icons/icons.svg';
 
 import { selectDataUser } from 'redux/statistics/statisticsSelectors';
 import { useSelector } from 'react-redux';
+import { ModalLogout } from 'components/ModalLogout/ModalLogout';
 
 export const Profile = () => {
   const [showSetting, setShowSetting] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const userData = useSelector(selectDataUser);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   const menuSettingRef = useRef();
 
   const createAvatarUrl = url => {
@@ -37,6 +37,7 @@ export const Profile = () => {
   const toggleShowSetting = () => {
     setShowSetting(showSetting => !showSetting);
   };
+
   useEffect(() => {
     const handleClickOutside = event => {
       if (
@@ -83,7 +84,7 @@ export const Profile = () => {
               </svg>
               <span> Setting</span>
             </SettingBtn>
-            <SettingBtn type="button" onClick={() => dispatch(logOut())}>
+            <SettingBtn type="button" onClick={() => setShowModal(true)}>
               <svg>
                 <use xlinkHref={`${Icons}#icon-logout`} />
               </svg>
@@ -92,6 +93,7 @@ export const Profile = () => {
           </SettingMenu>
         )}
       </SettingWrapper>
+      <ModalLogout isOpen={showModal} isClose={() => setShowModal(false)} />
     </Wrapper>
   );
 };

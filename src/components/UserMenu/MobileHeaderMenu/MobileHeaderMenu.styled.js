@@ -124,9 +124,9 @@ export const GoalMenu = styled.div`
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-
+  box-sizing: border-box;
+  padding: 10px;
   width: 300px;
-  height: 333px;
 
   background: #0f0f0f;
   h2 {
@@ -192,7 +192,7 @@ export const Descriptions = styled.p`
 `;
 export const ButtonWrapper = styled.div``;
 export const Button = styled.button`
-  width: 300px;
+  width: 100%;
   height: 36px;
   padding: 8px 10px;
   border: none;
