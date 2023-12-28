@@ -31,16 +31,12 @@ export const List = styled.ul`
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    width: 0px;
+    width: 6px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #3498db;
-    background-color: rgba(15, 15, 15, 0.9);
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #050505;
+    background-color: #292928;
+    border-radius: 6px;
   }
 
   @media screen and (min-width: 834px) {
@@ -48,6 +44,7 @@ export const List = styled.ul`
     flex-wrap: wrap;
     gap: 20px;
     height: 192px;
+    overflow-y: hidden;
   }
 `;
 

@@ -9,12 +9,22 @@ export const ModalRecord = styled(Modal)`
   background: rgba(5, 5, 5, 0.8);
 `;
 export const MealWrapper = styled.div`
-  overflow-y: auto;
   max-height: 506px;
   width: 278px;
   border-radius: 12px;
   background: #0f0f0f;
   padding: 16px 12px 40px 12px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #292928;
+    border-radius: 6px;
+  }
+
   @media screen and (min-width: 834px) {
     width: 660px;
     max-height: 408px;
