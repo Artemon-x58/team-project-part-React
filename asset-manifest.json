@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/team-project-part-React/static/js/main.23ab8fe1.js",
+    "main.js": "/team-project-part-React/static/js/main.e6b97d81.js",
     "static/media/Interactive-learning-experience.png": "/team-project-part-React/static/media/Interactive-learning-experience.5603302f0747672e85d4.png",
     "static/media/Ketogenic-diet.png": "/team-project-part-React/static/media/Ketogenic-diet.bd13d20fcd66588bb6fb.png",
     "static/media/Summer-hiking.png": "/team-project-part-React/static/media/Summer-hiking.487152541279e1774b58.png",
@@ -14,9 +14,9 @@
     "static/media/error.svg": "/team-project-part-React/static/media/error.bb2d6021b0a25706e178302640c022e3.svg",
     "static/media/eye-hover.svg": "/team-project-part-React/static/media/eye-hover.7c6cdc5beb99f3e2a9ef43f719411585.svg",
     "static/media/correct.svg": "/team-project-part-React/static/media/correct.37f002969b1336da5e0fe0040c8e2c93.svg",
-    "main.23ab8fe1.js.map": "/team-project-part-React/static/js/main.23ab8fe1.js.map"
+    "main.e6b97d81.js.map": "/team-project-part-React/static/js/main.e6b97d81.js.map"
   },
   "entrypoints": [
-    "static/js/main.23ab8fe1.js"
+    "static/js/main.e6b97d81.js"
   ]
 }
