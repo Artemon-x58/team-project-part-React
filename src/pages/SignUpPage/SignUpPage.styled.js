@@ -3,6 +3,7 @@ import { Field } from 'formik';
 import { Link } from 'react-router-dom';
 
 export const InputWrapper = styled.div`
+  position: relative;
   margin-bottom: 40px;
   @media screen and (min-width: 834px) {
     width: 380px;
@@ -29,6 +30,14 @@ export const Input = styled(Field)`
     margin-bottom: 20px;
   }
 
+  &.hasError {
+    border: 1px solid #e74a3b;
+  }
+
+  &.hasSuccess {
+    border: 1px solid #3cbc81;
+  }
+
   @media screen and (min-width: 834px) {
     max-width: 358px;
   }
@@ -44,6 +53,7 @@ export const Input = styled(Field)`
     color: #b6b6b6;
   }
 `;
+
 export const StyledErrorMessage = styled.div`
   color: #e74a3b;
   padding-left: 10px;
